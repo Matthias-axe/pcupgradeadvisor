@@ -1,0 +1,201 @@
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width,initial-scale=1" />
+		<title>PC Upgrade Advisor</title>
+		<link rel="stylesheet" href="style.css" />
+	</head>
+	<body>
+		<header>
+			<div class="header-content">
+				<h1>PC Upgrade Advisor</h1>
+				<p>Analyze your system bottleneck and get personalized upgrade recommendations</p>
+			</div>
+			<button id="themeToggle" class="theme-toggle" title="Toggle dark mode">🌙</button>
+		</header>
+
+		<main>
+			<!-- Current System Input Section -->
+			<section id="currentSystem" class="system-input">
+				<h2>Your Current System</h2>
+				<p class="section-desc">Select your current components (actual models, not tiers)</p>
+
+				<div class="component-selection">
+					<div class="component-select">
+						<label for="cpuSelect">Current CPU</label>
+						<div class="filter-row">
+							<select id="cpuBrandFilter" class="filter-select">
+								<option value="">All Brands</option>
+								<option value="AMD">AMD</option>
+								<option value="Intel">Intel</option>
+							</select>
+							<select id="cpuSeriesFilter" class="filter-select">
+								<option value="">All Series</option>
+							</select>
+						</div>
+						<select id="cpuSelect">
+							<option value="">Loading CPUs...</option>
+						</select>
+						<div class="component-info" id="cpuInfo"></div>
+					</div>
+
+					<div class="component-select">
+						<label for="gpuSelect">Current GPU</label>
+						<div class="filter-row">
+							<select id="gpuChipsetManufacturerFilter" class="filter-select">
+								<option value="">All Chipset Manufacturers</option>
+								<option value="NVIDIA">NVIDIA</option>
+								<option value="AMD">AMD</option>
+							</select>
+							<select id="gpuChipsetFilter" class="filter-select">
+								<option value="">All Chipsets</option>
+							</select>
+							<select id="gpuCardManufacturerFilter" class="filter-select">
+								<option value="">All Card Manufacturers</option>
+							</select>
+						</div>
+						<select id="gpuSelect">
+							<option value="">Loading GPUs...</option>
+						</select>
+						<div class="component-info" id="gpuInfo"></div>
+					</div>
+
+					<div class="component-select">
+						<label for="ramSelect">Current RAM</label>
+						<div class="filter-row">
+							<select id="ramKitFilter" class="filter-select">
+								<option value="">All Kits</option>
+							</select>
+							<select id="ramCapacityFilter" class="filter-select">
+								<option value="">All Capacities</option>
+							</select>
+							<select id="ramDDRFilter" class="filter-select">
+								<option value="">All DDR Types</option>
+							</select>
+							<select id="ramSpeedFilter" class="filter-select">
+								<option value="">All Speeds</option>
+							</select>
+							<select id="ramManufacturerFilter" class="filter-select">
+								<option value="">All Manufacturers</option>
+							</select>
+						</div>
+						<select id="ramSelect">
+							<option value="">Loading RAM...</option>
+						</select>
+						<div class="component-info" id="ramInfo"></div>
+					</div>
+				</div>
+			</section>
+
+			<!-- Tier Advancement Selection -->
+			<section id="tierAdvancement" class="tier-advancement">
+				<h2>Upgrade Preference</h2>
+				<p class="section-desc">How big of an upgrade do you want?</p>
+
+				<div class="advancement-options">
+					<label class="advancement-option">
+						<input type="radio" name="advancement" value="1" checked />
+						<span class="option-label">Small</span>
+						<span class="option-desc">Light improvement</span>
+					</label>
+					<label class="advancement-option">
+						<input type="radio" name="advancement" value="2" />
+						<span class="option-label">Medium</span>
+						<span class="option-desc">Balanced upgrade</span>
+					</label>
+					<label class="advancement-option">
+						<input type="radio" name="advancement" value="3" />
+						<span class="option-label">Large</span>
+						<span class="option-desc">Big jump</span>
+					</label>
+					<label class="advancement-option">
+						<input type="radio" name="advancement" value="max" />
+						<span class="option-label">Extreme</span>
+						<span class="option-desc">Go all the way</span>
+					</label>
+				</div>
+			</section>
+
+			<!-- Upgrade Effort Selection -->
+			<section id="effortSelection" class="tier-advancement">
+				<h2>Upgrade Effort</h2>
+				<p class="section-desc">How much extra work are you willing to do?</p>
+
+				<div class="advancement-options">
+					<label class="advancement-option">
+						<input type="radio" name="effort" value="simple" checked />
+						<span class="option-label">Simple</span>
+						<span class="option-desc">Part-only swap</span>
+					</label>
+					<label class="advancement-option">
+						<input type="radio" name="effort" value="moderate" />
+						<span class="option-label">Moderate</span>
+						<span class="option-desc">May require a PSU</span>
+					</label>
+					<label class="advancement-option">
+						<input type="radio" name="effort" value="complex" />
+						<span class="option-label">Complex</span>
+						<span class="option-desc">Motherboard/RAM changes OK</span>
+					</label>
+					<label class="advancement-option">
+						<input type="radio" name="effort" value="any" />
+						<span class="option-label">Any</span>
+						<span class="option-desc">Show all upgrades</span>
+					</label>
+				</div>
+			</section>
+
+			<!-- Analyze Button -->
+			<section id="analyzeSection" class="analyze-section">
+				<button id="analyzeBtn" class="btn-primary">Analyze & Get Recommendations</button>
+			</section>
+
+			<!-- Results Section (Hidden by default) -->
+			<section id="resultsSection" class="results-section hidden">
+				<!-- Bottleneck Analysis -->
+				<div id="bottleneckAnalysis" class="analysis-card"></div>
+
+				<!-- Recommendation -->
+				<div id="recommendationCard" class="recommendation-card"></div>
+
+				<!-- Product Recommendations -->
+				<div id="productsSection"></div>
+
+				<!-- Next Steps -->
+				<div id="nextStepsSection" class="next-steps"></div>
+			</section>
+
+			<!-- System Balance Chart -->
+			<section id="balanceSection" class="balance-section hidden">
+				<h2>System Balance</h2>
+				<canvas id="balanceChart"></canvas>
+			</section>
+		</main>
+
+		<!-- Contact & Disclaimer Section -->
+		<footer class="footer-section">
+			<div class="footer-grid">
+				<!-- Contact -->
+				<div class="footer-box contact-box-wrapper">
+					<h3>Having Issues or Found a Problem?</h3>
+					<p>If you're experiencing issues with the advisor or want to report a mistake in our recommendations, please get in touch with us.</p>
+					<div class="contact-box">
+						<p><strong>📧 Email:</strong> <a href="mailto:pcupgradeadvisor@gmail.com">pcupgradeadvisor@gmail.com</a></p>
+					</div>
+					<p class="contact-note">We appreciate your feedback and will get back to you as soon as possible!</p>
+				</div>
+
+				<!-- Disclaimer -->
+				<div class="footer-box disclaimer-box-wrapper">
+					<h3>Affiliate Disclosure</h3>
+					<p>This website may contain affiliate links. When you purchase through these links, we may earn a commission at no additional cost to you. These commissions help support the development and maintenance of the PC Upgrade Advisor.</p>
+					<p class="disclaimer-note"><strong>⚠️ Note:</strong> All recommendations are unbiased and based solely on component specifications and performance metrics. We never recommend products based on affiliate potential.</p>
+				</div>
+			</div>
+		</footer>
+
+		<script src="script.js" defer></script>
+	</body>
+</html>

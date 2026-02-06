@@ -1,0 +1,7 @@
+{
+  "_instructions": "Add CPU benchmark scores here. Use exact or close product names.",
+  "_example": {
+    "AMD Ryzen 9 9950X3D": 100000,
+    "Intel Core i7-14700K": 95000
+  }
+}

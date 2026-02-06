@@ -1,0 +1,322 @@
+[
+    {
+        "cpuTier":  1,
+        "gpuTier":  1,
+        "cpuAvgTdp":  75,
+        "gpuAvgTdp":  81.3,
+        "totalTdp":  156.3,
+        "recommendedPsu":  550
+    },
+    {
+        "cpuTier":  1,
+        "gpuTier":  3,
+        "cpuAvgTdp":  75,
+        "gpuAvgTdp":  75,
+        "totalTdp":  150,
+        "recommendedPsu":  550
+    },
+    {
+        "cpuTier":  1,
+        "gpuTier":  4,
+        "cpuAvgTdp":  75,
+        "gpuAvgTdp":  130.1,
+        "totalTdp":  205.1,
+        "recommendedPsu":  550
+    },
+    {
+        "cpuTier":  1,
+        "gpuTier":  5,
+        "cpuAvgTdp":  75,
+        "gpuAvgTdp":  250,
+        "totalTdp":  325,
+        "recommendedPsu":  550
+    },
+    {
+        "cpuTier":  1,
+        "gpuTier":  6,
+        "cpuAvgTdp":  75,
+        "gpuAvgTdp":  180,
+        "totalTdp":  255,
+        "recommendedPsu":  550
+    },
+    {
+        "cpuTier":  1,
+        "gpuTier":  7,
+        "cpuAvgTdp":  75,
+        "gpuAvgTdp":  419.1,
+        "totalTdp":  494.1,
+        "recommendedPsu":  750
+    },
+    {
+        "cpuTier":  1,
+        "gpuTier":  8,
+        "cpuAvgTdp":  75,
+        "gpuAvgTdp":  238.5,
+        "totalTdp":  313.5,
+        "recommendedPsu":  550
+    },
+    {
+        "cpuTier":  1,
+        "gpuTier":  10,
+        "cpuAvgTdp":  75,
+        "gpuAvgTdp":  452,
+        "totalTdp":  527,
+        "recommendedPsu":  850
+    },
+    {
+        "cpuTier":  3,
+        "gpuTier":  1,
+        "cpuAvgTdp":  106,
+        "gpuAvgTdp":  81.3,
+        "totalTdp":  187.2,
+        "recommendedPsu":  550
+    },
+    {
+        "cpuTier":  3,
+        "gpuTier":  3,
+        "cpuAvgTdp":  106,
+        "gpuAvgTdp":  75,
+        "totalTdp":  181,
+        "recommendedPsu":  550
+    },
+    {
+        "cpuTier":  3,
+        "gpuTier":  4,
+        "cpuAvgTdp":  106,
+        "gpuAvgTdp":  130.1,
+        "totalTdp":  236.1,
+        "recommendedPsu":  550
+    },
+    {
+        "cpuTier":  3,
+        "gpuTier":  5,
+        "cpuAvgTdp":  106,
+        "gpuAvgTdp":  250,
+        "totalTdp":  356,
+        "recommendedPsu":  650
+    },
+    {
+        "cpuTier":  3,
+        "gpuTier":  6,
+        "cpuAvgTdp":  106,
+        "gpuAvgTdp":  180,
+        "totalTdp":  286,
+        "recommendedPsu":  550
+    },
+    {
+        "cpuTier":  3,
+        "gpuTier":  7,
+        "cpuAvgTdp":  106,
+        "gpuAvgTdp":  419.1,
+        "totalTdp":  525.1,
+        "recommendedPsu":  850
+    },
+    {
+        "cpuTier":  3,
+        "gpuTier":  8,
+        "cpuAvgTdp":  106,
+        "gpuAvgTdp":  238.5,
+        "totalTdp":  344.5,
+        "recommendedPsu":  550
+    },
+    {
+        "cpuTier":  3,
+        "gpuTier":  10,
+        "cpuAvgTdp":  106,
+        "gpuAvgTdp":  452,
+        "totalTdp":  558,
+        "recommendedPsu":  850
+    },
+    {
+        "cpuTier":  6,
+        "gpuTier":  1,
+        "cpuAvgTdp":  59.7,
+        "gpuAvgTdp":  81.3,
+        "totalTdp":  141,
+        "recommendedPsu":  550
+    },
+    {
+        "cpuTier":  6,
+        "gpuTier":  3,
+        "cpuAvgTdp":  59.7,
+        "gpuAvgTdp":  75,
+        "totalTdp":  134.7,
+        "recommendedPsu":  550
+    },
+    {
+        "cpuTier":  6,
+        "gpuTier":  4,
+        "cpuAvgTdp":  59.7,
+        "gpuAvgTdp":  130.1,
+        "totalTdp":  189.9,
+        "recommendedPsu":  550
+    },
+    {
+        "cpuTier":  6,
+        "gpuTier":  5,
+        "cpuAvgTdp":  59.7,
+        "gpuAvgTdp":  250,
+        "totalTdp":  309.8,
+        "recommendedPsu":  550
+    },
+    {
+        "cpuTier":  6,
+        "gpuTier":  6,
+        "cpuAvgTdp":  59.7,
+        "gpuAvgTdp":  180,
+        "totalTdp":  239.7,
+        "recommendedPsu":  550
+    },
+    {
+        "cpuTier":  6,
+        "gpuTier":  7,
+        "cpuAvgTdp":  59.7,
+        "gpuAvgTdp":  419.1,
+        "totalTdp":  478.8,
+        "recommendedPsu":  750
+    },
+    {
+        "cpuTier":  6,
+        "gpuTier":  8,
+        "cpuAvgTdp":  59.7,
+        "gpuAvgTdp":  238.5,
+        "totalTdp":  298.2,
+        "recommendedPsu":  550
+    },
+    {
+        "cpuTier":  6,
+        "gpuTier":  10,
+        "cpuAvgTdp":  59.7,
+        "gpuAvgTdp":  452,
+        "totalTdp":  511.7,
+        "recommendedPsu":  850
+    },
+    {
+        "cpuTier":  8,
+        "gpuTier":  1,
+        "cpuAvgTdp":  92.6,
+        "gpuAvgTdp":  81.3,
+        "totalTdp":  173.9,
+        "recommendedPsu":  550
+    },
+    {
+        "cpuTier":  8,
+        "gpuTier":  3,
+        "cpuAvgTdp":  92.6,
+        "gpuAvgTdp":  75,
+        "totalTdp":  167.6,
+        "recommendedPsu":  550
+    },
+    {
+        "cpuTier":  8,
+        "gpuTier":  4,
+        "cpuAvgTdp":  92.6,
+        "gpuAvgTdp":  130.1,
+        "totalTdp":  222.8,
+        "recommendedPsu":  550
+    },
+    {
+        "cpuTier":  8,
+        "gpuTier":  5,
+        "cpuAvgTdp":  92.6,
+        "gpuAvgTdp":  250,
+        "totalTdp":  342.7,
+        "recommendedPsu":  550
+    },
+    {
+        "cpuTier":  8,
+        "gpuTier":  6,
+        "cpuAvgTdp":  92.6,
+        "gpuAvgTdp":  180,
+        "totalTdp":  272.6,
+        "recommendedPsu":  550
+    },
+    {
+        "cpuTier":  8,
+        "gpuTier":  7,
+        "cpuAvgTdp":  92.6,
+        "gpuAvgTdp":  419.1,
+        "totalTdp":  511.8,
+        "recommendedPsu":  850
+    },
+    {
+        "cpuTier":  8,
+        "gpuTier":  8,
+        "cpuAvgTdp":  92.6,
+        "gpuAvgTdp":  238.5,
+        "totalTdp":  331.1,
+        "recommendedPsu":  550
+    },
+    {
+        "cpuTier":  8,
+        "gpuTier":  10,
+        "cpuAvgTdp":  92.6,
+        "gpuAvgTdp":  452,
+        "totalTdp":  544.6,
+        "recommendedPsu":  850
+    },
+    {
+        "cpuTier":  10,
+        "gpuTier":  1,
+        "cpuAvgTdp":  105.2,
+        "gpuAvgTdp":  81.3,
+        "totalTdp":  186.5,
+        "recommendedPsu":  550
+    },
+    {
+        "cpuTier":  10,
+        "gpuTier":  3,
+        "cpuAvgTdp":  105.2,
+        "gpuAvgTdp":  75,
+        "totalTdp":  180.2,
+        "recommendedPsu":  550
+    },
+    {
+        "cpuTier":  10,
+        "gpuTier":  4,
+        "cpuAvgTdp":  105.2,
+        "gpuAvgTdp":  130.1,
+        "totalTdp":  235.3,
+        "recommendedPsu":  550
+    },
+    {
+        "cpuTier":  10,
+        "gpuTier":  5,
+        "cpuAvgTdp":  105.2,
+        "gpuAvgTdp":  250,
+        "totalTdp":  355.2,
+        "recommendedPsu":  650
+    },
+    {
+        "cpuTier":  10,
+        "gpuTier":  6,
+        "cpuAvgTdp":  105.2,
+        "gpuAvgTdp":  180,
+        "totalTdp":  285.2,
+        "recommendedPsu":  550
+    },
+    {
+        "cpuTier":  10,
+        "gpuTier":  7,
+        "cpuAvgTdp":  105.2,
+        "gpuAvgTdp":  419.1,
+        "totalTdp":  524.3,
+        "recommendedPsu":  850
+    },
+    {
+        "cpuTier":  10,
+        "gpuTier":  8,
+        "cpuAvgTdp":  105.2,
+        "gpuAvgTdp":  238.5,
+        "totalTdp":  343.7,
+        "recommendedPsu":  550
+    },
+    {
+        "cpuTier":  10,
+        "gpuTier":  10,
+        "cpuAvgTdp":  105.2,
+        "gpuAvgTdp":  452,
+        "totalTdp":  557.2,
+        "recommendedPsu":  850
+    }
+]

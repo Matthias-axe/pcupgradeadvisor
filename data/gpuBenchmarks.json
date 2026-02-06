@@ -1,0 +1,7 @@
+{
+  "_instructions": "Add GPU benchmark scores here. Use exact or close chipset names.",
+  "_example": {
+    "GeForce RTX 4090": 38000,
+    "GeForce RTX 4080": 34000
+  }
+}

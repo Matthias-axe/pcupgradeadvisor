@@ -1,0 +1,1378 @@
+[
+    {
+        "speed":  "5,8400",
+        "memory":  48
+    },
+    {
+        "speed":  "5,8400",
+        "memory":  24
+    },
+    {
+        "speed":  "5,8200",
+        "memory":  48
+    },
+    {
+        "speed":  "5,8200",
+        "memory":  32
+    },
+    {
+        "speed":  "5,8200",
+        "memory":  24
+    },
+    {
+        "speed":  "5,8000",
+        "memory":  96
+    },
+    {
+        "speed":  "5,8000",
+        "memory":  64
+    },
+    {
+        "speed":  "5,8000",
+        "memory":  48
+    },
+    {
+        "speed":  "5,8000",
+        "memory":  32
+    },
+    {
+        "speed":  "5,8000",
+        "memory":  24
+    },
+    {
+        "speed":  "5,8000",
+        "memory":  16
+    },
+    {
+        "speed":  "5,7800",
+        "memory":  32
+    },
+    {
+        "speed":  "5,7600",
+        "memory":  96
+    },
+    {
+        "speed":  "5,7600",
+        "memory":  64
+    },
+    {
+        "speed":  "5,7600",
+        "memory":  48
+    },
+    {
+        "speed":  "5,7600",
+        "memory":  32
+    },
+    {
+        "speed":  "5,7600",
+        "memory":  16
+    },
+    {
+        "speed":  "5,7400",
+        "memory":  32
+    },
+    {
+        "speed":  "5,7200",
+        "memory":  256
+    },
+    {
+        "speed":  "5,7200",
+        "memory":  192
+    },
+    {
+        "speed":  "5,7200",
+        "memory":  128
+    },
+    {
+        "speed":  "5,7200",
+        "memory":  96
+    },
+    {
+        "speed":  "5,7200",
+        "memory":  64
+    },
+    {
+        "speed":  "5,7200",
+        "memory":  48
+    },
+    {
+        "speed":  "5,7200",
+        "memory":  32
+    },
+    {
+        "speed":  "5,7200",
+        "memory":  24
+    },
+    {
+        "speed":  "5,7200",
+        "memory":  16
+    },
+    {
+        "speed":  "5,7000",
+        "memory":  192
+    },
+    {
+        "speed":  "5,7000",
+        "memory":  128
+    },
+    {
+        "speed":  "5,7000",
+        "memory":  96
+    },
+    {
+        "speed":  "5,7000",
+        "memory":  64
+    },
+    {
+        "speed":  "5,7000",
+        "memory":  48
+    },
+    {
+        "speed":  "5,7000",
+        "memory":  32
+    },
+    {
+        "speed":  "5,7000",
+        "memory":  16
+    },
+    {
+        "speed":  "5,6800",
+        "memory":  384
+    },
+    {
+        "speed":  "5,6800",
+        "memory":  256
+    },
+    {
+        "speed":  "5,6800",
+        "memory":  192
+    },
+    {
+        "speed":  "5,6800",
+        "memory":  128
+    },
+    {
+        "speed":  "5,6800",
+        "memory":  96
+    },
+    {
+        "speed":  "5,6800",
+        "memory":  64
+    },
+    {
+        "speed":  "5,6800",
+        "memory":  48
+    },
+    {
+        "speed":  "5,6800",
+        "memory":  32
+    },
+    {
+        "speed":  "5,6800",
+        "memory":  16
+    },
+    {
+        "speed":  "5,6600",
+        "memory":  192
+    },
+    {
+        "speed":  "5,6600",
+        "memory":  128
+    },
+    {
+        "speed":  "5,6600",
+        "memory":  96
+    },
+    {
+        "speed":  "5,6600",
+        "memory":  64
+    },
+    {
+        "speed":  "5,6600",
+        "memory":  48
+    },
+    {
+        "speed":  "5,6600",
+        "memory":  32
+    },
+    {
+        "speed":  "5,6600",
+        "memory":  16
+    },
+    {
+        "speed":  "5,6400",
+        "memory":  384
+    },
+    {
+        "speed":  "5,6400",
+        "memory":  256
+    },
+    {
+        "speed":  "5,6400",
+        "memory":  192
+    },
+    {
+        "speed":  "5,6400",
+        "memory":  128
+    },
+    {
+        "speed":  "5,6400",
+        "memory":  96
+    },
+    {
+        "speed":  "5,6400",
+        "memory":  64
+    },
+    {
+        "speed":  "5,6400",
+        "memory":  48
+    },
+    {
+        "speed":  "5,6400",
+        "memory":  32
+    },
+    {
+        "speed":  "5,6400",
+        "memory":  24
+    },
+    {
+        "speed":  "5,6400",
+        "memory":  16
+    },
+    {
+        "speed":  "5,6400",
+        "memory":  8
+    },
+    {
+        "speed":  "5,6200",
+        "memory":  256
+    },
+    {
+        "speed":  "5,6200",
+        "memory":  128
+    },
+    {
+        "speed":  "5,6200",
+        "memory":  64
+    },
+    {
+        "speed":  "5,6200",
+        "memory":  32
+    },
+    {
+        "speed":  "5,6200",
+        "memory":  16
+    },
+    {
+        "speed":  "5,6000",
+        "memory":  512
+    },
+    {
+        "speed":  "5,6000",
+        "memory":  256
+    },
+    {
+        "speed":  "5,6000",
+        "memory":  192
+    },
+    {
+        "speed":  "5,6000",
+        "memory":  128
+    },
+    {
+        "speed":  "5,6000",
+        "memory":  96
+    },
+    {
+        "speed":  "5,6000",
+        "memory":  64
+    },
+    {
+        "speed":  "5,6000",
+        "memory":  48
+    },
+    {
+        "speed":  "5,6000",
+        "memory":  32
+    },
+    {
+        "speed":  "5,6000",
+        "memory":  24
+    },
+    {
+        "speed":  "5,6000",
+        "memory":  16
+    },
+    {
+        "speed":  "5,6000",
+        "memory":  8
+    },
+    {
+        "speed":  "5,5600",
+        "memory":  512
+    },
+    {
+        "speed":  "5,5600",
+        "memory":  256
+    },
+    {
+        "speed":  "5,5600",
+        "memory":  192
+    },
+    {
+        "speed":  "5,5600",
+        "memory":  128
+    },
+    {
+        "speed":  "5,5600",
+        "memory":  96
+    },
+    {
+        "speed":  "5,5600",
+        "memory":  64
+    },
+    {
+        "speed":  "5,5600",
+        "memory":  48
+    },
+    {
+        "speed":  "5,5600",
+        "memory":  32
+    },
+    {
+        "speed":  "5,5600",
+        "memory":  24
+    },
+    {
+        "speed":  "5,5600",
+        "memory":  16
+    },
+    {
+        "speed":  "5,5600",
+        "memory":  8
+    },
+    {
+        "speed":  "5,5600",
+        "memory":  2
+    },
+    {
+        "speed":  "5,5200",
+        "memory":  192
+    },
+    {
+        "speed":  "5,5200",
+        "memory":  128
+    },
+    {
+        "speed":  "5,5200",
+        "memory":  96
+    },
+    {
+        "speed":  "5,5200",
+        "memory":  64
+    },
+    {
+        "speed":  "5,5200",
+        "memory":  48
+    },
+    {
+        "speed":  "5,5200",
+        "memory":  32
+    },
+    {
+        "speed":  "5,5200",
+        "memory":  24
+    },
+    {
+        "speed":  "5,5200",
+        "memory":  16
+    },
+    {
+        "speed":  "5,5200",
+        "memory":  8
+    },
+    {
+        "speed":  "5,4800",
+        "memory":  256
+    },
+    {
+        "speed":  "5,4800",
+        "memory":  128
+    },
+    {
+        "speed":  "5,4800",
+        "memory":  96
+    },
+    {
+        "speed":  "5,4800",
+        "memory":  64
+    },
+    {
+        "speed":  "5,4800",
+        "memory":  32
+    },
+    {
+        "speed":  "5,4800",
+        "memory":  16
+    },
+    {
+        "speed":  "5,4800",
+        "memory":  8
+    },
+    {
+        "speed":  "5,4400",
+        "memory":  64
+    },
+    {
+        "speed":  "4,5333",
+        "memory":  16
+    },
+    {
+        "speed":  "4,5133",
+        "memory":  16
+    },
+    {
+        "speed":  "4,5100",
+        "memory":  16
+    },
+    {
+        "speed":  "4,5066",
+        "memory":  16
+    },
+    {
+        "speed":  "4,5000",
+        "memory":  32
+    },
+    {
+        "speed":  "4,5000",
+        "memory":  16
+    },
+    {
+        "speed":  "4,4866",
+        "memory":  16
+    },
+    {
+        "speed":  "4,4800",
+        "memory":  32
+    },
+    {
+        "speed":  "4,4800",
+        "memory":  16
+    },
+    {
+        "speed":  "4,4700",
+        "memory":  16
+    },
+    {
+        "speed":  "4,4600",
+        "memory":  64
+    },
+    {
+        "speed":  "4,4600",
+        "memory":  32
+    },
+    {
+        "speed":  "4,4600",
+        "memory":  16
+    },
+    {
+        "speed":  "4,4533",
+        "memory":  16
+    },
+    {
+        "speed":  "4,4500",
+        "memory":  16
+    },
+    {
+        "speed":  "4,4400",
+        "memory":  64
+    },
+    {
+        "speed":  "4,4400",
+        "memory":  32
+    },
+    {
+        "speed":  "4,4400",
+        "memory":  16
+    },
+    {
+        "speed":  "4,4333",
+        "memory":  16
+    },
+    {
+        "speed":  "4,4300",
+        "memory":  16
+    },
+    {
+        "speed":  "4,4266",
+        "memory":  64
+    },
+    {
+        "speed":  "4,4266",
+        "memory":  32
+    },
+    {
+        "speed":  "4,4266",
+        "memory":  16
+    },
+    {
+        "speed":  "4,4266",
+        "memory":  8
+    },
+    {
+        "speed":  "4,4200",
+        "memory":  64
+    },
+    {
+        "speed":  "4,4200",
+        "memory":  16
+    },
+    {
+        "speed":  "4,4200",
+        "memory":  8
+    },
+    {
+        "speed":  "4,4133",
+        "memory":  32
+    },
+    {
+        "speed":  "4,4133",
+        "memory":  16
+    },
+    {
+        "speed":  "4,4133",
+        "memory":  8
+    },
+    {
+        "speed":  "4,4066",
+        "memory":  16
+    },
+    {
+        "speed":  "4,4000",
+        "memory":  128
+    },
+    {
+        "speed":  "4,4000",
+        "memory":  64
+    },
+    {
+        "speed":  "4,4000",
+        "memory":  32
+    },
+    {
+        "speed":  "4,4000",
+        "memory":  16
+    },
+    {
+        "speed":  "4,4000",
+        "memory":  8
+    },
+    {
+        "speed":  "4,4000",
+        "memory":  4
+    },
+    {
+        "speed":  "4,3866",
+        "memory":  128
+    },
+    {
+        "speed":  "4,3866",
+        "memory":  32
+    },
+    {
+        "speed":  "4,3866",
+        "memory":  16
+    },
+    {
+        "speed":  "4,3866",
+        "memory":  8
+    },
+    {
+        "speed":  "4,3800",
+        "memory":  128
+    },
+    {
+        "speed":  "4,3800",
+        "memory":  64
+    },
+    {
+        "speed":  "4,3800",
+        "memory":  32
+    },
+    {
+        "speed":  "4,3800",
+        "memory":  16
+    },
+    {
+        "speed":  "4,3733",
+        "memory":  64
+    },
+    {
+        "speed":  "4,3733",
+        "memory":  32
+    },
+    {
+        "speed":  "4,3733",
+        "memory":  16
+    },
+    {
+        "speed":  "4,3733",
+        "memory":  8
+    },
+    {
+        "speed":  "4,3666",
+        "memory":  16
+    },
+    {
+        "speed":  "4,3600",
+        "memory":  256
+    },
+    {
+        "speed":  "4,3600",
+        "memory":  128
+    },
+    {
+        "speed":  "4,3600",
+        "memory":  64
+    },
+    {
+        "speed":  "4,3600",
+        "memory":  32
+    },
+    {
+        "speed":  "4,3600",
+        "memory":  16
+    },
+    {
+        "speed":  "4,3600",
+        "memory":  8
+    },
+    {
+        "speed":  "4,3600",
+        "memory":  4
+    },
+    {
+        "speed":  "4,3466",
+        "memory":  128
+    },
+    {
+        "speed":  "4,3466",
+        "memory":  64
+    },
+    {
+        "speed":  "4,3466",
+        "memory":  32
+    },
+    {
+        "speed":  "4,3466",
+        "memory":  16
+    },
+    {
+        "speed":  "4,3466",
+        "memory":  8
+    },
+    {
+        "speed":  "4,3400",
+        "memory":  64
+    },
+    {
+        "speed":  "4,3400",
+        "memory":  32
+    },
+    {
+        "speed":  "4,3400",
+        "memory":  16
+    },
+    {
+        "speed":  "4,3333",
+        "memory":  128
+    },
+    {
+        "speed":  "4,3333",
+        "memory":  64
+    },
+    {
+        "speed":  "4,3333",
+        "memory":  32
+    },
+    {
+        "speed":  "4,3333",
+        "memory":  16
+    },
+    {
+        "speed":  "4,3333",
+        "memory":  8
+    },
+    {
+        "speed":  "4,3300",
+        "memory":  64
+    },
+    {
+        "speed":  "4,3300",
+        "memory":  32
+    },
+    {
+        "speed":  "4,3300",
+        "memory":  16
+    },
+    {
+        "speed":  "4,3300",
+        "memory":  8
+    },
+    {
+        "speed":  "4,3200",
+        "memory":  256
+    },
+    {
+        "speed":  "4,3200",
+        "memory":  128
+    },
+    {
+        "speed":  "4,3200",
+        "memory":  64
+    },
+    {
+        "speed":  "4,3200",
+        "memory":  32
+    },
+    {
+        "speed":  "4,3200",
+        "memory":  16
+    },
+    {
+        "speed":  "4,3200",
+        "memory":  8
+    },
+    {
+        "speed":  "4,3200",
+        "memory":  4
+    },
+    {
+        "speed":  "4,3000",
+        "memory":  256
+    },
+    {
+        "speed":  "4,3000",
+        "memory":  128
+    },
+    {
+        "speed":  "4,3000",
+        "memory":  64
+    },
+    {
+        "speed":  "4,3000",
+        "memory":  32
+    },
+    {
+        "speed":  "4,3000",
+        "memory":  16
+    },
+    {
+        "speed":  "4,3000",
+        "memory":  8
+    },
+    {
+        "speed":  "4,3000",
+        "memory":  4
+    },
+    {
+        "speed":  "4,2933",
+        "memory":  128
+    },
+    {
+        "speed":  "4,2933",
+        "memory":  64
+    },
+    {
+        "speed":  "4,2933",
+        "memory":  32
+    },
+    {
+        "speed":  "4,2933",
+        "memory":  16
+    },
+    {
+        "speed":  "4,2933",
+        "memory":  8
+    },
+    {
+        "speed":  "4,2800",
+        "memory":  128
+    },
+    {
+        "speed":  "4,2800",
+        "memory":  64
+    },
+    {
+        "speed":  "4,2800",
+        "memory":  32
+    },
+    {
+        "speed":  "4,2800",
+        "memory":  16
+    },
+    {
+        "speed":  "4,2800",
+        "memory":  8
+    },
+    {
+        "speed":  "4,2800",
+        "memory":  4
+    },
+    {
+        "speed":  "4,2666",
+        "memory":  256
+    },
+    {
+        "speed":  "4,2666",
+        "memory":  128
+    },
+    {
+        "speed":  "4,2666",
+        "memory":  64
+    },
+    {
+        "speed":  "4,2666",
+        "memory":  32
+    },
+    {
+        "speed":  "4,2666",
+        "memory":  16
+    },
+    {
+        "speed":  "4,2666",
+        "memory":  8
+    },
+    {
+        "speed":  "4,2666",
+        "memory":  4
+    },
+    {
+        "speed":  "4,2400",
+        "memory":  256
+    },
+    {
+        "speed":  "4,2400",
+        "memory":  128
+    },
+    {
+        "speed":  "4,2400",
+        "memory":  64
+    },
+    {
+        "speed":  "4,2400",
+        "memory":  32
+    },
+    {
+        "speed":  "4,2400",
+        "memory":  16
+    },
+    {
+        "speed":  "4,2400",
+        "memory":  8
+    },
+    {
+        "speed":  "4,2400",
+        "memory":  4
+    },
+    {
+        "speed":  "4,2400",
+        "memory":  2
+    },
+    {
+        "speed":  "4,2133",
+        "memory":  128
+    },
+    {
+        "speed":  "4,2133",
+        "memory":  64
+    },
+    {
+        "speed":  "4,2133",
+        "memory":  32
+    },
+    {
+        "speed":  "4,2133",
+        "memory":  16
+    },
+    {
+        "speed":  "4,2133",
+        "memory":  8
+    },
+    {
+        "speed":  "4,2133",
+        "memory":  4
+    },
+    {
+        "speed":  "3,3200",
+        "memory":  16
+    },
+    {
+        "speed":  "3,3200",
+        "memory":  8
+    },
+    {
+        "speed":  "3,3100",
+        "memory":  16
+    },
+    {
+        "speed":  "3,3100",
+        "memory":  8
+    },
+    {
+        "speed":  "3,3000",
+        "memory":  16
+    },
+    {
+        "speed":  "3,3000",
+        "memory":  8
+    },
+    {
+        "speed":  "3,2933",
+        "memory":  32
+    },
+    {
+        "speed":  "3,2933",
+        "memory":  16
+    },
+    {
+        "speed":  "3,2933",
+        "memory":  8
+    },
+    {
+        "speed":  "3,2800",
+        "memory":  32
+    },
+    {
+        "speed":  "3,2800",
+        "memory":  16
+    },
+    {
+        "speed":  "3,2800",
+        "memory":  8
+    },
+    {
+        "speed":  "3,2666",
+        "memory":  32
+    },
+    {
+        "speed":  "3,2666",
+        "memory":  16
+    },
+    {
+        "speed":  "3,2666",
+        "memory":  8
+    },
+    {
+        "speed":  "3,2600",
+        "memory":  32
+    },
+    {
+        "speed":  "3,2600",
+        "memory":  16
+    },
+    {
+        "speed":  "3,2600",
+        "memory":  8
+    },
+    {
+        "speed":  "3,2500",
+        "memory":  4
+    },
+    {
+        "speed":  "3,2400",
+        "memory":  64
+    },
+    {
+        "speed":  "3,2400",
+        "memory":  32
+    },
+    {
+        "speed":  "3,2400",
+        "memory":  16
+    },
+    {
+        "speed":  "3,2400",
+        "memory":  8
+    },
+    {
+        "speed":  "3,2400",
+        "memory":  4
+    },
+    {
+        "speed":  "3,2400",
+        "memory":  2
+    },
+    {
+        "speed":  "3,2333",
+        "memory":  3
+    },
+    {
+        "speed":  "3,2250",
+        "memory":  6
+    },
+    {
+        "speed":  "3,2250",
+        "memory":  4
+    },
+    {
+        "speed":  "3,2200",
+        "memory":  16
+    },
+    {
+        "speed":  "3,2200",
+        "memory":  8
+    },
+    {
+        "speed":  "3,2200",
+        "memory":  4
+    },
+    {
+        "speed":  "3,2133",
+        "memory":  64
+    },
+    {
+        "speed":  "3,2133",
+        "memory":  32
+    },
+    {
+        "speed":  "3,2133",
+        "memory":  16
+    },
+    {
+        "speed":  "3,2133",
+        "memory":  12
+    },
+    {
+        "speed":  "3,2133",
+        "memory":  8
+    },
+    {
+        "speed":  "3,2133",
+        "memory":  6
+    },
+    {
+        "speed":  "3,2133",
+        "memory":  4
+    },
+    {
+        "speed":  "3,2133",
+        "memory":  2
+    },
+    {
+        "speed":  "3,2000",
+        "memory":  16
+    },
+    {
+        "speed":  "3,2000",
+        "memory":  12
+    },
+    {
+        "speed":  "3,2000",
+        "memory":  8
+    },
+    {
+        "speed":  "3,2000",
+        "memory":  6
+    },
+    {
+        "speed":  "3,2000",
+        "memory":  4
+    },
+    {
+        "speed":  "3,2000",
+        "memory":  3
+    },
+    {
+        "speed":  "3,1866",
+        "memory":  96
+    },
+    {
+        "speed":  "3,1866",
+        "memory":  64
+    },
+    {
+        "speed":  "3,1866",
+        "memory":  48
+    },
+    {
+        "speed":  "3,1866",
+        "memory":  32
+    },
+    {
+        "speed":  "3,1866",
+        "memory":  24
+    },
+    {
+        "speed":  "3,1866",
+        "memory":  16
+    },
+    {
+        "speed":  "3,1866",
+        "memory":  12
+    },
+    {
+        "speed":  "3,1866",
+        "memory":  8
+    },
+    {
+        "speed":  "3,1866",
+        "memory":  6
+    },
+    {
+        "speed":  "3,1866",
+        "memory":  4
+    },
+    {
+        "speed":  "3,1866",
+        "memory":  3
+    },
+    {
+        "speed":  "3,1866",
+        "memory":  2
+    },
+    {
+        "speed":  "3,1800",
+        "memory":  6
+    },
+    {
+        "speed":  "3,1800",
+        "memory":  4
+    },
+    {
+        "speed":  "3,1800",
+        "memory":  3
+    },
+    {
+        "speed":  "3,1800",
+        "memory":  2
+    },
+    {
+        "speed":  "3,1800",
+        "memory":  1
+    },
+    {
+        "speed":  "3,1600",
+        "memory":  96
+    },
+    {
+        "speed":  "3,1600",
+        "memory":  64
+    },
+    {
+        "speed":  "3,1600",
+        "memory":  48
+    },
+    {
+        "speed":  "3,1600",
+        "memory":  32
+    },
+    {
+        "speed":  "3,1600",
+        "memory":  24
+    },
+    {
+        "speed":  "3,1600",
+        "memory":  16
+    },
+    {
+        "speed":  "3,1600",
+        "memory":  12
+    },
+    {
+        "speed":  "3,1600",
+        "memory":  8
+    },
+    {
+        "speed":  "3,1600",
+        "memory":  6
+    },
+    {
+        "speed":  "3,1600",
+        "memory":  4
+    },
+    {
+        "speed":  "3,1600",
+        "memory":  3
+    },
+    {
+        "speed":  "3,1600",
+        "memory":  2
+    },
+    {
+        "speed":  "3,1600",
+        "memory":  1
+    },
+    {
+        "speed":  "3,1333",
+        "memory":  128
+    },
+    {
+        "speed":  "3,1333",
+        "memory":  64
+    },
+    {
+        "speed":  "3,1333",
+        "memory":  48
+    },
+    {
+        "speed":  "3,1333",
+        "memory":  32
+    },
+    {
+        "speed":  "3,1333",
+        "memory":  24
+    },
+    {
+        "speed":  "3,1333",
+        "memory":  16
+    },
+    {
+        "speed":  "3,1333",
+        "memory":  12
+    },
+    {
+        "speed":  "3,1333",
+        "memory":  8
+    },
+    {
+        "speed":  "3,1333",
+        "memory":  6
+    },
+    {
+        "speed":  "3,1333",
+        "memory":  4
+    },
+    {
+        "speed":  "3,1333",
+        "memory":  3
+    },
+    {
+        "speed":  "3,1333",
+        "memory":  2
+    },
+    {
+        "speed":  "3,1333",
+        "memory":  1
+    },
+    {
+        "speed":  "3,1066",
+        "memory":  32
+    },
+    {
+        "speed":  "3,1066",
+        "memory":  24
+    },
+    {
+        "speed":  "3,1066",
+        "memory":  16
+    },
+    {
+        "speed":  "3,1066",
+        "memory":  12
+    },
+    {
+        "speed":  "3,1066",
+        "memory":  8
+    },
+    {
+        "speed":  "3,1066",
+        "memory":  6
+    },
+    {
+        "speed":  "3,1066",
+        "memory":  4
+    },
+    {
+        "speed":  "3,1066",
+        "memory":  3
+    },
+    {
+        "speed":  "3,1066",
+        "memory":  2
+    },
+    {
+        "speed":  "3,1066",
+        "memory":  1
+    },
+    {
+        "speed":  "2,800",
+        "memory":  16
+    },
+    {
+        "speed":  "2,800",
+        "memory":  8
+    },
+    {
+        "speed":  "2,800",
+        "memory":  4
+    },
+    {
+        "speed":  "2,800",
+        "memory":  2
+    },
+    {
+        "speed":  "2,800",
+        "memory":  1
+    },
+    {
+        "speed":  "2,667",
+        "memory":  1024
+    },
+    {
+        "speed":  "2,667",
+        "memory":  512
+    },
+    {
+        "speed":  "2,667",
+        "memory":  8
+    },
+    {
+        "speed":  "2,667",
+        "memory":  4
+    },
+    {
+        "speed":  "2,667",
+        "memory":  2
+    },
+    {
+        "speed":  "2,667",
+        "memory":  1
+    },
+    {
+        "speed":  "2,533",
+        "memory":  2
+    },
+    {
+        "speed":  "2,533",
+        "memory":  1
+    },
+    {
+        "speed":  "2,400",
+        "memory":  4
+    },
+    {
+        "speed":  "2,400",
+        "memory":  2
+    },
+    {
+        "speed":  "2,400",
+        "memory":  1
+    },
+    {
+        "speed":  "2,1200",
+        "memory":  4
+    },
+    {
+        "speed":  "2,1066",
+        "memory":  4
+    },
+    {
+        "speed":  "2,1066",
+        "memory":  2
+    },
+    {
+        "speed":  "2,1066",
+        "memory":  1
+    }
+]

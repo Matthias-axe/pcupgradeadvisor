@@ -1,0 +1,1872 @@
+[
+    {
+        "chipset":  "Radeon RX 9070 XT",
+        "generation":  13.5,
+        "class":  "9070 XT"
+    },
+    {
+        "chipset":  "Radeon RX 9070",
+        "generation":  13.4,
+        "class":  "9070"
+    },
+    {
+        "chipset":  "Radeon RX 9060 XT",
+        "generation":  13.3,
+        "class":  "9060 XT"
+    },
+    {
+        "chipset":  "GeForce RTX 5090",
+        "generation":  12.7,
+        "class":  "5090"
+    },
+    {
+        "chipset":  "GeForce RTX 5080",
+        "generation":  12.6,
+        "class":  "5080"
+    },
+    {
+        "chipset":  "GeForce RTX 5070 Ti",
+        "generation":  12.5,
+        "class":  "5070 Ti"
+    },
+    {
+        "chipset":  "GeForce RTX 5070",
+        "generation":  12.4,
+        "class":  "5070"
+    },
+    {
+        "chipset":  "GeForce RTX 5060 Ti",
+        "generation":  12.3,
+        "class":  "5060 Ti"
+    },
+    {
+        "chipset":  "GeForce RTX 5060",
+        "generation":  12.3,
+        "class":  "5060"
+    },
+    {
+        "chipset":  "Radeon RX 7900 XTX",
+        "generation":  11.7,
+        "class":  "7900 XTX"
+    },
+    {
+        "chipset":  "Radeon RX 7900 XT",
+        "generation":  11.6,
+        "class":  "7900 XT"
+    },
+    {
+        "chipset":  "Radeon RX 7800 XT",
+        "generation":  11.5,
+        "class":  "7800 XT"
+    },
+    {
+        "chipset":  "Radeon RX 7700 XT",
+        "generation":  11.4,
+        "class":  "7700 XT"
+    },
+    {
+        "chipset":  "Radeon RX 7600 XT",
+        "generation":  11.2,
+        "class":  "7600 XT"
+    },
+    {
+        "chipset":  "Radeon PRO W7600",
+        "generation":  11.1,
+        "class":  "7600"
+    },
+    {
+        "chipset":  "Radeon RX 7600",
+        "generation":  11.1,
+        "class":  "7600"
+    },
+    {
+        "chipset":  "GeForce RTX 4090",
+        "generation":  10.7,
+        "class":  "4090"
+    },
+    {
+        "chipset":  "GeForce RTX 4080 SUPER",
+        "generation":  10.6,
+        "class":  "4080 SUPER"
+    },
+    {
+        "chipset":  "GeForce RTX 4080",
+        "generation":  10.6,
+        "class":  "4080"
+    },
+    {
+        "chipset":  "GeForce RTX 4070 Ti SUPER",
+        "generation":  10.5,
+        "class":  "4070 Ti SUPER"
+    },
+    {
+        "chipset":  "GeForce RTX 4070 Ti",
+        "generation":  10.5,
+        "class":  "4070 Ti"
+    },
+    {
+        "chipset":  "GeForce RTX 4070 SUPER",
+        "generation":  10.4,
+        "class":  "4070 SUPER"
+    },
+    {
+        "chipset":  "GeForce RTX 4070",
+        "generation":  10.4,
+        "class":  "4070"
+    },
+    {
+        "chipset":  "GeForce RTX 4060 Ti",
+        "generation":  10.2,
+        "class":  "4060 Ti"
+    },
+    {
+        "chipset":  "GeForce RTX 4060",
+        "generation":  10.1,
+        "class":  "4060"
+    },
+    {
+        "chipset":  "Radeon RX 6900 XT",
+        "generation":  9.6,
+        "class":  "6900 XT"
+    },
+    {
+        "chipset":  "Radeon RX 6800 XT",
+        "generation":  9.5,
+        "class":  "6800 XT"
+    },
+    {
+        "chipset":  "Radeon RX 6700 XT",
+        "generation":  9.4,
+        "class":  "6700 XT"
+    },
+    {
+        "chipset":  "Radeon RX 6600 XT",
+        "generation":  9.2,
+        "class":  "6600 XT"
+    },
+    {
+        "chipset":  "Radeon RX 6600",
+        "generation":  9.1,
+        "class":  "6600"
+    },
+    {
+        "chipset":  "Radeon PRO W6600",
+        "generation":  9.1,
+        "class":  "6600"
+    },
+    {
+        "chipset":  "GeForce RTX 3090 Ti",
+        "generation":  8.7,
+        "class":  "3090 Ti"
+    },
+    {
+        "chipset":  "GeForce RTX 3090",
+        "generation":  8.7,
+        "class":  "3090"
+    },
+    {
+        "chipset":  "GeForce RTX 3080 Ti",
+        "generation":  8.6,
+        "class":  "3080 Ti"
+    },
+    {
+        "chipset":  "GeForce RTX 3080 12GB LHR",
+        "generation":  8.6,
+        "class":  "3080 12GB LHR"
+    },
+    {
+        "chipset":  "GeForce RTX 3080 10GB LHR",
+        "generation":  8.6,
+        "class":  "3080 10GB LHR"
+    },
+    {
+        "chipset":  "GeForce RTX 3080 10GB",
+        "generation":  8.6,
+        "class":  "3080 10GB"
+    },
+    {
+        "chipset":  "GeForce RTX 3070 Ti",
+        "generation":  8.5,
+        "class":  "3070 Ti"
+    },
+    {
+        "chipset":  "GeForce RTX 3070 LHR",
+        "generation":  8.5,
+        "class":  "3070 LHR"
+    },
+    {
+        "chipset":  "GeForce RTX 3070",
+        "generation":  8.5,
+        "class":  "3070"
+    },
+    {
+        "chipset":  "GeForce RTX 3060 Ti LHR",
+        "generation":  8.3,
+        "class":  "3060 Ti LHR"
+    },
+    {
+        "chipset":  "GeForce RTX 3060 Ti",
+        "generation":  8.3,
+        "class":  "3060 Ti"
+    },
+    {
+        "chipset":  "GeForce RTX 3060 8GB",
+        "generation":  8.3,
+        "class":  "3060 8GB"
+    },
+    {
+        "chipset":  "GeForce RTX 3060 12GB",
+        "generation":  8.3,
+        "class":  "3060 12GB"
+    },
+    {
+        "chipset":  "Radeon RX 5700 XT",
+        "generation":  7.5,
+        "class":  "5700 XT"
+    },
+    {
+        "chipset":  "Radeon RX 5700",
+        "generation":  7.4,
+        "class":  "5700"
+    },
+    {
+        "chipset":  "FirePro V5700",
+        "generation":  7.4,
+        "class":  "5700"
+    },
+    {
+        "chipset":  "Radeon Pro W5700",
+        "generation":  7.4,
+        "class":  "5700"
+    },
+    {
+        "chipset":  "Radeon RX 5600 XT",
+        "generation":  7.2,
+        "class":  "5600 XT"
+    },
+    {
+        "chipset":  "GeForce RTX 2080 Ti",
+        "generation":  6.6,
+        "class":  "2080 Ti"
+    },
+    {
+        "chipset":  "GeForce RTX 2080 SUPER",
+        "generation":  6.6,
+        "class":  "2080 SUPER"
+    },
+    {
+        "chipset":  "GeForce RTX 2080",
+        "generation":  6.6,
+        "class":  "2080"
+    },
+    {
+        "chipset":  "GeForce RTX 2070 SUPER",
+        "generation":  6.5,
+        "class":  "2070 SUPER"
+    },
+    {
+        "chipset":  "GeForce RTX 2070",
+        "generation":  6.5,
+        "class":  "2070"
+    },
+    {
+        "chipset":  "GeForce RTX 2060 SUPER",
+        "generation":  6.3,
+        "class":  "2060 SUPER"
+    },
+    {
+        "chipset":  "GeForce RTX 2060 12GB",
+        "generation":  6.3,
+        "class":  "2060 12GB"
+    },
+    {
+        "chipset":  "GeForce RTX 2060",
+        "generation":  6.3,
+        "class":  "2060"
+    },
+    {
+        "chipset":  "GeForce GTX 1660 Ti",
+        "generation":  5.2,
+        "class":  "1660 Ti"
+    },
+    {
+        "chipset":  "GeForce GTX 1660 SUPER",
+        "generation":  5.2,
+        "class":  "1660 SUPER"
+    },
+    {
+        "chipset":  "GeForce GTX 1660",
+        "generation":  5.2,
+        "class":  "1660"
+    },
+    {
+        "chipset":  "GeForce GTX 1650 SUPER",
+        "generation":  5.1,
+        "class":  "1650 SUPER"
+    },
+    {
+        "chipset":  "GeForce GTX 1650 G6",
+        "generation":  5.1,
+        "class":  "1650 G6"
+    },
+    {
+        "chipset":  "GeForce GTX 1650 G5",
+        "generation":  5.1,
+        "class":  "1650 G5"
+    },
+    {
+        "chipset":  "FirePro V9800",
+        "generation":  4,
+        "class":  "9800"
+    },
+    {
+        "chipset":  "FirePro S9150",
+        "generation":  4,
+        "class":  "9150"
+    },
+    {
+        "chipset":  "FirePro W9100",
+        "generation":  4,
+        "class":  "9100"
+    },
+    {
+        "chipset":  "FirePro S9050",
+        "generation":  4,
+        "class":  "9050"
+    },
+    {
+        "chipset":  "FirePro S9000",
+        "generation":  4,
+        "class":  "9000"
+    },
+    {
+        "chipset":  "FirePro W9000",
+        "generation":  4,
+        "class":  "9000"
+    },
+    {
+        "chipset":  "FirePro V8800",
+        "generation":  4,
+        "class":  "8800"
+    },
+    {
+        "chipset":  "FirePro V8750",
+        "generation":  4,
+        "class":  "8750"
+    },
+    {
+        "chipset":  "FirePro W8100",
+        "generation":  4,
+        "class":  "8100"
+    },
+    {
+        "chipset":  "FirePro W8000",
+        "generation":  4,
+        "class":  "8000"
+    },
+    {
+        "chipset":  "FirePro V7900 SDI",
+        "generation":  4,
+        "class":  "7900 SDI"
+    },
+    {
+        "chipset":  "FirePro V7900",
+        "generation":  4,
+        "class":  "7900"
+    },
+    {
+        "chipset":  "FirePro V7750",
+        "generation":  4,
+        "class":  "7750"
+    },
+    {
+        "chipset":  "FirePro W7100",
+        "generation":  4,
+        "class":  "7100"
+    },
+    {
+        "chipset":  "FirePro W7000",
+        "generation":  4,
+        "class":  "7000"
+    },
+    {
+        "chipset":  "FirePro S7000",
+        "generation":  4,
+        "class":  "7000"
+    },
+    {
+        "chipset":  "FirePro W600",
+        "generation":  4,
+        "class":  "600"
+    },
+    {
+        "chipset":  "FirePro V5900",
+        "generation":  4,
+        "class":  "5900"
+    },
+    {
+        "chipset":  "FirePro V5800",
+        "generation":  4,
+        "class":  "5800"
+    },
+    {
+        "chipset":  "FirePro W5100",
+        "generation":  4,
+        "class":  "5100"
+    },
+    {
+        "chipset":  "FirePro W5000",
+        "generation":  4,
+        "class":  "5000"
+    },
+    {
+        "chipset":  "FirePro R5000",
+        "generation":  4,
+        "class":  "5000"
+    },
+    {
+        "chipset":  "FirePro V4900",
+        "generation":  4,
+        "class":  "4900"
+    },
+    {
+        "chipset":  "FirePro W4300",
+        "generation":  4,
+        "class":  "4300"
+    },
+    {
+        "chipset":  "FirePro W4100",
+        "generation":  4,
+        "class":  "4100"
+    },
+    {
+        "chipset":  "FirePro V3900",
+        "generation":  4,
+        "class":  "3900"
+    },
+    {
+        "chipset":  "FirePro V3800",
+        "generation":  4,
+        "class":  "3800"
+    },
+    {
+        "chipset":  "FirePro 2460",
+        "generation":  4,
+        "class":  "2460"
+    },
+    {
+        "chipset":  "FirePro 2450",
+        "generation":  4,
+        "class":  "2450"
+    },
+    {
+        "chipset":  "FirePro 2270",
+        "generation":  4,
+        "class":  "2270"
+    },
+    {
+        "chipset":  "FirePro RG220A",
+        "generation":  4,
+        "class":  "220A"
+    },
+    {
+        "chipset":  "FirePro W2100",
+        "generation":  4,
+        "class":  "2100"
+    },
+    {
+        "chipset":  "FirePro S10000",
+        "generation":  4,
+        "class":  "10000"
+    },
+    {
+        "chipset":  "FireGL V7300",
+        "generation":  3,
+        "class":  "7300"
+    },
+    {
+        "chipset":  "Arc B580",
+        "generation":  3,
+        "class":  "580"
+    },
+    {
+        "chipset":  "Arc B570",
+        "generation":  3,
+        "class":  "570"
+    },
+    {
+        "chipset":  "Arc A770",
+        "generation":  2,
+        "class":  "770"
+    },
+    {
+        "chipset":  "Arc A750",
+        "generation":  2,
+        "class":  "750"
+    },
+    {
+        "chipset":  "Arc A580",
+        "generation":  2,
+        "class":  "580"
+    },
+    {
+        "chipset":  "Arc A380",
+        "generation":  2,
+        "class":  "380"
+    },
+    {
+        "chipset":  "Arc A310",
+        "generation":  2,
+        "class":  "310"
+    },
+    {
+        "chipset":  "GeForce 9800 GTX+",
+        "generation":  0,
+        "class":  "9800 GTX+"
+    },
+    {
+        "chipset":  "GeForce 9800 GT",
+        "generation":  0,
+        "class":  "9800 GT"
+    },
+    {
+        "chipset":  "GeForce GTX 980 Ti",
+        "generation":  0,
+        "class":  "980 Ti"
+    },
+    {
+        "chipset":  "GeForce GTX 980",
+        "generation":  0,
+        "class":  "980"
+    },
+    {
+        "chipset":  "GeForce GTX 970",
+        "generation":  0,
+        "class":  "970"
+    },
+    {
+        "chipset":  "GeForce 9600 GT",
+        "generation":  0,
+        "class":  "9600 GT"
+    },
+    {
+        "chipset":  "GeForce 9600 GSO",
+        "generation":  0,
+        "class":  "9600 GSO"
+    },
+    {
+        "chipset":  "GeForce GTX 960",
+        "generation":  0,
+        "class":  "960"
+    },
+    {
+        "chipset":  "Radeon 9550",
+        "generation":  0,
+        "class":  "9550"
+    },
+    {
+        "chipset":  "GeForce 9500 GT",
+        "generation":  0,
+        "class":  "9500 GT"
+    },
+    {
+        "chipset":  "GeForce GTX 950 75W",
+        "generation":  0,
+        "class":  "950 75W"
+    },
+    {
+        "chipset":  "GeForce GTX 950",
+        "generation":  0,
+        "class":  "950"
+    },
+    {
+        "chipset":  "GeForce 9400 GT",
+        "generation":  0,
+        "class":  "9400 GT"
+    },
+    {
+        "chipset":  "Radeon Pro WX 9100",
+        "generation":  0,
+        "class":  "9100"
+    },
+    {
+        "chipset":  "Radeon R9 Nano",
+        "generation":  0,
+        "class":  "9 Nano"
+    },
+    {
+        "chipset":  "Radeon R9 Fury X",
+        "generation":  0,
+        "class":  "9 Fury X"
+    },
+    {
+        "chipset":  "Radeon R9 Fury",
+        "generation":  0,
+        "class":  "9 Fury"
+    },
+    {
+        "chipset":  "Radeon R9 390X2",
+        "generation":  0,
+        "class":  "9 390X2"
+    },
+    {
+        "chipset":  "Radeon R9 390X",
+        "generation":  0,
+        "class":  "9 390X"
+    },
+    {
+        "chipset":  "Radeon R9 390",
+        "generation":  0,
+        "class":  "9 390"
+    },
+    {
+        "chipset":  "Radeon R9 380X",
+        "generation":  0,
+        "class":  "9 380X"
+    },
+    {
+        "chipset":  "Radeon R9 380",
+        "generation":  0,
+        "class":  "9 380"
+    },
+    {
+        "chipset":  "Radeon R9 295X2",
+        "generation":  0,
+        "class":  "9 295X2"
+    },
+    {
+        "chipset":  "Radeon R9 290X",
+        "generation":  0,
+        "class":  "9 290X"
+    },
+    {
+        "chipset":  "Radeon R9 290",
+        "generation":  0,
+        "class":  "9 290"
+    },
+    {
+        "chipset":  "Radeon R9 285",
+        "generation":  0,
+        "class":  "9 285"
+    },
+    {
+        "chipset":  "Radeon R9 280X",
+        "generation":  0,
+        "class":  "9 280X"
+    },
+    {
+        "chipset":  "Radeon R9 280",
+        "generation":  0,
+        "class":  "9 280"
+    },
+    {
+        "chipset":  "Radeon R9 270X",
+        "generation":  0,
+        "class":  "9 270X"
+    },
+    {
+        "chipset":  "Radeon R9 270",
+        "generation":  0,
+        "class":  "9 270"
+    },
+    {
+        "chipset":  "GeForce 8500 GT",
+        "generation":  0,
+        "class":  "8500 GT"
+    },
+    {
+        "chipset":  "GeForce 8400 GS",
+        "generation":  0,
+        "class":  "8400 GS"
+    },
+    {
+        "chipset":  "Radeon Pro WX 8200",
+        "generation":  0,
+        "class":  "8200"
+    },
+    {
+        "chipset":  "NVS 810",
+        "generation":  0,
+        "class":  "810"
+    },
+    {
+        "chipset":  "Quadro RTX 8000",
+        "generation":  0,
+        "class":  "8000"
+    },
+    {
+        "chipset":  "Radeon HD 7990",
+        "generation":  0,
+        "class":  "7990"
+    },
+    {
+        "chipset":  "Radeon HD 7970 GHz Edition",
+        "generation":  0,
+        "class":  "7970 GHz Edition"
+    },
+    {
+        "chipset":  "Radeon HD 7970",
+        "generation":  0,
+        "class":  "7970"
+    },
+    {
+        "chipset":  "Radeon HD 7950",
+        "generation":  0,
+        "class":  "7950"
+    },
+    {
+        "chipset":  "Radeon RX 7900 GRE",
+        "generation":  0,
+        "class":  "7900 GRE"
+    },
+    {
+        "chipset":  "Radeon PRO W7900",
+        "generation":  0,
+        "class":  "7900"
+    },
+    {
+        "chipset":  "Radeon HD 7870 XT",
+        "generation":  0,
+        "class":  "7870 XT"
+    },
+    {
+        "chipset":  "Radeon HD 7870 GHz Edition",
+        "generation":  0,
+        "class":  "7870 GHz Edition"
+    },
+    {
+        "chipset":  "Radeon HD 7870",
+        "generation":  0,
+        "class":  "7870"
+    },
+    {
+        "chipset":  "Radeon HD 7850",
+        "generation":  0,
+        "class":  "7850"
+    },
+    {
+        "chipset":  "Radeon PRO W7800",
+        "generation":  0,
+        "class":  "7800"
+    },
+    {
+        "chipset":  "GeForce GTX 780 Ti",
+        "generation":  0,
+        "class":  "780 Ti"
+    },
+    {
+        "chipset":  "GeForce GTX 780",
+        "generation":  0,
+        "class":  "780"
+    },
+    {
+        "chipset":  "Radeon HD 7790",
+        "generation":  0,
+        "class":  "7790"
+    },
+    {
+        "chipset":  "Radeon HD 7770 GHz Edition",
+        "generation":  0,
+        "class":  "7770 GHz Edition"
+    },
+    {
+        "chipset":  "Radeon HD 7770",
+        "generation":  0,
+        "class":  "7770"
+    },
+    {
+        "chipset":  "Radeon HD 7750",
+        "generation":  0,
+        "class":  "7750"
+    },
+    {
+        "chipset":  "Radeon PRO W7700",
+        "generation":  0,
+        "class":  "7700"
+    },
+    {
+        "chipset":  "GeForce GTX 770",
+        "generation":  0,
+        "class":  "770"
+    },
+    {
+        "chipset":  "GeForce GTX 760 X2",
+        "generation":  0,
+        "class":  "760 X2"
+    },
+    {
+        "chipset":  "GeForce GTX 760",
+        "generation":  0,
+        "class":  "760"
+    },
+    {
+        "chipset":  "Radeon PRO W7500",
+        "generation":  0,
+        "class":  "7500"
+    },
+    {
+        "chipset":  "GeForce GTX 750 Ti",
+        "generation":  0,
+        "class":  "750 Ti"
+    },
+    {
+        "chipset":  "GeForce GTX 750",
+        "generation":  0,
+        "class":  "750"
+    },
+    {
+        "chipset":  "GeForce GT 740",
+        "generation":  0,
+        "class":  "740"
+    },
+    {
+        "chipset":  "GeForce GT 730",
+        "generation":  0,
+        "class":  "730"
+    },
+    {
+        "chipset":  "GeForce 7200 GS",
+        "generation":  0,
+        "class":  "7200 GS"
+    },
+    {
+        "chipset":  "GeForce GT 720",
+        "generation":  0,
+        "class":  "720"
+    },
+    {
+        "chipset":  "Radeon Pro WX 7100",
+        "generation":  0,
+        "class":  "7100"
+    },
+    {
+        "chipset":  "GeForce GT 710",
+        "generation":  0,
+        "class":  "710"
+    },
+    {
+        "chipset":  "Radeon R7 370",
+        "generation":  0,
+        "class":  "7 370"
+    },
+    {
+        "chipset":  "Radeon R7 360",
+        "generation":  0,
+        "class":  "7 360"
+    },
+    {
+        "chipset":  "Radeon R7 350",
+        "generation":  0,
+        "class":  "7 350"
+    },
+    {
+        "chipset":  "Radeon R7 265",
+        "generation":  0,
+        "class":  "7 265"
+    },
+    {
+        "chipset":  "Radeon R7 260X",
+        "generation":  0,
+        "class":  "7 260X"
+    },
+    {
+        "chipset":  "Radeon R7 260",
+        "generation":  0,
+        "class":  "7 260"
+    },
+    {
+        "chipset":  "Radeon R7 250X",
+        "generation":  0,
+        "class":  "7 250X"
+    },
+    {
+        "chipset":  "Radeon R7 250",
+        "generation":  0,
+        "class":  "7 250"
+    },
+    {
+        "chipset":  "Radeon R7 240",
+        "generation":  0,
+        "class":  "7 240"
+    },
+    {
+        "chipset":  "Radeon HD 6990",
+        "generation":  0,
+        "class":  "6990"
+    },
+    {
+        "chipset":  "Radeon HD 6970",
+        "generation":  0,
+        "class":  "6970"
+    },
+    {
+        "chipset":  "Radeon RX 6950 XT",
+        "generation":  0,
+        "class":  "6950 XT"
+    },
+    {
+        "chipset":  "Radeon HD 6950",
+        "generation":  0,
+        "class":  "6950"
+    },
+    {
+        "chipset":  "GeForce GTX 690",
+        "generation":  0,
+        "class":  "690"
+    },
+    {
+        "chipset":  "Radeon HD 6870 X2",
+        "generation":  0,
+        "class":  "6870 X2"
+    },
+    {
+        "chipset":  "Radeon HD 6870",
+        "generation":  0,
+        "class":  "6870"
+    },
+    {
+        "chipset":  "Radeon HD 6850",
+        "generation":  0,
+        "class":  "6850"
+    },
+    {
+        "chipset":  "Radeon RX 6800",
+        "generation":  0,
+        "class":  "6800"
+    },
+    {
+        "chipset":  "Radeon PRO W6800",
+        "generation":  0,
+        "class":  "6800"
+    },
+    {
+        "chipset":  "GeForce GTX 680",
+        "generation":  0,
+        "class":  "680"
+    },
+    {
+        "chipset":  "Radeon HD 6790",
+        "generation":  0,
+        "class":  "6790"
+    },
+    {
+        "chipset":  "Radeon HD 6770",
+        "generation":  0,
+        "class":  "6770"
+    },
+    {
+        "chipset":  "Radeon RX 6750 XT",
+        "generation":  0,
+        "class":  "6750 XT"
+    },
+    {
+        "chipset":  "Radeon HD 6750",
+        "generation":  0,
+        "class":  "6750"
+    },
+    {
+        "chipset":  "Radeon RX 6700",
+        "generation":  0,
+        "class":  "6700"
+    },
+    {
+        "chipset":  "GeForce GTX 670",
+        "generation":  0,
+        "class":  "670"
+    },
+    {
+        "chipset":  "Radeon HD 6670",
+        "generation":  0,
+        "class":  "6670"
+    },
+    {
+        "chipset":  "Radeon RX 6650 XT",
+        "generation":  0,
+        "class":  "6650 XT"
+    },
+    {
+        "chipset":  "GeForce GTX 660 Ti",
+        "generation":  0,
+        "class":  "660 Ti"
+    },
+    {
+        "chipset":  "GeForce GTX 660",
+        "generation":  0,
+        "class":  "660"
+    },
+    {
+        "chipset":  "Radeon HD 6570",
+        "generation":  0,
+        "class":  "6570"
+    },
+    {
+        "chipset":  "Radeon RX 6500 XT",
+        "generation":  0,
+        "class":  "6500 XT"
+    },
+    {
+        "chipset":  "GeForce GTX 650 Ti Boost",
+        "generation":  0,
+        "class":  "650 Ti Boost"
+    },
+    {
+        "chipset":  "GeForce GTX 650 Ti",
+        "generation":  0,
+        "class":  "650 Ti"
+    },
+    {
+        "chipset":  "GeForce GTX 650",
+        "generation":  0,
+        "class":  "650"
+    },
+    {
+        "chipset":  "Radeon HD 6450",
+        "generation":  0,
+        "class":  "6450"
+    },
+    {
+        "chipset":  "Radeon PRO W6400",
+        "generation":  0,
+        "class":  "6400"
+    },
+    {
+        "chipset":  "Radeon RX 6400",
+        "generation":  0,
+        "class":  "6400"
+    },
+    {
+        "chipset":  "GeForce GT 640",
+        "generation":  0,
+        "class":  "640"
+    },
+    {
+        "chipset":  "Radeon RX VEGA 64",
+        "generation":  0,
+        "class":  "64"
+    },
+    {
+        "chipset":  "GeForce GT 630",
+        "generation":  0,
+        "class":  "630"
+    },
+    {
+        "chipset":  "Quadro P620",
+        "generation":  0,
+        "class":  "620"
+    },
+    {
+        "chipset":  "GeForce GT 620",
+        "generation":  0,
+        "class":  "620"
+    },
+    {
+        "chipset":  "Quadro K620",
+        "generation":  0,
+        "class":  "620"
+    },
+    {
+        "chipset":  "GeForce GT 610",
+        "generation":  0,
+        "class":  "610"
+    },
+    {
+        "chipset":  "RTX 6000 Ada Generation",
+        "generation":  0,
+        "class":  "6000 Ada Generation"
+    },
+    {
+        "chipset":  "Quadro P6000",
+        "generation":  0,
+        "class":  "6000"
+    },
+    {
+        "chipset":  "Quadro M6000",
+        "generation":  0,
+        "class":  "6000"
+    },
+    {
+        "chipset":  "Quadro 6000",
+        "generation":  0,
+        "class":  "6000"
+    },
+    {
+        "chipset":  "RTX A6000",
+        "generation":  0,
+        "class":  "6000"
+    },
+    {
+        "chipset":  "Quadro K6000",
+        "generation":  0,
+        "class":  "6000"
+    },
+    {
+        "chipset":  "Quadro RTX 6000",
+        "generation":  0,
+        "class":  "6000"
+    },
+    {
+        "chipset":  "Quadro K600",
+        "generation":  0,
+        "class":  "600"
+    },
+    {
+        "chipset":  "T600",
+        "generation":  0,
+        "class":  "600"
+    },
+    {
+        "chipset":  "Quadro P600",
+        "generation":  0,
+        "class":  "600"
+    },
+    {
+        "chipset":  "Arc Pro A60",
+        "generation":  0,
+        "class":  "60"
+    },
+    {
+        "chipset":  "Radeon HD 5970",
+        "generation":  0,
+        "class":  "5970"
+    },
+    {
+        "chipset":  "GeForce GTX 590",
+        "generation":  0,
+        "class":  "590"
+    },
+    {
+        "chipset":  "Radeon RX 590",
+        "generation":  0,
+        "class":  "590"
+    },
+    {
+        "chipset":  "Radeon HD 5870 X2",
+        "generation":  0,
+        "class":  "5870 X2"
+    },
+    {
+        "chipset":  "Radeon HD 5870",
+        "generation":  0,
+        "class":  "5870"
+    },
+    {
+        "chipset":  "Radeon HD 5850",
+        "generation":  0,
+        "class":  "5850"
+    },
+    {
+        "chipset":  "Radeon HD 5830",
+        "generation":  0,
+        "class":  "5830"
+    },
+    {
+        "chipset":  "GeForce GTX 580 X2",
+        "generation":  0,
+        "class":  "580 X2"
+    },
+    {
+        "chipset":  "GeForce GTX 580",
+        "generation":  0,
+        "class":  "580"
+    },
+    {
+        "chipset":  "Radeon RX 580",
+        "generation":  0,
+        "class":  "580"
+    },
+    {
+        "chipset":  "Radeon HD 5770",
+        "generation":  0,
+        "class":  "5770"
+    },
+    {
+        "chipset":  "Radeon HD 5750",
+        "generation":  0,
+        "class":  "5750"
+    },
+    {
+        "chipset":  "Radeon RX 570",
+        "generation":  0,
+        "class":  "570"
+    },
+    {
+        "chipset":  "GeForce GTX 570",
+        "generation":  0,
+        "class":  "570"
+    },
+    {
+        "chipset":  "Radeon HD 5670",
+        "generation":  0,
+        "class":  "5670"
+    },
+    {
+        "chipset":  "GeForce GTX 560 Ti X2",
+        "generation":  0,
+        "class":  "560 Ti X2"
+    },
+    {
+        "chipset":  "GeForce GTX 560 Ti 448",
+        "generation":  0,
+        "class":  "560 Ti 448"
+    },
+    {
+        "chipset":  "GeForce GTX 560 Ti",
+        "generation":  0,
+        "class":  "560 Ti"
+    },
+    {
+        "chipset":  "GeForce GTX 560 SE",
+        "generation":  0,
+        "class":  "560 SE"
+    },
+    {
+        "chipset":  "Radeon RX 560 - 896",
+        "generation":  0,
+        "class":  "560 - 896"
+    },
+    {
+        "chipset":  "Radeon RX 560 - 1024",
+        "generation":  0,
+        "class":  "560 - 1024"
+    },
+    {
+        "chipset":  "GeForce GTX 560",
+        "generation":  0,
+        "class":  "560"
+    },
+    {
+        "chipset":  "Radeon RX VEGA 56",
+        "generation":  0,
+        "class":  "56"
+    },
+    {
+        "chipset":  "Radeon HD 5570",
+        "generation":  0,
+        "class":  "5570"
+    },
+    {
+        "chipset":  "Radeon HD 5550",
+        "generation":  0,
+        "class":  "5550"
+    },
+    {
+        "chipset":  "Radeon RX 5500 XT",
+        "generation":  0,
+        "class":  "5500 XT"
+    },
+    {
+        "chipset":  "Radeon Pro W5500",
+        "generation":  0,
+        "class":  "5500"
+    },
+    {
+        "chipset":  "RTX A5500",
+        "generation":  0,
+        "class":  "5500"
+    },
+    {
+        "chipset":  "GeForce GTX 550 Ti",
+        "generation":  0,
+        "class":  "550 Ti"
+    },
+    {
+        "chipset":  "Radeon RX 550 - 640",
+        "generation":  0,
+        "class":  "550 - 640"
+    },
+    {
+        "chipset":  "Radeon RX 550 - 512",
+        "generation":  0,
+        "class":  "550 - 512"
+    },
+    {
+        "chipset":  "Radeon HD 5450",
+        "generation":  0,
+        "class":  "5450"
+    },
+    {
+        "chipset":  "Quadro K5200",
+        "generation":  0,
+        "class":  "5200"
+    },
+    {
+        "chipset":  "GeForce FX 5200",
+        "generation":  0,
+        "class":  "5200"
+    },
+    {
+        "chipset":  "GeForce GT 520",
+        "generation":  0,
+        "class":  "520"
+    },
+    {
+        "chipset":  "Radeon Pro WX 5100",
+        "generation":  0,
+        "class":  "5100"
+    },
+    {
+        "chipset":  "GeForce RTX 5050",
+        "generation":  0,
+        "class":  "5050"
+    },
+    {
+        "chipset":  "RTX 5000 Ada Generation",
+        "generation":  0,
+        "class":  "5000 Ada Generation"
+    },
+    {
+        "chipset":  "Quadro P5000",
+        "generation":  0,
+        "class":  "5000"
+    },
+    {
+        "chipset":  "Quadro K5000",
+        "generation":  0,
+        "class":  "5000"
+    },
+    {
+        "chipset":  "Quadro M5000",
+        "generation":  0,
+        "class":  "5000"
+    },
+    {
+        "chipset":  "RTX A5000",
+        "generation":  0,
+        "class":  "5000"
+    },
+    {
+        "chipset":  "Quadro 5000",
+        "generation":  0,
+        "class":  "5000"
+    },
+    {
+        "chipset":  "Quadro RTX 5000",
+        "generation":  0,
+        "class":  "5000"
+    },
+    {
+        "chipset":  "Arc Pro A50",
+        "generation":  0,
+        "class":  "50"
+    },
+    {
+        "chipset":  "Radeon R5 230",
+        "generation":  0,
+        "class":  "5 230"
+    },
+    {
+        "chipset":  "Radeon R5 220",
+        "generation":  0,
+        "class":  "5 220"
+    },
+    {
+        "chipset":  "Radeon HD 4890",
+        "generation":  0,
+        "class":  "4890"
+    },
+    {
+        "chipset":  "Radeon HD 4870",
+        "generation":  0,
+        "class":  "4870"
+    },
+    {
+        "chipset":  "Radeon HD 4850",
+        "generation":  0,
+        "class":  "4850"
+    },
+    {
+        "chipset":  "Radeon HD 4830",
+        "generation":  0,
+        "class":  "4830"
+    },
+    {
+        "chipset":  "Radeon RX 480",
+        "generation":  0,
+        "class":  "480"
+    },
+    {
+        "chipset":  "GeForce GTX 480",
+        "generation":  0,
+        "class":  "480"
+    },
+    {
+        "chipset":  "GeForce GTX 470",
+        "generation":  0,
+        "class":  "470"
+    },
+    {
+        "chipset":  "Radeon RX 470",
+        "generation":  0,
+        "class":  "470"
+    },
+    {
+        "chipset":  "Radeon HD 4670 X2",
+        "generation":  0,
+        "class":  "4670 X2"
+    },
+    {
+        "chipset":  "Radeon HD 4670",
+        "generation":  0,
+        "class":  "4670"
+    },
+    {
+        "chipset":  "Radeon HD 4650",
+        "generation":  0,
+        "class":  "4650"
+    },
+    {
+        "chipset":  "GeForce GTX 465",
+        "generation":  0,
+        "class":  "465"
+    },
+    {
+        "chipset":  "GeForce GTX 460 X2",
+        "generation":  0,
+        "class":  "460 X2"
+    },
+    {
+        "chipset":  "GeForce GTX 460 SE",
+        "generation":  0,
+        "class":  "460 SE"
+    },
+    {
+        "chipset":  "Radeon RX 460",
+        "generation":  0,
+        "class":  "460"
+    },
+    {
+        "chipset":  "GeForce GTX 460",
+        "generation":  0,
+        "class":  "460"
+    },
+    {
+        "chipset":  "Radeon HD 4550",
+        "generation":  0,
+        "class":  "4550"
+    },
+    {
+        "chipset":  "RTX 4500 Ada Generation",
+        "generation":  0,
+        "class":  "4500 Ada Generation"
+    },
+    {
+        "chipset":  "RTX A4500",
+        "generation":  0,
+        "class":  "4500"
+    },
+    {
+        "chipset":  "Quadro NVS 450",
+        "generation":  0,
+        "class":  "450"
+    },
+    {
+        "chipset":  "GeForce GTS 450",
+        "generation":  0,
+        "class":  "450"
+    },
+    {
+        "chipset":  "GeForce GT 440",
+        "generation":  0,
+        "class":  "440"
+    },
+    {
+        "chipset":  "Radeon HD 4350",
+        "generation":  0,
+        "class":  "4350"
+    },
+    {
+        "chipset":  "GeForce GT 430",
+        "generation":  0,
+        "class":  "430"
+    },
+    {
+        "chipset":  "Quadro K4200",
+        "generation":  0,
+        "class":  "4200"
+    },
+    {
+        "chipset":  "Quadro NVS 420",
+        "generation":  0,
+        "class":  "420"
+    },
+    {
+        "chipset":  "Quadro K420",
+        "generation":  0,
+        "class":  "420"
+    },
+    {
+        "chipset":  "Radeon Pro WX 4100",
+        "generation":  0,
+        "class":  "4100"
+    },
+    {
+        "chipset":  "Quadro 410",
+        "generation":  0,
+        "class":  "410"
+    },
+    {
+        "chipset":  "Quadro K4000M",
+        "generation":  0,
+        "class":  "4000M"
+    },
+    {
+        "chipset":  "RTX 4000 SFF Ada Generation",
+        "generation":  0,
+        "class":  "4000 SFF Ada Generation"
+    },
+    {
+        "chipset":  "RTX 4000 Ada Generation",
+        "generation":  0,
+        "class":  "4000 Ada Generation"
+    },
+    {
+        "chipset":  "Quadro P4000",
+        "generation":  0,
+        "class":  "4000"
+    },
+    {
+        "chipset":  "Quadro 4000",
+        "generation":  0,
+        "class":  "4000"
+    },
+    {
+        "chipset":  "Quadro RTX 4000",
+        "generation":  0,
+        "class":  "4000"
+    },
+    {
+        "chipset":  "Quadro K4000",
+        "generation":  0,
+        "class":  "4000"
+    },
+    {
+        "chipset":  "RTX A4000",
+        "generation":  0,
+        "class":  "4000"
+    },
+    {
+        "chipset":  "Quadro M4000",
+        "generation":  0,
+        "class":  "4000"
+    },
+    {
+        "chipset":  "T400 4GB",
+        "generation":  0,
+        "class":  "400 4GB"
+    },
+    {
+        "chipset":  "T400  2GB",
+        "generation":  0,
+        "class":  "400  2GB"
+    },
+    {
+        "chipset":  "RTX A400",
+        "generation":  0,
+        "class":  "400"
+    },
+    {
+        "chipset":  "Quadro 400",
+        "generation":  0,
+        "class":  "400"
+    },
+    {
+        "chipset":  "Quadro P400",
+        "generation":  0,
+        "class":  "400"
+    },
+    {
+        "chipset":  "Arc Pro A40",
+        "generation":  0,
+        "class":  "40"
+    },
+    {
+        "chipset":  "Radeon HD 3450",
+        "generation":  0,
+        "class":  "3450"
+    },
+    {
+        "chipset":  "Radeon Pro WX 3200",
+        "generation":  0,
+        "class":  "3200"
+    },
+    {
+        "chipset":  "Radeon Pro WX 3100",
+        "generation":  0,
+        "class":  "3100"
+    },
+    {
+        "chipset":  "GeForce RTX 3050 8GB",
+        "generation":  0,
+        "class":  "3050 8GB"
+    },
+    {
+        "chipset":  "GeForce RTX 3050 6GB",
+        "generation":  0,
+        "class":  "3050 6GB"
+    },
+    {
+        "chipset":  "Quadro NVS 295",
+        "generation":  0,
+        "class":  "295"
+    },
+    {
+        "chipset":  "GeForce GTX 295",
+        "generation":  0,
+        "class":  "295"
+    },
+    {
+        "chipset":  "GeForce GTX 285",
+        "generation":  0,
+        "class":  "285"
+    },
+    {
+        "chipset":  "GeForce GTX 275",
+        "generation":  0,
+        "class":  "275"
+    },
+    {
+        "chipset":  "GeForce GTX 260",
+        "generation":  0,
+        "class":  "260"
+    },
+    {
+        "chipset":  "GeForce GTS 250",
+        "generation":  0,
+        "class":  "250"
+    },
+    {
+        "chipset":  "Quadro K2200",
+        "generation":  0,
+        "class":  "2200"
+    },
+    {
+        "chipset":  "Quadro P2200",
+        "generation":  0,
+        "class":  "2200"
+    },
+    {
+        "chipset":  "GeForce GT 220",
+        "generation":  0,
+        "class":  "220"
+    },
+    {
+        "chipset":  "Radeon Pro WX 2100",
+        "generation":  0,
+        "class":  "2100"
+    },
+    {
+        "chipset":  "GeForce 210",
+        "generation":  0,
+        "class":  "210"
+    },
+    {
+        "chipset":  "RTX 2000E Ada Generation",
+        "generation":  0,
+        "class":  "2000E Ada Generation"
+    },
+    {
+        "chipset":  "Quadro K2000D",
+        "generation":  0,
+        "class":  "2000D"
+    },
+    {
+        "chipset":  "Quadro 2000D",
+        "generation":  0,
+        "class":  "2000D"
+    },
+    {
+        "chipset":  "RTX 2000 Ada Generation",
+        "generation":  0,
+        "class":  "2000 Ada Generation"
+    },
+    {
+        "chipset":  "RTX A2000 6GB",
+        "generation":  0,
+        "class":  "2000 6GB"
+    },
+    {
+        "chipset":  "RTX A2000 12GB",
+        "generation":  0,
+        "class":  "2000 12GB"
+    },
+    {
+        "chipset":  "Quadro K2000",
+        "generation":  0,
+        "class":  "2000"
+    },
+    {
+        "chipset":  "Quadro P2000",
+        "generation":  0,
+        "class":  "2000"
+    },
+    {
+        "chipset":  "Quadro M2000",
+        "generation":  0,
+        "class":  "2000"
+    },
+    {
+        "chipset":  "Quadro FX 1800",
+        "generation":  0,
+        "class":  "1800"
+    },
+    {
+        "chipset":  "GeForce GTX 1630",
+        "generation":  0,
+        "class":  "1630"
+    },
+    {
+        "chipset":  "Quadro K1200",
+        "generation":  0,
+        "class":  "1200"
+    },
+    {
+        "chipset":  "GeForce GTX 1080 Ti",
+        "generation":  0,
+        "class":  "1080 Ti"
+    },
+    {
+        "chipset":  "GeForce GTX 1080",
+        "generation":  0,
+        "class":  "1080"
+    },
+    {
+        "chipset":  "GeForce GTX 1070 Ti",
+        "generation":  0,
+        "class":  "1070 Ti"
+    },
+    {
+        "chipset":  "GeForce GTX 1070",
+        "generation":  0,
+        "class":  "1070"
+    },
+    {
+        "chipset":  "GeForce GTX 1060 6GB",
+        "generation":  0,
+        "class":  "1060 6GB"
+    },
+    {
+        "chipset":  "GeForce GTX 1060 3GB",
+        "generation":  0,
+        "class":  "1060 3GB"
+    },
+    {
+        "chipset":  "GeForce GTX 1050 Ti",
+        "generation":  0,
+        "class":  "1050 Ti"
+    },
+    {
+        "chipset":  "GeForce GTX 1050",
+        "generation":  0,
+        "class":  "1050"
+    },
+    {
+        "chipset":  "GeForce GT 1030 DDR4",
+        "generation":  0,
+        "class":  "1030 DDR4"
+    },
+    {
+        "chipset":  "GeForce GT 1030",
+        "generation":  0,
+        "class":  "1030"
+    },
+    {
+        "chipset":  "T1000 8GB",
+        "generation":  0,
+        "class":  "1000 8GB"
+    },
+    {
+        "chipset":  "T1000 4GB",
+        "generation":  0,
+        "class":  "1000 4GB"
+    },
+    {
+        "chipset":  "RTX A1000",
+        "generation":  0,
+        "class":  "1000"
+    },
+    {
+        "chipset":  "Quadro P1000",
+        "generation":  0,
+        "class":  "1000"
+    },
+    {
+        "chipset":  "Quadro GP100",
+        "generation":  0,
+        "class":  "100"
+    },
+    {
+        "chipset":  "Quadro GV100",
+        "generation":  0,
+        "class":  "100"
+    },
+    {
+        "chipset":  "Titan X (Pascal)",
+        "generation":  0,
+        "class":  ""
+    },
+    {
+        "chipset":  "Vega Frontier Edition Liquid",
+        "generation":  0,
+        "class":  ""
+    },
+    {
+        "chipset":  "GeForce GTX Titan",
+        "generation":  0,
+        "class":  ""
+    },
+    {
+        "chipset":  "GeForce GTX Titan Black",
+        "generation":  0,
+        "class":  ""
+    },
+    {
+        "chipset":  "GeForce GTX Titan Z",
+        "generation":  0,
+        "class":  ""
+    },
+    {
+        "chipset":  "Titan V",
+        "generation":  0,
+        "class":  ""
+    },
+    {
+        "chipset":  "Radeon Pro Duo",
+        "generation":  0,
+        "class":  ""
+    },
+    {
+        "chipset":  "TITAN RTX",
+        "generation":  0,
+        "class":  ""
+    },
+    {
+        "chipset":  "Radeon Pro VII",
+        "generation":  0,
+        "class":  ""
+    },
+    {
+        "chipset":  "Titan Xp",
+        "generation":  0,
+        "class":  ""
+    },
+    {
+        "chipset":  "Radeon VII",
+        "generation":  0,
+        "class":  ""
+    },
+    {
+        "chipset":  "GeForce GTX Titan X",
+        "generation":  0,
+        "class":  ""
+    },
+    {
+        "chipset":  "Vega Frontier Edition",
+        "generation":  0,
+        "class":  ""
+    },
+    {
+        "chipset":  "Radeon Pro Duo Polaris",
+        "generation":  0,
+        "class":  ""
+    }
+]

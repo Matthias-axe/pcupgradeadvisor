@@ -1,0 +1,44 @@
+[
+    {
+        "socket":  "AM4",
+        "ramType":  "DDR4",
+        "cpuCount":  56,
+        "minRamSpeed":  31066,
+        "maxRamSpeed":  45333
+    },
+    {
+        "socket":  "LGA1700",
+        "ramType":  "DDR4",
+        "cpuCount":  18,
+        "minRamSpeed":  31066,
+        "maxRamSpeed":  45333
+    },
+    {
+        "socket":  "LGA1200",
+        "ramType":  "DDR4",
+        "cpuCount":  14,
+        "minRamSpeed":  31066,
+        "maxRamSpeed":  45333
+    },
+    {
+        "socket":  "LGA1151",
+        "ramType":  "DDR4",
+        "cpuCount":  26,
+        "minRamSpeed":  31066,
+        "maxRamSpeed":  45333
+    },
+    {
+        "socket":  "AM5",
+        "ramType":  "DDR5",
+        "cpuCount":  8,
+        "minRamSpeed":  54400,
+        "maxRamSpeed":  58400
+    },
+    {
+        "socket":  "LGA1700",
+        "ramType":  "DDR5",
+        "cpuCount":  38,
+        "minRamSpeed":  54400,
+        "maxRamSpeed":  58400
+    }
+]

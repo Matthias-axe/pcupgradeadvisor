@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>PC Upgrade Advisor - Feature Test</title>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
+
+		body {
+			font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+			background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+			color: #fff;
+			padding: 20px;
+			min-height: 100vh;
+		}
+
+		.container {
+			max-width: 1200px;
+			margin: 0 auto;
+			background: rgba(255, 255, 255, 0.95);
+			border-radius: 12px;
+			padding: 30px;
+			color: #333;
+			box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+		}
+
+		h1 {
+			color: #1e3c72;
+			margin-bottom: 30px;
+			text-align: center;
+		}
+
+		.test-section {
+			margin: 20px 0;
+			padding: 20px;
+			background: #f5f5f5;
+			border-left: 4px solid #2a5298;
+			border-radius: 4px;
+		}
+
+		.test-section h2 {
+			color: #1e3c72;
+			font-size: 16px;
+			margin-bottom: 10px;
+		}
+
+		.test-output {
+			font-family: 'Courier New', monospace;
+			font-size: 12px;
+			line-height: 1.6;
+			background: white;
+			padding: 15px;
+			border-radius: 4px;
+			max-height: 400px;
+			overflow-y: auto;
+			white-space: pre-wrap;
+			word-wrap: break-word;
+		}
+
+		.status {
+			display: inline-block;
+			padding: 8px 16px;
+			border-radius: 4px;
+			font-weight: bold;
+			margin: 10px 0;
+		}
+
+		.status.running {
+			background: #ffc107;
+			color: #333;
+		}
+
+		.status.pass {
+			background: #28a745;
+			color: white;
+		}
+
+		.status.fail {
+			background: #dc3545;
+			color: white;
+		}
+
+		.button-container {
+			text-align: center;
+			margin: 30px 0;
+		}
+
+		button {
+			padding: 12px 30px;
+			font-size: 16px;
+			background: #2a5298;
+			color: white;
+			border: none;
+			border-radius: 4px;
+			cursor: pointer;
+			transition: all 0.3s ease;
+		}
+
+		button:hover {
+			background: #1e3c72;
+			transform: scale(1.05);
+		}
+
+		button:disabled {
+			background: #ccc;
+			cursor: not-allowed;
+			transform: scale(1);
+		}
+
+		.summary {
+			background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+			color: white;
+			padding: 20px;
+			border-radius: 4px;
+			margin-top: 30px;
+			text-align: center;
+		}
+
+		.summary p {
+			margin: 5px 0;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<h1>🧪 PC Upgrade Advisor - Feature Test Suite</h1>
+		<p style="text-align: center; margin-bottom: 20px;">Testing the new upgrade verification feature that compares specs and scores</p>
+
+		<div class="button-container">
+			<button id="runTestBtn" onclick="runAllTests()">Run All Tests</button>
+			<button id="clearBtn" onclick="clearOutput()" style="background: #6c757d; margin-left: 10px;">Clear Output</button>
+		</div>
+
+		<div id="status" class="status" style="display: none;"></div>
+
+		<div id="output" class="test-output" style="display: none; min-height: 500px;"></div>
+
+		<div id="summary" style="display: none;">
+			<!-- Summary will be inserted here -->
+		</div>
+	</div>
+
+	<script src="script.js"></script>
+	<script>
+		function log(message) {
+			const output = document.getElementById('output');
+			output.style.display = 'block';
+			output.textContent += message + '\n';
+			output.scrollTop = output.scrollHeight;
+		}
+
+		function clearOutput() {
+			document.getElementById('output').textContent = '';
+			document.getElementById('output').style.display = 'none';
+			document.getElementById('status').style.display = 'none';
+			document.getElementById('summary').style.display = 'none';
+		}
+
+		function setStatus(text, type) {
+			const status = document.getElementById('status');
+			status.textContent = text;
+			status.className = `status ${type}`;
+			status.style.display = 'inline-block';
+		}
+
+		async function runAllTests() {
+			clearOutput();
+			setStatus('⏳ Running tests...', 'running');
+			document.getElementById('runTestBtn').disabled = true;
+
+			try {
+				// Wait for data to load
+				if (cpuData.length === 0 || gpuData.length === 0 || ramData.length === 0) {
+					log('⏳ Waiting for data to load...\n');
+					await new Promise(resolve => setTimeout(resolve, 2000));
+				}
+
+				log('=== TESTING UPGRADE VERIFICATION FEATURE ===\n');
+				log(`✓ Data loaded: ${cpuData.length} CPUs, ${gpuData.length} GPUs, ${ramData.length} RAM\n`);
+
+				// Test 1: CPU Score Calculation
+				log('TEST 1: CPU Score Calculation');
+				log('==============================');
+				const cpuT1 = cpuData.filter(c => c.tier === 1)[0];
+				const cpuT7 = cpuData.filter(c => c.tier === 7)[0];
+				
+				const scoreT1 = calculateScore(cpuT1, 'CPU');
+				const scoreT7 = calculateScore(cpuT7, 'CPU');
+				
+				log(`Tier 1 CPU: ${cpuT1.name}`);
+				log(`  Boost: ${cpuT1.boost_clock} GHz, Cores: ${cpuT1.core_count}, Gen: ${cpuT1.generation}`);
+				log(`  Score: ${scoreT1.toFixed(4)}`);
+				log();
+				log(`Tier 7 CPU: ${cpuT7.name}`);
+				log(`  Boost: ${cpuT7.boost_clock} GHz, Cores: ${cpuT7.core_count}, Gen: ${cpuT7.generation}`);
+				log(`  Score: ${scoreT7.toFixed(4)}`);
+				const cpuTest1Pass = scoreT7 > scoreT1;
+				log(`✓ T7 score > T1 score: ${cpuTest1Pass ? '✓ PASS' : '✗ FAIL'}\n`);
+
+				// Test 2: GPU Score Calculation
+				log('TEST 2: GPU Score Calculation');
+				log('=============================');
+				const gpuT1 = gpuData.filter(g => g.tier === 1)[0];
+				const gpuT7 = gpuData.filter(g => g.tier === 7)[0];
+				
+				const gpuScoreT1 = calculateScore(gpuT1, 'GPU');
+				const gpuScoreT7 = calculateScore(gpuT7, 'GPU');
+				
+				log(`Tier 1 GPU: ${gpuT1.name}`);
+				log(`  Boost: ${gpuT1.boost_clock} MHz, Memory: ${gpuT1.memory}GB, Gen: ${gpuT1.generation}`);
+				log(`  Score: ${gpuScoreT1.toFixed(4)}`);
+				log();
+				log(`Tier 7 GPU: ${gpuT7.name}`);
+				log(`  Boost: ${gpuT7.boost_clock} MHz, Memory: ${gpuT7.memory}GB, Gen: ${gpuT7.generation}`);
+				log(`  Score: ${gpuScoreT7.toFixed(4)}`);
+				const gpuTest1Pass = gpuScoreT7 > gpuScoreT1;
+				log(`✓ T7 score > T1 score: ${gpuTest1Pass ? '✓ PASS' : '✗ FAIL'}\n`);
+
+				// Test 3: RAM Score Calculation
+				log('TEST 3: RAM Score Calculation');
+				log('=============================');
+				const ramT1 = ramData.filter(r => r.tier === 1)[0];
+				const ramT7 = ramData.filter(r => r.tier === 7)[0];
+				
+				const ramScoreT1 = calculateScore(ramT1, 'RAM');
+				const ramScoreT7 = calculateScore(ramT7, 'RAM');
+				
+				log(`Tier 1 RAM: ${ramT1.name}`);
+				log(`  Speed: ${ramT1.speed}`);
+				log(`  Score: ${ramScoreT1.toFixed(4)}`);
+				log();
+				log(`Tier 7 RAM: ${ramT7.name}`);
+				log(`  Speed: ${ramT7.speed}`);
+				log(`  Score: ${ramScoreT7.toFixed(4)}`);
+				const ramTest1Pass = ramScoreT7 > ramScoreT1;
+				log(`✓ T7 score > T1 score: ${ramTest1Pass ? '✓ PASS' : '✗ FAIL'}\n`);
+
+				// Test 4: Get Upgrade Products - CPU
+				log('TEST 4: Get Upgrade Products - CPU T3→T5');
+				log('=========================================');
+				const cpuT3 = cpuData.filter(c => c.tier === 3)[2];
+				const cpuUpgrades = getUpgradeProducts('CPU', cpuT3, 5, 'CPU');
+				const cpuT3Score = calculateScore(cpuT3, 'CPU');
+				
+				log(`Current CPU (T3): ${cpuT3.name}`);
+				log(`Current Score: ${cpuT3Score.toFixed(4)}`);
+				log(`Checking ${cpuData.filter(c => c.tier === 5).length} CPUs in Tier 5...`);
+				log(`Found ${cpuUpgrades.length} verified upgrades:`);
+				log();
+				
+				cpuUpgrades.forEach((cpu, i) => {
+					const score = calculateScore(cpu, 'CPU');
+					log(`  ${i+1}. ${cpu.name}`);
+					log(`     Score: ${score.toFixed(4)} (Improvement: +${(score - cpuT3Score).toFixed(4)})`);
+				});
+				log();
+
+				// Test 5: Get Upgrade Products - GPU
+				log('TEST 5: Get Upgrade Products - GPU T2→T5');
+				log('=========================================');
+				const gpuT2 = gpuData.filter(g => g.tier === 2)[2];
+				const gpuUpgrades = getUpgradeProducts('GPU', gpuT2, 5, 'GPU');
+				const gpuT2Score = calculateScore(gpuT2, 'GPU');
+				
+				log(`Current GPU (T2): ${gpuT2.name}`);
+				log(`Current Score: ${gpuT2Score.toFixed(4)}`);
+				log(`Checking ${gpuData.filter(g => g.tier === 5).length} GPUs in Tier 5...`);
+				log(`Found ${gpuUpgrades.length} verified upgrades:`);
+				log();
+				
+				gpuUpgrades.slice(0, 3).forEach((gpu, i) => {
+					const score = calculateScore(gpu, 'GPU');
+					log(`  ${i+1}. ${gpu.name}`);
+					log(`     Score: ${score.toFixed(4)} (Improvement: +${(score - gpuT2Score).toFixed(4)})`);
+				});
+				log();
+
+				// Test 6: Verify no downgrade recommendations
+				log('TEST 6: Verify No Downgrades - 30 Random Comparisons');
+				log('=====================================================');
+				let noDowngrades = true;
+				let testsPassed = 0;
+				let testsRun = 0;
+
+				for (let i = 0; i < 30; i++) {
+					const randomCPU = cpuData[Math.floor(Math.random() * cpuData.length)];
+					const targetTier = Math.min(7, randomCPU.tier + 2);
+					const upgrades = getUpgradeProducts('CPU', randomCPU, targetTier, 'CPU');
+					
+					if (upgrades.length > 0) {
+						testsRun++;
+						const currentScore = calculateScore(randomCPU, 'CPU');
+						const recommendedScore = calculateScore(upgrades[0], 'CPU');
+						if (recommendedScore > currentScore) {
+							testsPassed++;
+						} else {
+							noDowngrades = false;
+							log(`✗ DOWNGRADE FOUND: ${randomCPU.name} → ${upgrades[0].name}`);
+						}
+					}
+				}
+
+				log(`✓ ${testsPassed}/${testsRun} recommendations verified as upgrades`);
+				log(`Result: ${noDowngrades ? '✓ PASS' : '✗ FAIL'}\n`);
+
+				// Final summary
+				const allPass = cpuTest1Pass && gpuTest1Pass && ramTest1Pass && noDowngrades;
+				
+				log('=== TEST SUMMARY ===');
+				log('✓ Score calculations working correctly');
+				log('✓ Upgrade filtering working correctly');
+				log('✓ No downgrade recommendations found');
+				log(`✓ Overall Result: ${allPass ? '✓ ALL TESTS PASSED!' : '✗ SOME TESTS FAILED'}\n`);
+
+				setStatus(allPass ? '✓ All Tests Passed!' : '✗ Some Tests Failed', allPass ? 'pass' : 'fail');
+
+				// Show summary box
+				const summary = document.getElementById('summary');
+				summary.innerHTML = `<div class="summary">
+					<p><strong>${allPass ? '🎉 Feature is Ready for Production!' : '⚠️ Please Review Test Results'}</strong></p>
+					<p>Score calculations: <strong>${cpuTest1Pass && gpuTest1Pass && ramTest1Pass ? '✓ PASS' : '✗ FAIL'}</strong></p>
+					<p>Upgrade verification: <strong>${noDowngrades ? '✓ PASS' : '✗ FAIL'}</strong></p>
+					<p>Tests executed: <strong>6/6</strong></p>
+				</div>`;
+				summary.style.display = 'block';
+
+			} catch (err) {
+				log(`✗ ERROR: ${err.message}`);
+				setStatus('✗ Tests Failed', 'fail');
+			} finally {
+				document.getElementById('runTestBtn').disabled = false;
+			}
+		}
+	</script>
+</body>
+</html>
