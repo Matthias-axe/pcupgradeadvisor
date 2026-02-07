@@ -519,6 +519,58 @@ html[data-theme='dark'] .analysis-card {
 	color: var(--accent-gold);
 }
 
+.balanced-guidance {
+	margin-top: 12px;
+	background: rgba(212, 165, 116, 0.08);
+	border: 1px solid var(--accent-gold);
+	border-radius: 4px;
+	padding: 14px 16px;
+	font-size: 0.92em;
+	color: var(--accent-cream);
+}
+
+html[data-theme='dark'] .balanced-guidance {
+	background: rgba(109, 184, 118, 0.06);
+	border-color: var(--accent-green);
+}
+
+.balanced-guidance ul {
+	margin: 10px 0 0 18px;
+	padding: 0;
+}
+
+.balanced-choice {
+	margin-top: 12px;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 10px;
+	align-items: center;
+}
+
+.balanced-choice-btn {
+	background: transparent;
+	border: 2px solid var(--accent-gold);
+	color: var(--accent-cream);
+	padding: 6px 12px;
+	border-radius: 4px;
+	font-weight: 600;
+	cursor: pointer;
+	transition: all 0.3s ease;
+}
+
+html[data-theme='dark'] .balanced-choice-btn {
+	border-color: var(--accent-green);
+}
+
+.balanced-choice-btn:hover {
+	border-color: var(--accent-cream);
+	color: var(--accent-gold);
+}
+
+html[data-theme='dark'] .balanced-choice-btn:hover {
+	color: var(--accent-green);
+}
+
 .tier-comparison {
 	margin-top: 16px;
 	display: grid;

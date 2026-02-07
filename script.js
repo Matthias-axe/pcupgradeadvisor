@@ -32,6 +32,9 @@ let selectedCPU = null;
 let selectedGPU = null;
 let selectedRAM = null;
 
+let lastAnalysisState = null;
+let balancedUpgradeChoice = null;
+
 // Tier mapping system to align component tiers for balanced systems
 // Maps original tier (1-7) to display tier (can use fractional values)
 // Based on real-world balanced pairings
@@ -1059,37 +1062,31 @@ function analyzeSystem() {
 
 	// Detect bottleneck
 	const tiers = { CPU: cpuTier, GPU: gpuTier, RAM: ramTier };
-	
-	// RAM tier 4+ is considered sufficient, so exclude from bottleneck detection
-	const ramIsSufficient = ramTier >= RAM_GOOD_ENOUGH_TIER;
-	const minTier = ramIsSufficient ? Math.min(cpuTier, gpuTier) : Math.min(cpuTier, gpuTier, ramTier);
-	let bottleneckComponent = null;
-
-	if (ramIsSufficient) {
-		// Only compare CPU vs GPU if RAM is sufficient
-		if (cpuTier === minTier && cpuTier < gpuTier) bottleneckComponent = 'CPU';
-		else if (gpuTier === minTier && gpuTier < cpuTier) bottleneckComponent = 'GPU';
-	} else {
-		// Include RAM in bottleneck detection
-		if (cpuTier === minTier && (cpuTier < gpuTier || cpuTier < ramTier)) bottleneckComponent = 'CPU';
-		else if (gpuTier === minTier && (gpuTier < cpuTier || gpuTier < ramTier)) bottleneckComponent = 'GPU';
-		else if (ramTier === minTier && (ramTier < cpuTier || ramTier < gpuTier)) bottleneckComponent = 'RAM';
-	}
+	let bottleneckComponent = getBottleneckComponent(cpuTier, gpuTier, ramTier);
 
 	// Display bottleneck analysis
 	displayBottleneckAnalysis(tiers, bottleneckComponent);
 
-	// Get recommendations
-	if (!bottleneckComponent) {
-		// System is balanced
-		bottleneckComponent = 'CPU'; // Default to CPU for balanced systems
-	}
+	// Store analysis state for follow-up actions
+	lastAnalysisState = {
+		cpuTier,
+		gpuTier,
+		ramTier,
+		tiers,
+		advancement
+	};
 
-	const suggestedAdvancement = getSuggestedAdvancement(cpuTier, gpuTier, bottleneckComponent);
+	const suggestedAdvancement = getSuggestedAdvancement(cpuTier, gpuTier, bottleneckComponent || 'CPU');
 	updateSuggestedUpgradeUI(suggestedAdvancement);
 
-	const recommendedTier = getNextAvailableTier(tiers[bottleneckComponent], bottleneckComponent, advancement);
-	displayRecommendations(bottleneckComponent, tiers[bottleneckComponent], recommendedTier, cpuTier, advancement);
+	if (bottleneckComponent) {
+		const recommendedTier = getNextAvailableTier(tiers[bottleneckComponent], bottleneckComponent, advancement);
+		displayRecommendations(bottleneckComponent, tiers[bottleneckComponent], recommendedTier, cpuTier, advancement);
+	} else {
+		balancedUpgradeChoice = null;
+		document.getElementById('recommendationCard').innerHTML = '<h3>Recommended Upgrade</h3><p>No bottleneck detected. Choose a component below to see upgrade recommendations.</p>';
+		document.getElementById('productsSection').innerHTML = '';
+	}
 
 	// Show results section
 	document.getElementById('resultsSection').classList.remove('hidden');
@@ -1115,7 +1112,22 @@ function displayBottleneckAnalysis(tiers, bottleneck) {
 		html += `
 			<div style="text-align: center; padding: 20px;">
 				<div class="balanced-indicator">✓ System Perfectly Balanced</div>
-				<p>Your system is balanced.</p>
+				<p>No bottleneck detected.</p>
+			</div>
+			<div class="balanced-guidance">
+				<p><strong>Need help choosing?</strong></p>
+				<ul>
+					<li>Do I want more FPS or better graphics? → <strong>GPU</strong></li>
+					<li>Do I want smoother performance and fewer stutters? → <strong>CPU</strong></li>
+					<li>Does my system feel slow when multitasking or loading? → <strong>RAM</strong></li>
+					<li>Does Task Manager show one part pegged at 100%? → Upgrade that part</li>
+				</ul>
+				<div class="balanced-choice">
+					<span>Choose a component to upgrade:</span>
+					<button type="button" class="balanced-choice-btn" data-upgrade-target="CPU">CPU</button>
+					<button type="button" class="balanced-choice-btn" data-upgrade-target="GPU">GPU</button>
+					<button type="button" class="balanced-choice-btn" data-upgrade-target="RAM">RAM</button>
+				</div>
 			</div>
 		`;
 	} else {
@@ -1151,6 +1163,18 @@ function displayBottleneckAnalysis(tiers, bottleneck) {
 		</div>`;
 
 	card.innerHTML = html;
+
+	const choiceButtons = card.querySelectorAll('[data-upgrade-target]');
+	if (choiceButtons.length > 0 && lastAnalysisState) {
+		choiceButtons.forEach((button) => {
+			button.addEventListener('click', () => {
+				const target = button.dataset.upgradeTarget;
+				balancedUpgradeChoice = target;
+				const recommendedTier = getNextAvailableTier(lastAnalysisState.tiers[target], target, lastAnalysisState.advancement);
+				displayRecommendations(target, lastAnalysisState.tiers[target], recommendedTier, lastAnalysisState.cpuTier, lastAnalysisState.advancement);
+			});
+		});
+	}
 }
 
 // Calculate component score based on specs (same formula as backend)
