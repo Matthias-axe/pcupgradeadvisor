@@ -1411,6 +1411,7 @@ function createProductCard(product, component, rank, cpuTier) {
 // Initialize on page load
 document.addEventListener('DOMContentLoaded', () => {
 	initTheme();
+	setupFooterPanel();
 	loadData();
 	document.getElementById('themeToggle').addEventListener('click', toggleTheme);
 	document.getElementById('analyzeBtn').addEventListener('click', analyzeSystem);
@@ -1433,6 +1434,4 @@ function displayNextSteps(component, currentRecommendation, previousTier, cpuTie
 	section.innerHTML = html;
 }
 
-// Initialize on page load
-window.addEventListener('DOMContentLoaded', loadData);
 
