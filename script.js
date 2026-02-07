@@ -1408,6 +1408,7 @@ function createProductCard(product, component, rank, cpuTier) {
 	}
 
 	html += `
+		<div class="product-note">Affiliate links coming soon.</div>
 	</div>`;
 
 	return html;
