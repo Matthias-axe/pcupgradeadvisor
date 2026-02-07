@@ -895,11 +895,12 @@ function setupEventListeners() {
 function displayComponentInfo(type, component) {
 	let html = '';
 	const targetDiv = document.getElementById(`${type}Info`);
+	const tierValue = getDisplayTier(component, type);
 
 	if (type === 'cpu') {
-		html = `${component.core_count} cores | ${parseFloat(component.boost_clock).toFixed(2)} GHz`;
+		html = `Tier ${tierValue} | ${component.core_count} cores | ${parseFloat(component.boost_clock).toFixed(2)} GHz`;
 	} else if (type === 'gpu') {
-		html = `${component.memory}GB VRAM | ${component.chipset}`;
+		html = `Tier ${tierValue} | ${component.memory}GB VRAM | ${component.chipset}`;
 	} else {
 		// Extract module info and treat 8x kits as 4x (motherboard limitation)
 		const moduleParts = component.modules.split(',');
@@ -909,7 +910,7 @@ function displayComponentInfo(type, component) {
 			moduleCount = 4; // Motherboards typically only have 4 slots
 		}
 		const moduleDisplay = `${moduleCount}x${moduleCapacity}GB`;
-		html = `${component.speed} | ${moduleDisplay}`;
+		html = `Tier ${tierValue} | ${component.speed} | ${moduleDisplay}`;
 	}
 
 	targetDiv.innerHTML = html;
@@ -959,6 +960,50 @@ function getNextAvailableTier(currentTier, component, advancement) {
 	return targetTier;
 }
 
+const ADVANCEMENT_LABELS = {
+	1: 'Small',
+	2: 'Medium',
+	3: 'Large',
+	max: 'Extreme'
+};
+
+function getSuggestedAdvancement(cpuTier, gpuTier, bottleneckComponent) {
+	const options = ['1', '2', '3'];
+	if (bottleneckComponent === 'CPU') {
+		const maxTarget = gpuTier + 1;
+		const candidates = options
+			.map(value => ({ value, target: getNextAvailableTier(cpuTier, 'CPU', value) }))
+			.filter(entry => entry.target <= maxTarget && entry.target > cpuTier);
+		return candidates.length ? candidates[candidates.length - 1].value : '1';
+	}
+	if (bottleneckComponent === 'GPU') {
+		const maxTarget = cpuTier + 1;
+		const candidates = options
+			.map(value => ({ value, target: getNextAvailableTier(gpuTier, 'GPU', value) }))
+			.filter(entry => entry.target <= maxTarget && entry.target > gpuTier);
+		return candidates.length ? candidates[candidates.length - 1].value : '1';
+	}
+
+	return '1';
+}
+
+function updateSuggestedUpgradeUI(suggestedValue) {
+	const suggestedEl = document.getElementById('suggestedUpgrade');
+	const labelEl = document.getElementById('suggestedUpgradeLabel');
+	const useBtn = document.getElementById('useSuggestedUpgrade');
+
+	if (!suggestedEl || !labelEl || !useBtn) return;
+	const label = ADVANCEMENT_LABELS[suggestedValue] || 'Small';
+	labelEl.textContent = label;
+	suggestedEl.classList.remove('hidden');
+	useBtn.onclick = () => {
+		const target = document.querySelector(`input[name="advancement"][value="${suggestedValue}"]`);
+		if (target) {
+			target.checked = true;
+		}
+	};
+}
+
 // Main analysis function
 function analyzeSystem() {
 	// Check if all components are selected
@@ -1001,6 +1046,9 @@ function analyzeSystem() {
 		bottleneckComponent = 'CPU'; // Default to CPU for balanced systems
 	}
 
+	const suggestedAdvancement = getSuggestedAdvancement(cpuTier, gpuTier, bottleneckComponent);
+	updateSuggestedUpgradeUI(suggestedAdvancement);
+
 	const recommendedTier = getNextAvailableTier(tiers[bottleneckComponent], bottleneckComponent, advancement);
 	displayRecommendations(bottleneckComponent, tiers[bottleneckComponent], recommendedTier, cpuTier, advancement);
 
@@ -1036,6 +1084,11 @@ function displayBottleneckAnalysis(tiers, bottleneck) {
 		html += `<p><div class="bottleneck-indicator">⚠️ Bottleneck: ${bottleneck}</div></p>`;
 		html += `<p>Your <strong>${bottleneck}</strong> is limiting performance. Upgrading it will give the most noticeable improvement.</p>`;
 	}
+
+	html += `
+		<div class="product-note">
+			<strong>Current tiers:</strong> CPU ${tiers.CPU} | GPU ${tiers.GPU} | RAM ${tiers.RAM}
+		</div>`;
 
 	card.innerHTML = html;
 }
@@ -1289,9 +1342,11 @@ function createProductCard(product, component, rank, cpuTier) {
 	const effort = getUpgradeEffort(component, product);
 	const affiliateTag = 'pcupgradead02-21';
 	const getAmazonSearchUrl = (query) => `https://www.amazon.com/s?k=${encodeURIComponent(query)}&tag=${affiliateTag}`;
+	const tierValue = getDisplayTier(product, component.toLowerCase());
 	let html = `<div class="product-card">
 		<div class="product-rank">#${rank} Pick</div>
 		<div class="product-name">${product.name}</div>`;
+	html += `<div class="tier-badge">Tier ${tierValue}</div>`;
 
 	html += `
 		<div class="product-effort ${effort.requiredLevel}">
