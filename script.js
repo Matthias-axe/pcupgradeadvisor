@@ -1287,6 +1287,7 @@ function displayRecommendations(component, currentTier, recommendedTier, cpuTier
 // Create a product card
 function createProductCard(product, component, rank, cpuTier) {
 	const effort = getUpgradeEffort(component, product);
+	const affiliateTag = 'pcupgradead02-21';
 	let html = `<div class="product-card">
 		<div class="product-rank">#${rank} Pick</div>
 		<div class="product-name">${product.name}</div>`;
@@ -1407,8 +1408,9 @@ function createProductCard(product, component, rank, cpuTier) {
 		});
 	}
 
+	const searchUrl = `https://www.amazon.com/s?k=${encodeURIComponent(product.name)}&tag=${affiliateTag}`;
 	html += `
-		<div class="product-note">Affiliate links coming soon.</div>
+		<a class="product-link" href="${searchUrl}" target="_blank" rel="noopener noreferrer nofollow sponsored">View on Amazon</a>
 	</div>`;
 
 	return html;
