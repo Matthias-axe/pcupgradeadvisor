@@ -692,7 +692,15 @@ function filterRAM() {
 	const ramSelect = document.getElementById('ramSelect');
 	if (!ramSelect) return;
 	ramSelect.innerHTML = '<option value="">Select your RAM...</option>';
-	filtered.forEach(ram => {
+	const uniqueMap = new Map();
+	filtered.forEach((ram) => {
+		const key = `${ram.name}|${ram.modules}|${ram.speed || ''}|${ram.generation}`;
+		if (!uniqueMap.has(key)) {
+			uniqueMap.set(key, ram);
+		}
+	});
+
+	uniqueMap.forEach((ram) => {
 		const idx = ramData.indexOf(ram);
 		const option = document.createElement('option');
 		option.value = idx;
@@ -749,6 +757,67 @@ function populateDropdowns() {
 
 	// RAM Dropdown
 	filterRAM();
+}
+
+// Footer info panel setup
+function setupFooterPanel() {
+	const panel = document.getElementById('footerPanel');
+	const titleEl = document.getElementById('footerPanelTitle');
+	const bodyEl = document.getElementById('footerPanelBody');
+	const closeBtn = document.getElementById('footerPanelClose');
+	const buttons = document.querySelectorAll('[data-footer-panel]');
+
+	if (!panel || !titleEl || !bodyEl || buttons.length === 0) return;
+
+	const contentMap = {
+		about: {
+			title: 'About',
+			body: '<p><strong>About PC Upgrade Advisor</strong></p>' +
+				'<p>PC Upgrade Advisor is an independent, one-person project designed to help users make informed PC hardware upgrade decisions.</p>' +
+				'<p>All recommendations are based solely on technical specifications and performance data. This site does not accept sponsored placements or paid product promotions.</p>' +
+				'<p><strong>Contact</strong><br />If you experience issues or have questions, you can reach us at:<br /><a href="mailto:pcupgradeadvisor@gmail.com">pcupgradeadvisor@gmail.com</a></p>'
+		},
+		privacy: {
+			title: 'Privacy Policy',
+			body: '<p><strong>Privacy Policy</strong></p>' +
+				'<p>PC Upgrade Advisor respects your privacy.</p>' +
+				'<p>We do not collect personal information, do not require user accounts, and do not sell user data.</p>' +
+				'<p><strong>Affiliate Links</strong><br />This website contains affiliate links. When you click these links, third-party platforms such as Amazon may place cookies on your device to track purchases. We do not control these cookies.</p>' +
+				'<p><strong>Third-Party Services</strong><br />We may link to third-party websites (such as Amazon). Their privacy practices are governed by their own policies.</p>' +
+				'<p><strong>Contact</strong><br />If you have any questions about this Privacy Policy, you can contact us at:<br /><a href="mailto:pcupgradeadvisor@gmail.com">pcupgradeadvisor@gmail.com</a></p>'
+		}
+	};
+
+	const closePanel = () => {
+		panel.classList.add('hidden');
+		panel.setAttribute('aria-hidden', 'true');
+		panel.dataset.activeKey = '';
+	};
+
+	const openPanel = (key) => {
+		const content = contentMap[key];
+		if (!content) return;
+
+		const isOpen = !panel.classList.contains('hidden');
+		if (isOpen && panel.dataset.activeKey === key) {
+			closePanel();
+			return;
+		}
+
+		panel.dataset.activeKey = key;
+		titleEl.textContent = content.title;
+		bodyEl.innerHTML = content.body;
+		panel.classList.remove('hidden');
+		panel.setAttribute('aria-hidden', 'false');
+	};
+
+	buttons.forEach((button) => {
+		button.addEventListener('click', () => openPanel(button.dataset.footerPanel));
+	});
+
+	if (closeBtn) {
+		closeBtn.addEventListener('click', closePanel);
+	}
 }
 
 // Setup event listeners
@@ -810,6 +879,9 @@ function setupEventListeners() {
 
 	// Analyze button
 	document.getElementById('analyzeBtn').addEventListener('click', analyzeSystem);
+
+	// Footer info panel
+	setupFooterPanel();
 }
 
 // Display component information

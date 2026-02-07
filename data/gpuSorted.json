@@ -1,4 +1,4 @@
-[
+﻿[
     {
         "name":  "Gigabyte WINDFORCE",
         "chipset":  "GeForce RTX 4090",
@@ -295,18 +295,6 @@
         "boost_clock":  2550,
         "color":  "White",
         "length":  358,
-        "generation":  10.7,
-        "tdp":  450,
-        "tier":  7
-    },
-    {
-        "name":  "Inno3D AX Gaming X3W",
-        "chipset":  "GeForce RTX 4090",
-        "memory":  24,
-        "core_clock":  2235,
-        "boost_clock":  2550,
-        "color":  "White / Blue",
-        "length":  336,
         "generation":  10.7,
         "tdp":  450,
         "tier":  7
@@ -3384,18 +3372,6 @@
         "tier":  6
     },
     {
-        "name":  "Inno3D AX Gaming X3W",
-        "chipset":  "GeForce RTX 4080",
-        "memory":  16,
-        "core_clock":  2205,
-        "boost_clock":  2505,
-        "color":  "White / Blue",
-        "length":  337,
-        "generation":  10.6,
-        "tdp":  320,
-        "tier":  6
-    },
-    {
         "name":  "Asus ROG STRIX GAMING",
         "chipset":  "GeForce RTX 4080",
         "memory":  16,
@@ -5256,18 +5232,6 @@
         "tier":  7
     },
     {
-        "name":  "Sapphire TOXIC Limited Edition",
-        "chipset":  "Radeon RX 6900 XT",
-        "memory":  16,
-        "core_clock":  1825,
-        "boost_clock":  2600,
-        "color":  "Black",
-        "length":  270,
-        "generation":  9.6,
-        "tdp":  300,
-        "tier":  7
-    },
-    {
         "name":  "Sapphire Toxic Extreme Edition",
         "chipset":  "Radeon RX 6900 XT",
         "memory":  16,
@@ -5362,18 +5326,6 @@
         "generation":  10.1,
         "tdp":  115,
         "tier":  3
-    },
-    {
-        "name":  "Sapphire TOXIC Limited Edition",
-        "chipset":  "Radeon RX 6900 XT",
-        "memory":  16,
-        "core_clock":  1825,
-        "boost_clock":  2600,
-        "color":  "Black",
-        "length":  270,
-        "generation":  9.6,
-        "tdp":  300,
-        "tier":  7
     },
     {
         "name":  "PNY VERTO",
@@ -9576,18 +9528,6 @@
         "tier":  5
     },
     {
-        "name":  "XFX Swift OC",
-        "chipset":  "Radeon RX 9060 XT",
-        "memory":  8,
-        "core_clock":  2220,
-        "boost_clock":  3320,
-        "color":  "Black",
-        "length":  270,
-        "generation":  13.3,
-        "tdp":  190,
-        "tier":  3
-    },
-    {
         "name":  "ASRock Steel Legend OC",
         "chipset":  "Radeon RX 9060 XT",
         "memory":  8,
@@ -9703,30 +9643,6 @@
         "boost_clock":  3320,
         "color":  "Black",
         "length":  290,
-        "generation":  13.3,
-        "tdp":  190,
-        "tier":  5
-    },
-    {
-        "name":  "XFX Swift OC",
-        "chipset":  "Radeon RX 9060 XT",
-        "memory":  16,
-        "core_clock":  2220,
-        "boost_clock":  3320,
-        "color":  "Black",
-        "length":  290,
-        "generation":  13.3,
-        "tdp":  190,
-        "tier":  5
-    },
-    {
-        "name":  "XFX Mercury OC",
-        "chipset":  "Radeon RX 9060 XT",
-        "memory":  16,
-        "core_clock":  2220,
-        "boost_clock":  3320,
-        "color":  "Black / Silver",
-        "length":  320,
         "generation":  13.3,
         "tdp":  190,
         "tier":  5
@@ -11227,18 +11143,6 @@
         "boost_clock":  2535,
         "color":  "Black / Silver",
         "length":  197,
-        "generation":  12.3,
-        "tdp":  170,
-        "tier":  3
-    },
-    {
-        "name":  "Inno3D Twin X2 OC",
-        "chipset":  "GeForce RTX 5060",
-        "memory":  8,
-        "core_clock":  2280,
-        "boost_clock":  2527,
-        "color":  "Black / Silver",
-        "length":  250,
         "generation":  12.3,
         "tdp":  170,
         "tier":  3
@@ -13087,18 +12991,6 @@
         "boost_clock":  "",
         "color":  "Black",
         "length":  300,
-        "generation":  8.7,
-        "tdp":  370,
-        "tier":  7
-    },
-    {
-        "name":  "PNY XLR8 Gaming EPIC-X RGB",
-        "chipset":  "GeForce RTX 3090",
-        "memory":  24,
-        "core_clock":  1395,
-        "boost_clock":  1695,
-        "color":  "Black",
-        "length":  294,
         "generation":  8.7,
         "tdp":  370,
         "tier":  7
@@ -15768,18 +15660,6 @@
         "tier":  5
     },
     {
-        "name":  "Inno3D AX Gaming X3W",
-        "chipset":  "GeForce RTX 3070 Ti",
-        "memory":  8,
-        "core_clock":  1575,
-        "boost_clock":  1770,
-        "color":  "White / Blue",
-        "length":  293,
-        "generation":  8.5,
-        "tdp":  290,
-        "tier":  5
-    },
-    {
         "name":  "EVGA XC3 ULTRA GAMING",
         "chipset":  "GeForce RTX 3070",
         "memory":  8,
@@ -17815,18 +17695,6 @@
         "boost_clock":  1777,
         "color":  "Black",
         "length":  235,
-        "generation":  8.3,
-        "tdp":  170,
-        "tier":  3
-    },
-    {
-        "name":  "Gigabyte EAGLE",
-        "chipset":  "GeForce RTX 3060 12GB",
-        "memory":  12,
-        "core_clock":  1320,
-        "boost_clock":  1777,
-        "color":  "Black",
-        "length":  242,
         "generation":  8.3,
         "tdp":  170,
         "tier":  3
@@ -24024,18 +23892,6 @@
         "tier":  4
     },
     {
-        "name":  "XFX THICC II Pro",
-        "chipset":  "Radeon RX 5600 XT",
-        "memory":  6,
-        "core_clock":  1247,
-        "boost_clock":  1620,
-        "color":  "Black",
-        "length":  280,
-        "generation":  7.2,
-        "tdp":  75,
-        "tier":  2
-    },
-    {
         "name":  "MSI GeForce RTX 2080 Ti SEA HAWK X",
         "chipset":  "GeForce RTX 2080 Ti",
         "memory":  11,
@@ -25368,18 +25224,6 @@
         "tier":  3
     },
     {
-        "name":  "XFX RAW II",
-        "chipset":  "Radeon RX 5700 XT",
-        "memory":  8,
-        "core_clock":  1605,
-        "boost_clock":  1905,
-        "color":  "Black",
-        "length":  278,
-        "generation":  7.5,
-        "tdp":  75,
-        "tier":  3
-    },
-    {
         "name":  "VisionTek 901280",
         "chipset":  "Radeon RX 5700 XT",
         "memory":  8,
@@ -25584,31 +25428,7 @@
         "tier":  2
     },
     {
-        "name":  "XFX THICC II Pro",
-        "chipset":  "Radeon RX 5600 XT",
-        "memory":  6,
-        "core_clock":  1247,
-        "boost_clock":  1620,
-        "color":  "Black",
-        "length":  280,
-        "generation":  7.2,
-        "tdp":  75,
-        "tier":  2
-    },
-    {
         "name":  "XFX THICC III Ultra",
-        "chipset":  "Radeon RX 5600 XT",
-        "memory":  6,
-        "core_clock":  1247,
-        "boost_clock":  1750,
-        "color":  "Black",
-        "length":  326,
-        "generation":  7.2,
-        "tdp":  75,
-        "tier":  2
-    },
-    {
-        "name":  "XFX THICC III Pro",
         "chipset":  "Radeon RX 5600 XT",
         "memory":  6,
         "core_clock":  1247,
@@ -25644,18 +25464,6 @@
         "tier":  2
     },
     {
-        "name":  "XFX THICC III Ultra",
-        "chipset":  "Radeon RX 5600 XT",
-        "memory":  6,
-        "core_clock":  1247,
-        "boost_clock":  1750,
-        "color":  "Black",
-        "length":  326,
-        "generation":  7.2,
-        "tdp":  75,
-        "tier":  2
-    },
-    {
         "name":  "PowerColor Red Dragon",
         "chipset":  "Radeon RX 5700",
         "memory":  8,
@@ -25675,18 +25483,6 @@
         "boost_clock":  1620,
         "color":  "Black / Silver",
         "length":  240,
-        "generation":  7.2,
-        "tdp":  75,
-        "tier":  2
-    },
-    {
-        "name":  "XFX THICC III Pro",
-        "chipset":  "Radeon RX 5600 XT",
-        "memory":  6,
-        "core_clock":  1247,
-        "boost_clock":  1750,
-        "color":  "Black",
-        "length":  326,
         "generation":  7.2,
         "tdp":  75,
         "tier":  2
@@ -26086,18 +25882,6 @@
         "generation":  6.5,
         "tdp":  75,
         "tier":  3
-    },
-    {
-        "name":  "XFX THICC III Ultra",
-        "chipset":  "Radeon RX 5600 XT",
-        "memory":  6,
-        "core_clock":  1247,
-        "boost_clock":  1750,
-        "color":  "Black",
-        "length":  326,
-        "generation":  7.2,
-        "tdp":  75,
-        "tier":  2
     },
     {
         "name":  "Zotac GAMING AMP",
@@ -27876,18 +27660,6 @@
         "tier":  3
     },
     {
-        "name":  "Asus DUAL EVO OC",
-        "chipset":  "GeForce RTX 2080 SUPER",
-        "memory":  8,
-        "core_clock":  1650,
-        "boost_clock":  1860,
-        "color":  "Black",
-        "length":  267,
-        "generation":  6.6,
-        "tdp":  75,
-        "tier":  3
-    },
-    {
         "name":  "KFA2 EX",
         "chipset":  "GeForce RTX 2080 SUPER",
         "memory":  8,
@@ -28212,18 +27984,6 @@
         "tier":  3
     },
     {
-        "name":  "Gigabyte WINDFORCE 2X",
-        "chipset":  "GeForce RTX 2070",
-        "memory":  8,
-        "core_clock":  1410,
-        "boost_clock":  1620,
-        "color":  "Black",
-        "length":  265,
-        "generation":  6.5,
-        "tdp":  75,
-        "tier":  3
-    },
-    {
         "name":  "Gigabyte GAMING OC 3X",
         "chipset":  "GeForce RTX 2070 SUPER",
         "memory":  8,
@@ -28243,18 +28003,6 @@
         "boost_clock":  1650,
         "color":  "Black / Silver",
         "length":  211,
-        "generation":  6.5,
-        "tdp":  75,
-        "tier":  3
-    },
-    {
-        "name":  "MSI GAMING Z TRIO",
-        "chipset":  "GeForce RTX 2070 SUPER",
-        "memory":  8,
-        "core_clock":  1605,
-        "boost_clock":  1815,
-        "color":  "Black / Silver",
-        "length":  328,
         "generation":  6.5,
         "tdp":  75,
         "tier":  3
