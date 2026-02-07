@@ -1407,9 +1407,7 @@ function createProductCard(product, component, rank, cpuTier) {
 		});
 	}
 
-	// Product link placeholder (will be filled in when links are added)
 	html += `
-		<a href="#" class="product-link">View Product on Amazon</a>
 	</div>`;
 
 	return html;
