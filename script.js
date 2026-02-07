@@ -809,6 +809,7 @@ function setupFooterPanel() {
 		bodyEl.innerHTML = content.body;
 		panel.classList.remove('hidden');
 		panel.setAttribute('aria-hidden', 'false');
+		panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
 	};
 
 	buttons.forEach((button) => {
