@@ -820,6 +820,12 @@ function setupFooterPanel() {
 	}
 }
 
+if (document.readyState !== 'loading') {
+	setupFooterPanel();
+} else {
+	document.addEventListener('DOMContentLoaded', setupFooterPanel);
+}
+
 // Setup event listeners
 function setupEventListeners() {
 	// Filter listeners
