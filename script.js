@@ -852,6 +852,7 @@ function setupEventListeners() {
 			updateRAMSpeedFilter();
 			updateRAMManufacturerFilter();
 			filterRAM();
+			updateSuggestedUpgradeFromSelections();
 		} else {
 			selectedCPU = null;
 			document.getElementById('cpuInfo').innerHTML = '';
@@ -861,6 +862,7 @@ function setupEventListeners() {
 			updateRAMSpeedFilter();
 			updateRAMManufacturerFilter();
 			filterRAM();
+			updateSuggestedUpgradeFromSelections();
 		}
 	});
 
@@ -868,9 +870,11 @@ function setupEventListeners() {
 		if (e.target.value !== '') {
 			selectedGPU = gpuData[parseInt(e.target.value)];
 			displayComponentInfo('gpu', selectedGPU);
+			updateSuggestedUpgradeFromSelections();
 		} else {
 			selectedGPU = null;
 			document.getElementById('gpuInfo').innerHTML = '';
+			updateSuggestedUpgradeFromSelections();
 		}
 	});
 
@@ -878,9 +882,11 @@ function setupEventListeners() {
 		if (e.target.value !== '') {
 			selectedRAM = ramData[parseInt(e.target.value)];
 			displayComponentInfo('ram', selectedRAM);
+			updateSuggestedUpgradeFromSelections();
 		} else {
 			selectedRAM = null;
 			document.getElementById('ramInfo').innerHTML = '';
+			updateSuggestedUpgradeFromSelections();
 		}
 	});
 
@@ -1002,6 +1008,39 @@ function updateSuggestedUpgradeUI(suggestedValue) {
 			target.checked = true;
 		}
 	};
+}
+
+function getBottleneckComponent(cpuTier, gpuTier, ramTier) {
+	const ramIsSufficient = ramTier >= RAM_GOOD_ENOUGH_TIER;
+	const minTier = ramIsSufficient ? Math.min(cpuTier, gpuTier) : Math.min(cpuTier, gpuTier, ramTier);
+	let bottleneckComponent = null;
+
+	if (ramIsSufficient) {
+		if (cpuTier === minTier && cpuTier < gpuTier) bottleneckComponent = 'CPU';
+		else if (gpuTier === minTier && gpuTier < cpuTier) bottleneckComponent = 'GPU';
+	} else {
+		if (cpuTier === minTier && (cpuTier < gpuTier || cpuTier < ramTier)) bottleneckComponent = 'CPU';
+		else if (gpuTier === minTier && (gpuTier < cpuTier || gpuTier < ramTier)) bottleneckComponent = 'GPU';
+		else if (ramTier === minTier && (ramTier < cpuTier || ramTier < gpuTier)) bottleneckComponent = 'RAM';
+	}
+
+	return bottleneckComponent;
+}
+
+function updateSuggestedUpgradeFromSelections() {
+	const suggestedEl = document.getElementById('suggestedUpgrade');
+	if (!selectedCPU || !selectedGPU || !selectedRAM) {
+		if (suggestedEl) suggestedEl.classList.add('hidden');
+		return;
+	}
+
+	const cpuTier = getDisplayTier(selectedCPU, 'cpu');
+	const gpuTier = getDisplayTier(selectedGPU, 'gpu');
+	const ramTier = getDisplayTier(selectedRAM, 'ram');
+	let bottleneck = getBottleneckComponent(cpuTier, gpuTier, ramTier);
+	if (!bottleneck) bottleneck = 'CPU';
+	const suggested = getSuggestedAdvancement(cpuTier, gpuTier, bottleneck);
+	updateSuggestedUpgradeUI(suggested);
 }
 
 // Main analysis function

@@ -93,6 +93,12 @@
 				<h2>Upgrade Preference</h2>
 				<p class="section-desc">How big of an upgrade do you want?</p>
 
+				<div id="suggestedUpgrade" class="suggested-upgrade hidden">
+					<span>Suggested upgrade preference:</span>
+					<strong id="suggestedUpgradeLabel">Medium</strong>
+					<button type="button" id="useSuggestedUpgrade" class="suggested-upgrade-btn">Use suggested</button>
+				</div>
+
 				<div class="advancement-options">
 					<label class="advancement-option">
 						<input type="radio" name="advancement" value="1" checked />
@@ -114,11 +120,6 @@
 						<span class="option-label">Extreme</span>
 						<span class="option-desc">Go all the way</span>
 					</label>
-				</div>
-				<div id="suggestedUpgrade" class="suggested-upgrade hidden">
-					<span>Suggested upgrade preference:</span>
-					<strong id="suggestedUpgradeLabel">Medium</strong>
-					<button type="button" id="useSuggestedUpgrade" class="suggested-upgrade-btn">Use suggested</button>
 				</div>
 			</section>
 
@@ -149,6 +150,7 @@
 						<span class="option-desc">Show all upgrades</span>
 					</label>
 				</div>
+				<p class="effort-disclaimer">Note: The calculator does not account for case clearance or cooling requirements yet.</p>
 			</section>
 
 			<!-- Analyze Button -->

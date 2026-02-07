@@ -419,6 +419,23 @@ html[data-theme='dark'] .option-label {
 	opacity: 0.7;
 }
 
+.effort-disclaimer {
+	margin-top: 16px;
+	text-align: center;
+	font-size: 0.85em;
+	color: var(--accent-cream);
+	opacity: 0.8;
+	background: rgba(212, 165, 116, 0.08);
+	border: 1px solid var(--accent-gold);
+	border-radius: 4px;
+	padding: 10px 14px;
+}
+
+html[data-theme='dark'] .effort-disclaimer {
+	background: rgba(109, 184, 118, 0.06);
+	border-color: var(--accent-green);
+}
+
 /* Buttons */
 .btn-primary {
 	background: linear-gradient(135deg, var(--accent-gold) 0%, #d4a574 100%);
