@@ -519,6 +519,53 @@ html[data-theme='dark'] .analysis-card {
 	color: var(--accent-gold);
 }
 
+.tier-comparison {
+	margin-top: 16px;
+	display: grid;
+	gap: 10px;
+}
+
+.tier-row {
+	display: grid;
+	grid-template-columns: 70px 1fr 50px;
+	align-items: center;
+	gap: 12px;
+	font-size: 0.9em;
+}
+
+.tier-label {
+	font-weight: 600;
+	color: var(--accent-cream);
+}
+
+.tier-bar {
+	position: relative;
+	height: 12px;
+	border-radius: 999px;
+	background: rgba(212, 165, 116, 0.15);
+	overflow: hidden;
+}
+
+.tier-bar-fill {
+	height: 100%;
+	border-radius: 999px;
+	background: linear-gradient(90deg, var(--accent-gold), #f1d28b);
+}
+
+html[data-theme='dark'] .tier-bar {
+	background: rgba(109, 184, 118, 0.12);
+}
+
+html[data-theme='dark'] .tier-bar-fill {
+	background: linear-gradient(90deg, var(--accent-green), #7dc985);
+}
+
+.tier-value {
+	text-align: right;
+	font-weight: 700;
+	color: var(--accent-cream);
+}
+
 html[data-theme='dark'] .analysis-card h3 {
 	color: var(--accent-green);
 }

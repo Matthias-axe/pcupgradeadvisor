@@ -1127,6 +1127,27 @@ function displayBottleneckAnalysis(tiers, bottleneck) {
 	html += `
 		<div class="product-note">
 			<strong>Current tiers:</strong> CPU ${tiers.CPU} | GPU ${tiers.GPU} | RAM ${tiers.RAM}
+		</div>
+		<div class="product-note">
+			<strong>What tiers mean:</strong>
+			Tier 1-2 = Entry level, Tier 3-4 = Midrange, Tier 5-6 = High end, Tier 7 = Enthusiast.
+		</div>
+		<div class="tier-comparison">
+			<div class="tier-row">
+				<span class="tier-label">CPU</span>
+				<div class="tier-bar"><div class="tier-bar-fill" style="width: ${(tiers.CPU / 7) * 100}%;"></div></div>
+				<span class="tier-value">${tiers.CPU}/7</span>
+			</div>
+			<div class="tier-row">
+				<span class="tier-label">GPU</span>
+				<div class="tier-bar"><div class="tier-bar-fill" style="width: ${(tiers.GPU / 7) * 100}%;"></div></div>
+				<span class="tier-value">${tiers.GPU}/7</span>
+			</div>
+			<div class="tier-row">
+				<span class="tier-label">RAM</span>
+				<div class="tier-bar"><div class="tier-bar-fill" style="width: ${(tiers.RAM / 7) * 100}%;"></div></div>
+				<span class="tier-value">${tiers.RAM}/7</span>
+			</div>
 		</div>`;
 
 	card.innerHTML = html;
