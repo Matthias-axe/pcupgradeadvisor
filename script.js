@@ -1408,10 +1408,54 @@ function createProductCard(product, component, rank, cpuTier) {
 	}
 
 	if (effort.requiredParts.length > 0) {
+		const additionalLinks = [];
+		if (effort.requiredParts.includes('Motherboard') && product.socket) {
+			additionalLinks.push({
+				label: `${product.socket} motherboards`,
+				url: getAmazonSearchUrl(`${product.socket} motherboard`)
+			});
+		}
+		if (effort.requiredParts.includes('RAM') && product.ramType) {
+			additionalLinks.push({
+				label: `${product.ramType} RAM kits`,
+				url: getAmazonSearchUrl(`${product.ramType} RAM kit`)
+			});
+		}
+		if (effort.requiredParts.includes('CPU/Motherboard')) {
+			const cpuRamType = selectedCPU?.ramType || 'DDR';
+			additionalLinks.push({
+				label: `${cpuRamType} RAM kits`,
+				url: getAmazonSearchUrl(`${cpuRamType} RAM kit`)
+			});
+		}
+		if (effort.requiredParts.includes('PSU')) {
+			let psuQuery = 'power supply';
+			if (selectedCPU && selectedGPU && component === 'GPU') {
+				const targetPsu = getPsuRecommendation(selectedCPU.tier, product.tier);
+				if (targetPsu) {
+					psuQuery = `${targetPsu}W power supply`;
+				}
+			}
+			additionalLinks.push({
+				label: 'PSU options',
+				url: getAmazonSearchUrl(psuQuery)
+			});
+		}
+
 		html += `
 			<div class="product-required">
 				<strong>Additional parts likely needed:</strong> ${effort.requiredParts.join(', ')}
 			</div>`;
+
+		if (additionalLinks.length > 0) {
+			const linksHtml = additionalLinks
+				.map(link => `<a class="product-link" href="${link.url}" target="_blank" rel="noopener noreferrer nofollow sponsored">See ${link.label}</a>`)
+				.join(' ');
+			html += `
+				<div class="product-note">
+					${linksHtml}
+				</div>`;
+		}
 	}
 
 	if (effort.notes.length > 0) {
