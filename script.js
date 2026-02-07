@@ -1288,6 +1288,7 @@ function displayRecommendations(component, currentTier, recommendedTier, cpuTier
 function createProductCard(product, component, rank, cpuTier) {
 	const effort = getUpgradeEffort(component, product);
 	const affiliateTag = 'pcupgradead02-21';
+	const getAmazonSearchUrl = (query) => `https://www.amazon.com/s?k=${encodeURIComponent(query)}&tag=${affiliateTag}`;
 	let html = `<div class="product-card">
 		<div class="product-rank">#${rank} Pick</div>
 		<div class="product-name">${product.name}</div>`;
@@ -1324,15 +1325,19 @@ function createProductCard(product, component, rank, cpuTier) {
 			const selectedRAMType = getRamDdrType(selectedRAM) || 'Unknown DDR';
 			const cpuRequiresRAMType = product.ramType;
 			if (selectedRAMType !== cpuRequiresRAMType) {
+				const ramSearchUrl = getAmazonSearchUrl(`${cpuRequiresRAMType} RAM kit`);
 				html += `<div class="product-warning">
-					<strong>⚠️ Compatibility Issue:</strong> This CPU requires ${cpuRequiresRAMType} RAM, but you selected ${selectedRAMType}
+					<strong>⚠️ Compatibility Issue:</strong> This CPU requires ${cpuRequiresRAMType} RAM, but you selected ${selectedRAMType}.
+					<a class="product-link" href="${ramSearchUrl}" target="_blank" rel="noopener noreferrer nofollow sponsored">See Amazon options</a>
 				</div>`;
 			}
 		}
 
 		if (selectedCPU && product.socket && selectedCPU.socket && product.socket !== selectedCPU.socket) {
+			const moboSearchUrl = getAmazonSearchUrl(`${product.socket} motherboard`);
 			html += `<div class="product-warning">
 				<strong>⚠️ Socket Mismatch:</strong> Requires a ${product.socket} motherboard (current CPU is ${selectedCPU.socket}).
+				<a class="product-link" href="${moboSearchUrl}" target="_blank" rel="noopener noreferrer nofollow sponsored">See Amazon options</a>
 			</div>`;
 		}
 	} else if (component === 'GPU') {
@@ -1361,12 +1366,16 @@ function createProductCard(product, component, rank, cpuTier) {
 			const currentPsu = getPsuRecommendation(selectedCPU.tier, selectedGPU.tier);
 			const targetPsu = getPsuRecommendation(selectedCPU.tier, product.tier);
 			if (currentPsu && targetPsu && targetPsu > currentPsu) {
+				const psuSearchUrl = getAmazonSearchUrl(`${targetPsu}W power supply`);
 				html += `<div class="product-warning">
 					<strong>⚠️ PSU Upgrade Likely:</strong> Estimated PSU need ${targetPsu}W (current estimate ${currentPsu}W)
+					<a class="product-link" href="${psuSearchUrl}" target="_blank" rel="noopener noreferrer nofollow sponsored">See Amazon options</a>
 				</div>`;
 			} else if (targetPsu && targetPsu >= 850) {
+				const psuSearchUrl = getAmazonSearchUrl(`${targetPsu}W power supply`);
 				html += `<div class="product-warning">
 					<strong>⚠️ High Power Requirement:</strong> Estimated PSU need ${targetPsu}W
+					<a class="product-link" href="${psuSearchUrl}" target="_blank" rel="noopener noreferrer nofollow sponsored">See Amazon options</a>
 				</div>`;
 			}
 		}
@@ -1389,8 +1398,11 @@ function createProductCard(product, component, rank, cpuTier) {
 			</div>`;
 
 		if (selectedCPU && !isRamCompatibleWithCpu(product, selectedCPU)) {
+			const cpuRamType = selectedCPU.ramType || 'DDR';
+			const ramSearchUrl = getAmazonSearchUrl(`${cpuRamType} RAM kit`);
 			html += `<div class="product-warning">
 				<strong>⚠️ Compatibility Issue:</strong> This RAM is not compatible with your selected CPU (${selectedCPU.ramType}).
+				<a class="product-link" href="${ramSearchUrl}" target="_blank" rel="noopener noreferrer nofollow sponsored">See Amazon options</a>
 			</div>`;
 		}
 	}
