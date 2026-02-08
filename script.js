@@ -1096,6 +1096,8 @@ function analyzeSystem() {
 function displayBottleneckAnalysis(tiers, bottleneck) {
 	const card = document.getElementById('bottleneckAnalysis');
 	let html = '<h3>System Analysis</h3>';
+	const affiliateTag = 'pcupgradead02-21';
+	const getAmazonSearchUrl = (query) => `https://www.amazon.com/s?k=${encodeURIComponent(query)}&tag=${affiliateTag}`;
 
 	const parts = [
 		{ name: 'CPU', tier: tiers.CPU },
@@ -1108,7 +1110,25 @@ function displayBottleneckAnalysis(tiers, bottleneck) {
 	const underpowered = parts.filter(p => p.tier === minTier && !isBalanced).map(p => p.name);
 	const balanced = parts.filter(p => p.tier > minTier).map(p => p.name);
 
-	if (isBalanced) {
+	if (isBalanced && tiers.CPU === 7 && tiers.GPU === 7 && tiers.RAM === 7) {
+		const threadripperUrl = getAmazonSearchUrl('AMD Threadripper 7995WX');
+		const gpuUrl = getAmazonSearchUrl('RTX 4090');
+		const ramUrl = getAmazonSearchUrl('256GB DDR5 RAM kit');
+		html += `
+			<div style="text-align: center; padding: 20px;">
+				<div class="balanced-indicator">🏁 Fully Maxed Out</div>
+				<p>Congratulations — your system is already at the top tier. We’re unable to help further.</p>
+			</div>
+			<div class="balanced-guidance">
+				<p><strong>If you dare venture further, these are your options:</strong></p>
+				<ul>
+					<li><a class="product-link" href="${threadripperUrl}" target="_blank" rel="noopener noreferrer nofollow sponsored">Top-tier Threadripper CPUs</a></li>
+					<li><a class="product-link" href="${gpuUrl}" target="_blank" rel="noopener noreferrer nofollow sponsored">Flagship GPUs (RTX 4090 class)</a></li>
+					<li><a class="product-link" href="${ramUrl}" target="_blank" rel="noopener noreferrer nofollow sponsored">Extreme capacity DDR5 RAM kits</a></li>
+				</ul>
+			</div>
+		`;
+	} else if (isBalanced) {
 		html += `
 			<div style="text-align: center; padding: 20px;">
 				<div class="balanced-indicator">✓ System Perfectly Balanced</div>
