@@ -1164,6 +1164,19 @@ function displayBottleneckAnalysis(tiers, bottleneck) {
 				</div>
 			</div>
 		`;
+	} else if (!bottleneck) {
+		html += `<p>Your system isn’t fully balanced.</p>`;
+		html += `<p><div class="bottleneck-indicator">⚠️ Bottleneck: None (CPU/GPU are tied)</div></p>`;
+		html += `<p>Your CPU and GPU are at the same tier. Choose which direction you want to push:</p>`;
+		html += `
+			<div class="balanced-guidance">
+				<div class="balanced-choice">
+					<span>Choose a component to upgrade:</span>
+					<button type="button" class="balanced-choice-btn" data-upgrade-target="CPU">CPU</button>
+					<button type="button" class="balanced-choice-btn" data-upgrade-target="GPU">GPU</button>
+				</div>
+			</div>
+		`;
 	} else {
 		html += `<p>Your system isn’t fully balanced.</p>`;
 		html += `<p><div class="bottleneck-indicator">⚠️ Bottleneck: ${bottleneck}</div></p>`;
