@@ -827,6 +827,8 @@ function setupFooterPanel() {
 		panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
 	};
 
+	window.openFooterPanel = openPanel;
+
 	buttons.forEach((button) => {
 		button.addEventListener('click', () => openPanel(button.dataset.footerPanel));
 	});
@@ -1194,6 +1196,33 @@ function displayBottleneckAnalysis(tiers, bottleneck) {
 			</div>
 		</div>`;
 
+	if (selectedCPU && selectedGPU && selectedRAM) {
+		const ramType = getRamDdrType(selectedRAM) || 'DDR';
+		html += `
+			<div class="product-note">
+				<strong>Current component specs:</strong>
+			</div>
+			<div class="product-specs">
+				<div class="product-spec"><span class="spec-label">CPU:</span> <span class="spec-value">${selectedCPU.name}</span></div>
+				<div class="product-spec"><span class="spec-label">Cores:</span> <span class="spec-value">${selectedCPU.core_count}</span></div>
+				<div class="product-spec"><span class="spec-label">Boost:</span> <span class="spec-value">${parseFloat(selectedCPU.boost_clock).toFixed(2)} GHz</span></div>
+				<div class="product-spec"><span class="spec-label">Socket:</span> <span class="spec-value">${selectedCPU.socket || 'Unknown'}</span></div>
+			</div>
+			<div class="product-specs">
+				<div class="product-spec"><span class="spec-label">GPU:</span> <span class="spec-value">${selectedGPU.name}</span></div>
+				<div class="product-spec"><span class="spec-label">Chipset:</span> <span class="spec-value">${selectedGPU.chipset || 'Unknown'}</span></div>
+				<div class="product-spec"><span class="spec-label">VRAM:</span> <span class="spec-value">${selectedGPU.memory}GB</span></div>
+				<div class="product-spec"><span class="spec-label">Boost:</span> <span class="spec-value">${selectedGPU.boost_clock} MHz</span></div>
+			</div>
+			<div class="product-specs">
+				<div class="product-spec"><span class="spec-label">RAM:</span> <span class="spec-value">${selectedRAM.name}</span></div>
+				<div class="product-spec"><span class="spec-label">Speed:</span> <span class="spec-value">${selectedRAM.speed}</span></div>
+				<div class="product-spec"><span class="spec-label">Modules:</span> <span class="spec-value">${selectedRAM.modules}</span></div>
+				<div class="product-spec"><span class="spec-label">Type:</span> <span class="spec-value">${ramType}</span></div>
+			</div>
+		`;
+	}
+
 	card.innerHTML = html;
 
 	const choiceButtons = card.querySelectorAll('[data-upgrade-target]');
@@ -1490,6 +1519,15 @@ function displayRecommendations(component, currentTier, recommendedTier, cpuTier
 			<button type="button" class="evidence-link" data-footer-panel="sources">See data sources</button>
 		</div>
 	`;
+
+	const evidenceButton = card.querySelector('.evidence-link');
+	if (evidenceButton) {
+		evidenceButton.addEventListener('click', () => {
+			if (typeof window.openFooterPanel === 'function') {
+				window.openFooterPanel('sources');
+			}
+		});
+	}
 
 	// Display products
 	let html = `<h3>Top ${componentName} for a ${upgradeSizeLabel.toLowerCase()} upgrade</h3><p class="effort-summary">Effort filter: <strong>${effortLabel}</strong></p>`;
