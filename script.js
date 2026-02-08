@@ -788,6 +788,18 @@ function setupFooterPanel() {
 				'<p><strong>Affiliate Links</strong><br />This website contains affiliate links. When you click these links, third-party platforms such as Amazon may place cookies on your device to track purchases. We do not control these cookies.</p>' +
 				'<p><strong>Third-Party Services</strong><br />We may link to third-party websites (such as Amazon). Their privacy practices are governed by their own policies.</p>' +
 				'<p><strong>Contact</strong><br />If you have any questions about this Privacy Policy, you can contact us at:<br /><a href="mailto:pcupgradeadvisor@gmail.com">pcupgradeadvisor@gmail.com</a></p>'
+		},
+		sources: {
+			title: 'Data Sources',
+			body: '<p><strong>Data Sources & Method</strong></p>' +
+				'<p>Recommendations are generated from normalized, component-level specs and tier mappings. We do not accept paid placements.</p>' +
+				'<ul>' +
+					'<li>CPU & GPU performance references: <a href="https://www.cpubenchmark.net/" target="_blank" rel="noopener noreferrer">PassMark</a></li>' +
+					'<li>GPU specifications database: <a href="https://www.techpowerup.com/gpu-specs/" target="_blank" rel="noopener noreferrer">TechPowerUp GPU Specs</a></li>' +
+					'<li>CPU specs & sockets: <a href="https://www.techpowerup.com/cpu-specs/" target="_blank" rel="noopener noreferrer">TechPowerUp CPU Specs</a></li>' +
+					'<li>Memory standards overview: <a href="https://www.jedec.org/" target="_blank" rel="noopener noreferrer">JEDEC</a></li>' +
+				'</ul>' +
+				'<p>We combine these sources with our internal tiering and compatibility checks (socket, DDR type, PSU estimates) to build upgrade candidates.</p>'
 		}
 	};
 
@@ -1246,6 +1258,35 @@ function calculateScore(component, type) {
 	return 0;
 }
 
+function formatPercent(value) {
+	if (value === null || value === undefined || !Number.isFinite(value)) return 'N/A';
+	const sign = value >= 0 ? '+' : '';
+	return `${sign}${value.toFixed(1)}%`;
+}
+
+function getScoreDeltaPercent(currentComponent, candidate, type) {
+	if (!currentComponent || !candidate) return null;
+	const currentScore = calculateScore(currentComponent, type);
+	if (!currentScore || !Number.isFinite(currentScore)) return null;
+	const candidateScore = calculateScore(candidate, type);
+	if (!Number.isFinite(candidateScore)) return null;
+	return ((candidateScore - currentScore) / currentScore) * 100;
+}
+
+function getScoreRangeSummary(currentComponent, products, type) {
+	if (!currentComponent || !products || products.length === 0) return null;
+	const currentScore = calculateScore(currentComponent, type);
+	if (!currentScore || !Number.isFinite(currentScore)) return null;
+	const deltas = products
+		.map(product => getScoreDeltaPercent(currentComponent, product, type))
+		.filter(value => value !== null && Number.isFinite(value));
+	if (deltas.length === 0) return null;
+	return {
+		min: Math.min(...deltas),
+		max: Math.max(...deltas)
+	};
+}
+
 function getSelectedEffortLevel() {
 	return document.querySelector('input[name="effort"]:checked')?.value || 'simple';
 }
@@ -1274,6 +1315,14 @@ function getRamDdrType(ram) {
 	return null;
 }
 
+function getCpuBrandFromName(name) {
+	if (!name) return null;
+	const normalized = name.toLowerCase();
+	if (normalized.includes('amd') || normalized.includes('ryzen') || normalized.includes('threadripper')) return 'AMD';
+	if (normalized.includes('intel') || normalized.includes('core') || normalized.includes('xeon')) return 'Intel';
+	return null;
+}
+
 function isRamCompatibleWithCpu(ram, cpu) {
 	if (!ram || !cpu || !cpu.ramType) return true;
 	const ramType = getRamDdrType(ram);
@@ -1294,6 +1343,17 @@ function getUpgradeEffort(component, product) {
 	if (component === 'CPU') {
 		if (selectedCPU && product.socket && selectedCPU.socket && product.socket !== selectedCPU.socket) {
 			requiredParts.push('Motherboard');
+		}
+		if (selectedCPU && product) {
+			const currentBrand = getCpuBrandFromName(selectedCPU.name);
+			const targetBrand = getCpuBrandFromName(product.name);
+			if (currentBrand && targetBrand && currentBrand !== targetBrand) {
+				requiredParts.push('Motherboard');
+				notes.push('CPU brand change requires a motherboard swap');
+			}
+		}
+		if (selectedCPU && (!selectedCPU.socket || !product.socket)) {
+			notes.push('Socket compatibility unknown; verify before purchase');
 		}
 		if (selectedRAM && product.ramType && !isRamCompatibleWithCpu(selectedRAM, product)) {
 			requiredParts.push('RAM');
@@ -1365,20 +1425,6 @@ function displayRecommendations(component, currentTier, recommendedTier, cpuTier
 	const upgradeSizeLabel = advancement === 'max' ? 'Extreme' : advancement === '3' ? 'Large' : advancement === '2' ? 'Medium' : 'Small';
 	const effortLabel = selectedEffort === 'any' ? 'Any effort' : `${selectedEffort.charAt(0).toUpperCase()}${selectedEffort.slice(1)} effort`;
 
-	card.innerHTML = `
-		<h3>Recommended Upgrade</h3>
-		<p>${upgradeSizeLabel} upgrade for <strong>${component}</strong></p>
-		<div class="recommendation-reason">
-			<p><strong>Why this upgrade?</strong></p>
-			<ul>
-				<li>${component} is the current bottleneck.</li>
-				<li>Upgrade size selected: ${upgradeSizeLabel}.</li>
-				<li>Effort filter applied: ${effortLabel}.</li>
-				<li>Compatibility and power checks are applied.</li>
-			</ul>
-		</div>
-	`;
-
 	// Get products for recommended tier that are verified upgrades
 	let products = [];
 	let componentName = '';
@@ -1420,9 +1466,30 @@ function displayRecommendations(component, currentTier, recommendedTier, cpuTier
 		}
 		if (products.length > 0) {
 			finalTier = nextTier;
-			card.innerHTML = `<h3>Recommended Upgrade</h3><p>${upgradeSizeLabel} upgrade for <strong>${component}</strong></p>`;
 		}
 	}
+
+	const scoreRange = getScoreRangeSummary(currentComponent, products, component);
+	const tierDelta = Number.isFinite(finalTier) ? finalTier - currentTier : null;
+	const tierDeltaLabel = tierDelta === null ? 'N/A' : `${currentTier} → ${finalTier} (${tierDelta >= 0 ? '+' : ''}${tierDelta})`;
+	const scoreRangeLabel = scoreRange ? `${formatPercent(scoreRange.min)} to ${formatPercent(scoreRange.max)}` : 'N/A';
+
+	card.innerHTML = `
+		<h3>Recommended Upgrade</h3>
+		<p>${upgradeSizeLabel} upgrade for <strong>${component}</strong></p>
+		<div class="recommendation-reason">
+			<p><strong>Why this upgrade?</strong></p>
+			<ul>
+				<li>${component} is the current bottleneck.</li>
+				<li>Upgrade size selected: ${upgradeSizeLabel}.</li>
+				<li>Effort filter applied: ${effortLabel}.</li>
+				<li>Target tier change: ${tierDeltaLabel}.</li>
+				<li>Estimated score uplift (top picks): ${scoreRangeLabel}.</li>
+				<li>Scores are computed from component specs (e.g., cores/boost/gen, memory/speed).</li>
+			</ul>
+			<button type="button" class="evidence-link" data-footer-panel="sources">See data sources</button>
+		</div>
+	`;
 
 	// Display products
 	let html = `<h3>Top ${componentName} for a ${upgradeSizeLabel.toLowerCase()} upgrade</h3><p class="effort-summary">Effort filter: <strong>${effortLabel}</strong></p>`;
@@ -1431,7 +1498,7 @@ function displayRecommendations(component, currentTier, recommendedTier, cpuTier
 	} else {
 		html += '<div class="products-container">';
 		products.forEach((product, index) => {
-			html += createProductCard(product, component, index + 1, cpuTier);
+			html += createProductCard(product, component, index + 1, cpuTier, currentComponent);
 		});
 		html += '</div>';
 	}
@@ -1442,15 +1509,24 @@ function displayRecommendations(component, currentTier, recommendedTier, cpuTier
 }
 
 // Create a product card
-function createProductCard(product, component, rank, cpuTier) {
+function createProductCard(product, component, rank, cpuTier, currentComponent) {
 	const effort = getUpgradeEffort(component, product);
 	const affiliateTag = 'pcupgradead02-21';
 	const getAmazonSearchUrl = (query) => `https://www.amazon.com/s?k=${encodeURIComponent(query)}&tag=${affiliateTag}`;
 	const tierValue = getDisplayTier(product, component.toLowerCase());
+	const currentTierValue = currentComponent ? getDisplayTier(currentComponent, component.toLowerCase()) : null;
+	const tierDelta = currentTierValue !== null && Number.isFinite(currentTierValue) ? tierValue - currentTierValue : null;
+	const scoreDelta = getScoreDeltaPercent(currentComponent, product, component);
 	let html = `<div class="product-card">
 		<div class="product-rank">#${rank} Pick</div>
 		<div class="product-name">${product.name}</div>`;
 	html += `<div class="tier-badge">Tier ${tierValue}</div>`;
+	if (tierDelta !== null && Number.isFinite(tierDelta)) {
+		html += `<div class="product-note"><strong>Tier change:</strong> ${currentTierValue} → ${tierValue} (${tierDelta >= 0 ? '+' : ''}${tierDelta})</div>`;
+	}
+	if (scoreDelta !== null) {
+		html += `<div class="product-note"><strong>Est. score uplift:</strong> ${formatPercent(scoreDelta)}</div>`;
+	}
 
 	html += `
 		<div class="product-effort ${effort.requiredLevel}">
@@ -1566,6 +1642,10 @@ function createProductCard(product, component, rank, cpuTier) {
 		}
 	}
 
+
+	if (effort.requiredParts.length > 0) {
+		html += `<div class="product-required"><strong>Requires:</strong> ${effort.requiredParts.join(', ')}</div>`;
+	}
 
 	if (effort.notes.length > 0) {
 		effort.notes.forEach(note => {

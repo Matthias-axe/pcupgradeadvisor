@@ -689,6 +689,32 @@ html[data-theme='dark'] .recommendation-reason {
 	padding: 0;
 }
 
+.evidence-link {
+	margin-top: 10px;
+	background: transparent;
+	border: 1px solid var(--accent-gold);
+	color: var(--accent-cream);
+	padding: 6px 10px;
+	border-radius: 4px;
+	font-size: 0.85em;
+	cursor: pointer;
+	transition: all 0.3s ease;
+}
+
+html[data-theme='dark'] .evidence-link {
+	border-color: var(--accent-green);
+}
+
+.evidence-link:hover {
+	border-color: var(--accent-cream);
+	color: var(--accent-gold);
+	transform: translateY(-1px);
+}
+
+html[data-theme='dark'] .evidence-link:hover {
+	color: var(--accent-green);
+}
+
 /* Product Cards */
 .products-section {
 	display: grid;
