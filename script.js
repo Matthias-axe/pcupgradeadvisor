@@ -1078,9 +1078,6 @@ function analyzeSystem() {
 	const tiers = { CPU: cpuTier, GPU: gpuTier, RAM: ramTier };
 	let bottleneckComponent = getBottleneckComponent(cpuTier, gpuTier, ramTier);
 
-	// Display bottleneck analysis
-	displayBottleneckAnalysis(tiers, bottleneckComponent);
-
 	// Store analysis state for follow-up actions
 	lastAnalysisState = {
 		cpuTier,
@@ -1090,6 +1087,9 @@ function analyzeSystem() {
 		advancement
 	};
 
+	// Display bottleneck analysis
+	displayBottleneckAnalysis(tiers, bottleneckComponent);
+
 	const suggestedAdvancement = getSuggestedAdvancement(cpuTier, gpuTier, bottleneckComponent || 'CPU');
 	updateSuggestedUpgradeUI(suggestedAdvancement);
 
@@ -1098,7 +1098,25 @@ function analyzeSystem() {
 		displayRecommendations(bottleneckComponent, tiers[bottleneckComponent], recommendedTier, cpuTier, advancement);
 	} else {
 		balancedUpgradeChoice = null;
-		document.getElementById('recommendationCard').innerHTML = '<h3>Recommended Upgrade</h3><p>No bottleneck detected. Choose a component below to see upgrade recommendations.</p>';
+		const recommendationCard = document.getElementById('recommendationCard');
+		recommendationCard.innerHTML = `
+			<h3>Recommended Upgrade</h3>
+			<p>No bottleneck detected. Choose a component below to see upgrade recommendations.</p>
+			<div class="balanced-choice">
+				<button type="button" class="balanced-choice-btn" data-upgrade-target="CPU">CPU</button>
+				<button type="button" class="balanced-choice-btn" data-upgrade-target="GPU">GPU</button>
+			</div>
+		`;
+
+		const choiceButtons = recommendationCard.querySelectorAll('[data-upgrade-target]');
+		choiceButtons.forEach((button) => {
+			button.addEventListener('click', () => {
+				const target = button.dataset.upgradeTarget;
+				balancedUpgradeChoice = target;
+				const recommendedTier = getNextAvailableTier(lastAnalysisState.tiers[target], target, lastAnalysisState.advancement);
+				displayRecommendations(target, lastAnalysisState.tiers[target], recommendedTier, lastAnalysisState.cpuTier, lastAnalysisState.advancement);
+			});
+		});
 		document.getElementById('productsSection').innerHTML = '';
 	}
 
