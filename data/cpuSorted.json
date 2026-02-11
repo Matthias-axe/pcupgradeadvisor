@@ -203,8 +203,8 @@
         "tdp":  170,
         "graphics":  "Radeon",
         "generation":  12,
-        "socket":  "AM4",
-        "ramType":  "DDR4",
+        "socket":  "AM5",
+        "ramType":  "DDR5",
         "tier":  7
     },
     {
@@ -216,8 +216,8 @@
         "tdp":  120,
         "graphics":  "Radeon",
         "generation":  12,
-        "socket":  "AM4",
-        "ramType":  "DDR4",
+        "socket":  "AM5",
+        "ramType":  "DDR5",
         "tier":  7
     },
     {
@@ -398,8 +398,8 @@
         "tdp":  120,
         "graphics":  "Radeon",
         "generation":  12,
-        "socket":  "AM4",
-        "ramType":  "DDR4",
+        "socket":  "AM5",
+        "ramType":  "DDR5",
         "tier":  6
     },
     {
@@ -411,8 +411,8 @@
         "tdp":  170,
         "graphics":  "Radeon",
         "generation":  12,
-        "socket":  "AM4",
-        "ramType":  "DDR4",
+        "socket":  "AM5",
+        "ramType":  "DDR5",
         "tier":  6
     },
     {
@@ -424,8 +424,8 @@
         "tdp":  65,
         "graphics":  "",
         "generation":  12,
-        "socket":  "AM4",
-        "ramType":  "DDR4",
+        "socket":  "AM5",
+        "ramType":  "DDR5",
         "tier":  6
     },
     {
@@ -476,8 +476,8 @@
         "tdp":  65,
         "graphics":  "Radeon",
         "generation":  12,
-        "socket":  "AM4",
-        "ramType":  "DDR4",
+        "socket":  "AM5",
+        "ramType":  "DDR5",
         "tier":  6
     },
     {
@@ -489,8 +489,8 @@
         "tdp":  65,
         "graphics":  "Radeon 780M",
         "generation":  12,
-        "socket":  "AM4",
-        "ramType":  "DDR4",
+        "socket":  "AM5",
+        "ramType":  "DDR5",
         "tier":  6
     },
     {
@@ -515,8 +515,8 @@
         "tdp":  120,
         "graphics":  "Radeon",
         "generation":  12,
-        "socket":  "AM4",
-        "ramType":  "DDR4",
+        "socket":  "AM5",
+        "ramType":  "DDR5",
         "tier":  6
     },
     {
@@ -528,8 +528,8 @@
         "tdp":  65,
         "graphics":  "Radeon",
         "generation":  12,
-        "socket":  "AM4",
-        "ramType":  "DDR4",
+        "socket":  "AM5",
+        "ramType":  "DDR5",
         "tier":  6
     },
     {
@@ -554,8 +554,8 @@
         "tdp":  65,
         "graphics":  "Radeon",
         "generation":  12,
-        "socket":  "AM4",
-        "ramType":  "DDR4",
+        "socket":  "AM5",
+        "ramType":  "DDR5",
         "tier":  6
     },
     {
@@ -567,8 +567,8 @@
         "tdp":  65,
         "graphics":  "",
         "generation":  12,
-        "socket":  "AM4",
-        "ramType":  "DDR4",
+        "socket":  "AM5",
+        "ramType":  "DDR5",
         "tier":  6
     },
     {
@@ -580,8 +580,8 @@
         "tdp":  65,
         "graphics":  "Radeon 740M",
         "generation":  12,
-        "socket":  "AM4",
-        "ramType":  "DDR4",
+        "socket":  "AM5",
+        "ramType":  "DDR5",
         "tier":  6
     },
     {
@@ -593,8 +593,8 @@
         "tdp":  105,
         "graphics":  "Radeon",
         "generation":  12,
-        "socket":  "AM4",
-        "ramType":  "DDR4",
+        "socket":  "AM5",
+        "ramType":  "DDR5",
         "tier":  6
     },
     {
@@ -606,8 +606,8 @@
         "tdp":  65,
         "graphics":  "Radeon",
         "generation":  12,
-        "socket":  "AM4",
-        "ramType":  "DDR4",
+        "socket":  "AM5",
+        "ramType":  "DDR5",
         "tier":  6
     },
     {
@@ -619,8 +619,8 @@
         "tdp":  65,
         "graphics":  "Radeon",
         "generation":  12,
-        "socket":  "AM4",
-        "ramType":  "DDR4",
+        "socket":  "AM5",
+        "ramType":  "DDR5",
         "tier":  6
     },
     {
@@ -632,8 +632,8 @@
         "tdp":  105,
         "graphics":  "Radeon",
         "generation":  12,
-        "socket":  "AM4",
-        "ramType":  "DDR4",
+        "socket":  "AM5",
+        "ramType":  "DDR5",
         "tier":  5
     },
     {
@@ -762,8 +762,8 @@
         "tdp":  65,
         "graphics":  "Radeon 760M",
         "generation":  12,
-        "socket":  "AM4",
-        "ramType":  "DDR4",
+        "socket":  "AM5",
+        "ramType":  "DDR5",
         "tier":  5
     },
     {
@@ -827,8 +827,8 @@
         "tdp":  65,
         "graphics":  "Radeon",
         "generation":  12,
-        "socket":  "AM4",
-        "ramType":  "DDR4",
+        "socket":  "AM5",
+        "ramType":  "DDR5",
         "tier":  5
     },
     {
@@ -1009,8 +1009,8 @@
         "tdp":  65,
         "graphics":  "Radeon",
         "generation":  12,
-        "socket":  "AM4",
-        "ramType":  "DDR4",
+        "socket":  "AM5",
+        "ramType":  "DDR5",
         "tier":  4
     },
     {
@@ -1022,8 +1022,8 @@
         "tdp":  65,
         "graphics":  "",
         "generation":  12,
-        "socket":  "AM4",
-        "ramType":  "DDR4",
+        "socket":  "AM5",
+        "ramType":  "DDR5",
         "tier":  4
     },
     {
@@ -1217,7 +1217,7 @@
         "tdp":  65,
         "graphics":  "",
         "generation":  10,
-        "socket":  "LGA1151",
+        "socket":  "LGA1200",
         "ramType":  "DDR4",
         "tier":  4
     },
@@ -1230,7 +1230,7 @@
         "tdp":  65,
         "graphics":  "Intel UHD Graphics 630",
         "generation":  10,
-        "socket":  "LGA1151",
+        "socket":  "LGA1200",
         "ramType":  "DDR4",
         "tier":  4
     },
@@ -1243,7 +1243,7 @@
         "tdp":  125,
         "graphics":  "",
         "generation":  10,
-        "socket":  "LGA1151",
+        "socket":  "LGA1200",
         "ramType":  "DDR4",
         "tier":  4
     },
@@ -1256,7 +1256,7 @@
         "tdp":  125,
         "graphics":  "Intel UHD Graphics 630",
         "generation":  10,
-        "socket":  "LGA1151",
+        "socket":  "LGA1200",
         "ramType":  "DDR4",
         "tier":  3
     },
@@ -1269,7 +1269,7 @@
         "tdp":  125,
         "graphics":  "",
         "generation":  10,
-        "socket":  "LGA1151",
+        "socket":  "LGA1200",
         "ramType":  "DDR4",
         "tier":  3
     },
@@ -1282,7 +1282,7 @@
         "tdp":  125,
         "graphics":  "Intel UHD Graphics 630",
         "generation":  10,
-        "socket":  "LGA1151",
+        "socket":  "LGA1200",
         "ramType":  "DDR4",
         "tier":  3
     },
@@ -1295,7 +1295,7 @@
         "tdp":  125,
         "graphics":  "Intel UHD Graphics 630",
         "generation":  10,
-        "socket":  "LGA1151",
+        "socket":  "LGA1200",
         "ramType":  "DDR4",
         "tier":  3
     },
@@ -1308,7 +1308,7 @@
         "tdp":  125,
         "graphics":  "Intel UHD Graphics 630",
         "generation":  10,
-        "socket":  "LGA1151",
+        "socket":  "LGA1200",
         "ramType":  "DDR4",
         "tier":  3
     },
@@ -1347,7 +1347,7 @@
         "tdp":  125,
         "graphics":  "Intel UHD Graphics 630",
         "generation":  10,
-        "socket":  "LGA1151",
+        "socket":  "LGA1200",
         "ramType":  "DDR4",
         "tier":  3
     },
@@ -1412,7 +1412,7 @@
         "tdp":  65,
         "graphics":  "",
         "generation":  10,
-        "socket":  "LGA1151",
+        "socket":  "LGA1200",
         "ramType":  "DDR4",
         "tier":  3
     },
@@ -1425,7 +1425,7 @@
         "tdp":  65,
         "graphics":  "Intel UHD Graphics 630",
         "generation":  10,
-        "socket":  "LGA1151",
+        "socket":  "LGA1200",
         "ramType":  "DDR4",
         "tier":  3
     },
@@ -1464,7 +1464,7 @@
         "tdp":  125,
         "graphics":  "Intel UHD Graphics 630",
         "generation":  10,
-        "socket":  "LGA1151",
+        "socket":  "LGA1200",
         "ramType":  "DDR4",
         "tier":  3
     },
@@ -1477,7 +1477,7 @@
         "tdp":  35,
         "graphics":  "Intel UHD Graphics 630",
         "generation":  10,
-        "socket":  "LGA1151",
+        "socket":  "LGA1200",
         "ramType":  "DDR4",
         "tier":  3
     },
@@ -1490,7 +1490,7 @@
         "tdp":  65,
         "graphics":  "Intel UHD Graphics 630",
         "generation":  10,
-        "socket":  "LGA1151",
+        "socket":  "LGA1200",
         "ramType":  "DDR4",
         "tier":  3
     },
@@ -1516,7 +1516,7 @@
         "tdp":  65,
         "graphics":  "Intel UHD Graphics 630",
         "generation":  10,
-        "socket":  "LGA1151",
+        "socket":  "LGA1200",
         "ramType":  "DDR4",
         "tier":  3
     },
@@ -1555,7 +1555,7 @@
         "tdp":  65,
         "graphics":  "Intel UHD Graphics 630",
         "generation":  10,
-        "socket":  "LGA1151",
+        "socket":  "LGA1200",
         "ramType":  "DDR4",
         "tier":  3
     },
@@ -1581,7 +1581,7 @@
         "tdp":  65,
         "graphics":  "Intel UHD Graphics 630",
         "generation":  10,
-        "socket":  "LGA1151",
+        "socket":  "LGA1200",
         "ramType":  "DDR4",
         "tier":  2
     },
@@ -1893,7 +1893,7 @@
         "tdp":  65,
         "graphics":  "Intel UHD Graphics 630",
         "generation":  10,
-        "socket":  "LGA1151",
+        "socket":  "LGA1200",
         "ramType":  "DDR4",
         "tier":  1
     },
@@ -1906,7 +1906,7 @@
         "tdp":  65,
         "graphics":  "",
         "generation":  10,
-        "socket":  "LGA1151",
+        "socket":  "LGA1200",
         "ramType":  "DDR4",
         "tier":  1
     },
@@ -1919,7 +1919,7 @@
         "tdp":  65,
         "graphics":  "Intel UHD Graphics 630",
         "generation":  10,
-        "socket":  "LGA1151",
+        "socket":  "LGA1200",
         "ramType":  "DDR4",
         "tier":  1
     },
@@ -1932,7 +1932,7 @@
         "tdp":  65,
         "graphics":  "",
         "generation":  10,
-        "socket":  "LGA1151",
+        "socket":  "LGA1200",
         "ramType":  "DDR4",
         "tier":  1
     },
@@ -1971,7 +1971,7 @@
         "tdp":  125,
         "graphics":  "",
         "generation":  10,
-        "socket":  "LGA1151",
+        "socket":  "LGA1200",
         "ramType":  "DDR4",
         "tier":  1
     },
@@ -1997,7 +1997,7 @@
         "tdp":  65,
         "graphics":  "",
         "generation":  10,
-        "socket":  "LGA1151",
+        "socket":  "LGA1200",
         "ramType":  "DDR4",
         "tier":  1
     },
@@ -2023,7 +2023,7 @@
         "tdp":  65,
         "graphics":  "Intel UHD Graphics 630",
         "generation":  10,
-        "socket":  "LGA1151",
+        "socket":  "LGA1200",
         "ramType":  "DDR4",
         "tier":  1
     },
@@ -2036,7 +2036,7 @@
         "tdp":  65,
         "graphics":  "Intel UHD Graphics 630",
         "generation":  10,
-        "socket":  "LGA1151",
+        "socket":  "LGA1200",
         "ramType":  "DDR4",
         "tier":  1
     },
@@ -2088,7 +2088,7 @@
         "tdp":  65,
         "graphics":  "Intel UHD Graphics 630",
         "generation":  10,
-        "socket":  "LGA1151",
+        "socket":  "LGA1200",
         "ramType":  "DDR4",
         "tier":  1
     },

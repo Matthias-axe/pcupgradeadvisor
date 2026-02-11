@@ -320,7 +320,7 @@ function updateRAMCapacityFilter() {
 	const capacitySet = new Set();
 	
 	// Check if CPU is selected for DDR compatibility
-	const cpuDDRType = selectedCPU ? (selectedCPU.ramType || '').toUpperCase() : '';
+	const cpuSupportedTypes = getCpuSupportedRamTypes(selectedCPU);
 	
 	ramData.forEach(ram => {
 		if (!ram.modules) return;
@@ -333,9 +333,9 @@ function updateRAMCapacityFilter() {
 		if (kitFilter && count !== parseInt(kitFilter)) return;
 		
 		// Filter by DDR compatibility if CPU is selected
-		if (cpuDDRType) {
+		if (cpuSupportedTypes.length) {
 			const ramDDRType = ram.generation <= 9 ? 'DDR4' : 'DDR5';
-			if (!cpuDDRType.includes(ramDDRType)) return;
+			if (!cpuSupportedTypes.includes(ramDDRType)) return;
 		}
 		
 		// Calculate TOTAL capacity (count × capacity per stick)
@@ -371,7 +371,7 @@ function updateRAMDDRFilter() {
 	const capacityFilter = document.getElementById('ramCapacityFilter').value;
 	
 	// Check if CPU is selected for DDR compatibility
-	const cpuDDRType = selectedCPU ? (selectedCPU.ramType || '').toUpperCase() : '';
+	const cpuSupportedTypes = getCpuSupportedRamTypes(selectedCPU);
 	
 	const ddrSet = new Set();
 	
@@ -390,9 +390,9 @@ function updateRAMDDRFilter() {
 		if (capacityFilter && totalCapacity !== parseInt(capacityFilter)) return;
 		
 		// Filter by CPU DDR compatibility if CPU is selected
-		if (cpuDDRType) {
+		if (cpuSupportedTypes.length) {
 			const ramDDRType = ram.generation <= 9 ? 'DDR4' : 'DDR5';
-			if (!cpuDDRType.includes(ramDDRType)) return;
+			if (!cpuSupportedTypes.includes(ramDDRType)) return;
 		}
 		
 		// Map generation to DDR type
@@ -430,7 +430,7 @@ function updateRAMSpeedFilter() {
 	const ddrFilter = document.getElementById('ramDDRFilter').value;
 	
 	// Check if CPU is selected for DDR compatibility
-	const cpuDDRType = selectedCPU ? (selectedCPU.ramType || '').toUpperCase() : '';
+	const cpuSupportedTypes = getCpuSupportedRamTypes(selectedCPU);
 	
 	const speedSet = new Set();
 	
@@ -455,9 +455,9 @@ function updateRAMSpeedFilter() {
 		}
 		
 		// Filter by CPU DDR compatibility if CPU is selected
-		if (cpuDDRType) {
+		if (cpuSupportedTypes.length) {
 			const ramDDRType = ram.generation <= 9 ? 'DDR4' : 'DDR5';
-			if (!cpuDDRType.includes(ramDDRType)) return;
+			if (!cpuSupportedTypes.includes(ramDDRType)) return;
 		}
 		
 		if (ram.speed) {
@@ -499,7 +499,7 @@ function updateRAMManufacturerFilter() {
 	const speedFilter = document.getElementById('ramSpeedFilter').value;
 	
 	// Check if CPU is selected for DDR compatibility
-	const cpuDDRType = selectedCPU ? (selectedCPU.ramType || '').toUpperCase() : '';
+	const cpuSupportedTypes = getCpuSupportedRamTypes(selectedCPU);
 	
 	const manufacturerSet = new Set();
 	
@@ -524,9 +524,9 @@ function updateRAMManufacturerFilter() {
 		}
 		
 		// Filter by CPU DDR compatibility if CPU is selected
-		if (cpuDDRType) {
+		if (cpuSupportedTypes.length) {
 			const ramDDRType = ram.generation <= 9 ? 'DDR4' : 'DDR5';
-			if (!cpuDDRType.includes(ramDDRType)) return;
+			if (!cpuSupportedTypes.includes(ramDDRType)) return;
 		}
 		
 		// Filter by speed if selected
@@ -654,7 +654,7 @@ function filterRAM() {
 	const manufacturerFilter = document.getElementById('ramManufacturerFilter').value;
 	
 	// Check if CPU is selected for DDR compatibility
-	const cpuDDRType = selectedCPU ? (selectedCPU.ramType || '').toUpperCase() : '';
+	const cpuSupportedTypes = getCpuSupportedRamTypes(selectedCPU);
 	
 	const filtered = ramData.filter(ram => {
 		if (!ram.modules || !ram.name) return false;
@@ -678,9 +678,9 @@ function filterRAM() {
 		}
 		
 		// CPU DDR compatibility filter
-		if (cpuDDRType) {
+		if (cpuSupportedTypes.length) {
 			const ramDDRType = ram.generation <= 9 ? 'DDR4' : 'DDR5';
-			if (!cpuDDRType.includes(ramDDRType)) return false;
+			if (!cpuSupportedTypes.includes(ramDDRType)) return false;
 		}
 		
 		// Speed filter
@@ -1376,6 +1376,28 @@ function getRamDdrType(ram) {
 	return null;
 }
 
+function getCpuSupportedRamTypes(cpu) {
+	if (!cpu) return [];
+	const socket = (cpu.socket || '').toUpperCase();
+	if (socket === 'LGA1700') return ['DDR4', 'DDR5'];
+	if (socket === 'AM5') return ['DDR5'];
+	if (socket === 'AM4') return ['DDR4'];
+
+	const ramType = (cpu.ramType || '').toUpperCase();
+	if (!ramType) return [];
+	const normalized = ramType.replace(/\s+/g, '');
+	if (normalized.includes('/')) {
+		return normalized.split('/').filter(Boolean);
+	}
+	return [normalized];
+}
+
+function getCpuRamTypeLabel(cpu) {
+	const types = getCpuSupportedRamTypes(cpu);
+	if (types.length > 0) return types.join('/');
+	return cpu?.ramType || 'Unknown DDR';
+}
+
 function getCpuBrandFromName(name) {
 	if (!name) return null;
 	const normalized = name.toLowerCase();
@@ -1385,10 +1407,12 @@ function getCpuBrandFromName(name) {
 }
 
 function isRamCompatibleWithCpu(ram, cpu) {
-	if (!ram || !cpu || !cpu.ramType) return true;
+	if (!ram || !cpu) return true;
 	const ramType = getRamDdrType(ram);
 	if (!ramType) return true;
-	return cpu.ramType.includes(ramType);
+	const supportedTypes = getCpuSupportedRamTypes(cpu);
+	if (supportedTypes.length === 0) return true;
+	return supportedTypes.includes(ramType);
 }
 
 function getPsuRecommendation(cpuTier, gpuTier) {
@@ -1416,7 +1440,7 @@ function getUpgradeEffort(component, product) {
 		if (selectedCPU && (!selectedCPU.socket || !product.socket)) {
 			notes.push('Socket compatibility unknown; verify before purchase');
 		}
-		if (selectedRAM && product.ramType && !isRamCompatibleWithCpu(selectedRAM, product)) {
+		if (selectedRAM && !isRamCompatibleWithCpu(selectedRAM, product)) {
 			requiredParts.push('RAM');
 		}
 		if (requiredParts.length > 0) {
@@ -1626,10 +1650,15 @@ function createProductCard(product, component, rank, cpuTier, currentComponent) 
 			</div>`;
 
 		// Compatibility warning: Only show if user selected RAM and it doesn't match this CPU's requirements
-		if (selectedRAM && product.ramType) {
-			const selectedRAMType = getRamDdrType(selectedRAM) || 'Unknown DDR';
-			const cpuRequiresRAMType = product.ramType;
-			if (selectedRAMType !== cpuRequiresRAMType) {
+		if (selectedRAM) {
+			const selectedRAMType = getRamDdrType(selectedRAM);
+			const supportedTypes = getCpuSupportedRamTypes(product);
+			const cpuRequiresRAMType = supportedTypes.length ? supportedTypes.join('/') : (product.ramType || 'Unknown DDR');
+			const fallbackMatch = selectedRAMType && product.ramType
+				? product.ramType.toUpperCase().includes(selectedRAMType)
+				: true;
+
+			if (selectedRAMType && ((supportedTypes.length && !supportedTypes.includes(selectedRAMType)) || (!supportedTypes.length && !fallbackMatch))) {
 				const ramSearchUrl = getAmazonSearchUrl(`${cpuRequiresRAMType} RAM kit`);
 				html += `<div class="product-warning">
 					<strong>⚠️ Compatibility Issue:</strong> This CPU requires ${cpuRequiresRAMType} RAM, but you selected ${selectedRAMType}.
@@ -1703,10 +1732,10 @@ function createProductCard(product, component, rank, cpuTier, currentComponent) 
 			</div>`;
 
 		if (selectedCPU && !isRamCompatibleWithCpu(product, selectedCPU)) {
-			const cpuRamType = selectedCPU.ramType || 'DDR';
+			const cpuRamType = getCpuRamTypeLabel(selectedCPU);
 			const ramSearchUrl = getAmazonSearchUrl(`${cpuRamType} RAM kit`);
 			html += `<div class="product-warning">
-				<strong>⚠️ Compatibility Issue:</strong> This RAM is not compatible with your selected CPU (${selectedCPU.ramType}).
+				<strong>⚠️ Compatibility Issue:</strong> This RAM is not compatible with your selected CPU (${cpuRamType}).
 				<a class="product-link" href="${ramSearchUrl}" target="_blank" rel="noopener noreferrer nofollow sponsored">See Amazon options</a>
 			</div>`;
 		}
