@@ -26,7 +26,7 @@ function NormalizeName {
     return ($name.ToLower() -replace '[^a-z0-9 ]', '' -replace '\s+', ' ').Trim()
 }
 
-# Filter out outdated and workstation GPUs (keep only consumer RTX 20+/RX 5000+/Arc)
+# Filter out outdated and workstation GPUs (keep GTX 10+ / RTX / RX 5000+ / Arc)
 $gpuFiltered = $gpuData | Where-Object {
     $chipset = $_.chipset
     $gen = $_.generation
@@ -36,8 +36,8 @@ $gpuFiltered = $gpuData | Where-Object {
         return $false
     }
     
-    # Primary filter: generation 6+ (RTX 20 series / RX 5000 series and newer)
-    if ($gen -ge 6) {
+    # Primary filter: generation 4+ (GTX 10 series and newer)
+    if ($gen -ge 4) {
         return $true
     }
     # Intel Arc: Keep all
@@ -101,12 +101,13 @@ foreach ($gpu in $gpuFiltered) {
         }
     }
 
+    $specScore = ($boostNorm * 0.65) + ($memoryNorm * 0.25) + ($genNorm * 0.10)
     if ($null -ne $benchScore -and $maxBench -gt $minBench) {
-        $combinedScore = Normalize -value $benchScore -min $minBench -max $maxBench
+        $benchNorm = Normalize -value $benchScore -min $minBench -max $maxBench
+        $combinedScore = ($benchNorm * 0.70) + ($specScore * 0.30)
     } else {
-        # Simpler formula: Boost Clock is primary (translates directly to FPS in most games)
-        # Memory and Gen as supporting factors
-        $combinedScore = ($boostNorm * 0.65) + ($memoryNorm * 0.25) + ($genNorm * 0.10)
+        # Fallback to spec-only score when benchmark is missing
+        $combinedScore = $specScore
     }
     
     $gpu | Add-Member -NotePropertyName "score" -NotePropertyValue $combinedScore -Force

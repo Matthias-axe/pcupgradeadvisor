@@ -794,7 +794,8 @@ function setupFooterPanel() {
 			body: '<p><strong>Data Sources & Method</strong></p>' +
 				'<p>Recommendations are generated from normalized, component-level specs and tier mappings. We do not accept paid placements.</p>' +
 				'<ul>' +
-					'<li>CPU & GPU performance references: <a href="https://www.cpubenchmark.net/" target="_blank" rel="noopener noreferrer">PassMark</a></li>' +
+					'<li>CPU performance benchmarks: <a href="https://browser.geekbench.com/processor-benchmarks.json" target="_blank" rel="noopener noreferrer">Geekbench (CPU)</a></li>' +
+					'<li>GPU performance benchmarks: <a href="https://browser.geekbench.com/vulkan-benchmarks.json" target="_blank" rel="noopener noreferrer">Geekbench Vulkan</a> + <a href="https://browser.geekbench.com/opencl-benchmarks.json" target="_blank" rel="noopener noreferrer">Geekbench OpenCL</a></li>' +
 					'<li>GPU specifications database: <a href="https://www.techpowerup.com/gpu-specs/" target="_blank" rel="noopener noreferrer">TechPowerUp GPU Specs</a></li>' +
 					'<li>CPU specs & sockets: <a href="https://www.techpowerup.com/cpu-specs/" target="_blank" rel="noopener noreferrer">TechPowerUp CPU Specs</a></li>' +
 					'<li>Memory standards overview: <a href="https://www.jedec.org/" target="_blank" rel="noopener noreferrer">JEDEC</a></li>' +

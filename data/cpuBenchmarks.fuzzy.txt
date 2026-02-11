@@ -1,0 +1,3 @@
+AMD Ryzen 3 1200 (12nm) -> AMD Ryzen 3 1200
+AMD Ryzen 5 1600 (12nm) -> AMD Ryzen 5 1600
+Intel Core i7-10700K Avengers Collector's Edition -> Intel Core i7-10700K

@@ -93,12 +93,13 @@ foreach ($cpu in $cpuFiltered) {
         }
     }
 
+    $specScore = ($boostNorm * 0.60) + ($coreNorm * 0.30) + ($genNorm * 0.10)
     if ($null -ne $benchScore -and $maxBench -gt $minBench) {
-        $combinedScore = Normalize -value $benchScore -min $minBench -max $maxBench
+        $benchNorm = Normalize -value $benchScore -min $minBench -max $maxBench
+        $combinedScore = ($benchNorm * 0.70) + ($specScore * 0.30)
     } else {
-        # Simpler formula: Boost Clock is primary metric (faster clock = better performance for most workloads)
-        # Cores and Gen as secondary factors for edge cases
-        $combinedScore = ($boostNorm * 0.60) + ($coreNorm * 0.30) + ($genNorm * 0.10)
+        # Fallback to spec-only score when benchmark is missing
+        $combinedScore = $specScore
     }
     
     $cpu | Add-Member -NotePropertyName "score" -NotePropertyValue $combinedScore -Force

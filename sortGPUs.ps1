@@ -5,6 +5,9 @@ $gpuData = Get-Content -Path $gpuRawPath | ConvertFrom-Json
 # Map chipset to generation number
 $gpuGenerationMap = @{
     # NVIDIA GeForce Series (Consumer)
+    'GeForce GTX 1060' = 4
+    'GeForce GTX 1070' = 4
+    'GeForce GTX 1080' = 4
     'GeForce RTX 2060' = 6
     'GeForce RTX 2070' = 6
     'GeForce RTX 2080' = 6
@@ -96,6 +99,18 @@ foreach ($gpu in $gpuData) {
         $gen = 8.5
     } elseif ($chipset -like '*3060*') {
         $gen = 8.3
+    }
+    # NVIDIA GTX 10 Series
+    elseif ($chipset -like '*1080 Ti*') {
+        $gen = 4.7
+    } elseif ($chipset -like '*1080*') {
+        $gen = 4.6
+    } elseif ($chipset -like '*1070 Ti*') {
+        $gen = 4.5
+    } elseif ($chipset -like '*1070*') {
+        $gen = 4.4
+    } elseif ($chipset -like '*1060*') {
+        $gen = 4.2
     }
     # NVIDIA RTX 20 Series
     elseif ($chipset -like '*2090*') {
