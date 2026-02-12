@@ -12,19 +12,22 @@
 			<div class="header-content">
 				<h1>PC Upgrade Advisor</h1>
 				<p>Analyze your system bottleneck and get personalized upgrade recommendations</p>
-				<div style="margin-top: 1rem;">
-					<a href="articles.html" style="color: white; text-decoration: none; background: rgba(255,255,255,0.2); padding: 0.5rem 1rem; border-radius: 4px; display: inline-block; font-weight: 600;">📚 Articles & Guides</a>
-				</div>
 			</div>
-			<button id="themeToggle" class="theme-toggle" title="Toggle dark mode">🌙</button>
+			<div class="header-buttons">
+				<a href="articles.html" class="header-link-btn" title="Browse articles and guides">📚 Articles</a>
+				<button id="themeToggle" class="theme-toggle" title="Toggle dark mode">🌙</button>
+			</div>
 		</header>
 		<main>
 			<!-- Current System Input Section -->
 			<section id="currentSystem" class="system-input">
-				<h2>Your Current System</h2>
-			<p class="section-desc">Select your current components</p>
-
-				<div class="component-selection">
+			<div class="section-header-with-button">
+				<div>
+					<h2>Your Current System</h2>
+					<p class="section-desc">Select your current components</p>
+				</div>
+				<button class="guide-btn" onclick="window.open('articles.html?article=welcome-to-pc-upgrade-articles', '_blank')" title="Learn how to use this tool">📖 How to Use</button>
+			</div>
 					<div class="component-select">
 						<label for="cpuSelect">Current CPU</label>
 						<div class="filter-row">

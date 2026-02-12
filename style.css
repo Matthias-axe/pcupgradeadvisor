@@ -104,6 +104,31 @@ header p {
 	transform: scale(1.1);
 }
 
+/* Header Buttons Container */
+.header-buttons {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+}
+
+.header-link-btn {
+	background: rgba(255, 255, 255, 0.2);
+	color: white;
+	text-decoration: none;
+	padding: 8px 16px;
+	border-radius: 4px;
+	font-weight: 600;
+	border: 2px solid var(--accent-gold);
+	transition: all 0.3s ease;
+	white-space: nowrap;
+}
+
+.header-link-btn:hover {
+	background: var(--accent-gold);
+	color: var(--primary-dark);
+	transform: translateY(-2px);
+}
+
 main {
 	max-width: 1200px;
 	margin: 0 auto;
@@ -154,6 +179,55 @@ html[data-theme='dark'] h2 {
 	margin-top: -10px;
 	margin-bottom: 20px;
 	opacity: 0.85;
+}
+
+/* Section Header with Button */
+.section-header-with-button {
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-start;
+	margin-bottom: 20px;
+	gap: 20px;
+}
+
+.section-header-with-button h2 {
+	margin-bottom: 5px;
+}
+
+.section-header-with-button .section-desc {
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+.guide-btn {
+	background: var(--accent-gold);
+	color: var(--primary-dark);
+	border: 2px solid var(--accent-gold);
+	padding: 10px 20px;
+	border-radius: 4px;
+	font-weight: 600;
+	cursor: pointer;
+	transition: all 0.3s ease;
+	white-space: nowrap;
+	font-size: 0.95em;
+}
+
+.guide-btn:hover {
+	background: transparent;
+	color: var(--accent-gold);
+	transform: translateY(-2px);
+	box-shadow: 0 4px 8px rgba(212, 165, 116, 0.3);
+}
+
+html[data-theme='dark'] .guide-btn {
+	background: var(--accent-green);
+	border-color: var(--accent-green);
+}
+
+html[data-theme='dark'] .guide-btn:hover {
+	background: transparent;
+	color: var(--accent-green);
+	box-shadow: 0 4px 8px rgba(109, 184, 118, 0.3);
 }
 
 /* Component Selection */
@@ -1163,9 +1237,30 @@ html[data-theme='dark'] .disclaimer-note {
 		gap: 15px;
 	}
 
+	.header-buttons {
+		flex-direction: row;
+		justify-content: center;
+		width: 100%;
+	}
+
 	.theme-toggle {
 		margin-right: 0;
 		align-self: center;
+	}
+
+	.header-link-btn {
+		font-size: 0.9em;
+		padding: 8px 12px;
+	}
+
+	.section-header-with-button {
+		flex-direction: column;
+		align-items: stretch;
+	}
+
+	.guide-btn {
+		width: 100%;
+		text-align: center;
 	}
 
 	header h1 {
