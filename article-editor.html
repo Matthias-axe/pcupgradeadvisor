@@ -295,7 +295,7 @@
                 <li><strong>Use HTML formatting:</strong> The content field supports HTML (use &lt;h2&gt;, &lt;h3&gt;, &lt;p&gt;, &lt;ul&gt;, &lt;ol&gt;, etc.)</li>
                 <li><strong>Preview:</strong> See how your article will look on the right panel</li>
                 <li><strong>Export:</strong> Click "Export Article JSON" to download the article data</li>
-                <li><strong>Add to website:</strong> Manually add the exported JSON to the <code>data/articles.json</code> file</li>
+                <li><strong>⚠️ CRITICAL:</strong> When adding to <code>data/articles.json</code>, add a <strong>COMMA</strong> after the previous article's closing <code>}</code> but NOT after your new article if it's last</li>
             </ul>
         </div>
 
@@ -524,7 +524,7 @@
             
             // Show instructions
             setTimeout(() => {
-                alert(`Article exported successfully!\n\nNext steps:\n1. Open the downloaded JSON file\n2. Copy its contents\n3. Open data/articles.json\n4. Add the article object to the array\n5. Make sure to add a comma between articles\n\nExample:\n[\n  ${dataStr.split('\n').map((line, i) => i === 0 ? line : '  ' + line).join('\n')},\n  ...other articles...\n]`);
+                alert(`Article exported successfully!\n\n⚠️ IMPORTANT: You must add a COMMA after the previous article!\n\nSteps:\n1. Open data/articles.json\n2. Find the last article (look for the closing })\n3. Add a COMMA after that }\n4. Paste your new article\n5. Make sure NO comma after the last article\n\nCorrect format:\n[\n  {\n    "id": "first-article",\n    ...\n  },  ← COMMA HERE\n  ${dataStr.split('\n').map((line, i) => i === 0 ? line : '  ' + line).join('\n')}  ← NO COMMA (it's last)\n]`);
             }, 1000);
         }
 

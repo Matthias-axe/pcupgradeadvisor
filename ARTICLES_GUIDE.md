@@ -31,7 +31,7 @@ The articles system allows you to add SEO-friendly blog posts and guides to your
 
 7. Copy the contents of the downloaded JSON file
 
-8. Paste it into the articles array in `articles.json` (remember to add commas between articles)
+8. **⚠️ IMPORTANT:** Add a comma after the PREVIOUS article's closing `}`, then paste your new article
 
 ### Example articles.json structure:
 ```json
@@ -40,14 +40,16 @@ The articles system allows you to add SEO-friendly blog posts and guides to your
     "id": "first-article",
     "title": "First Article",
     ...
-  },
+  },  ← COMMA HERE after first article
   {
     "id": "second-article",
     "title": "Second Article",
     ...
-  }
+  }  ← NO COMMA (it's the last one)
 ]
 ```
+
+**Common mistake:** Forgetting the comma between articles causes a JSON syntax error and articles won't load!
 
 ### Method 2: Manual JSON Editing
 
