@@ -1,0 +1,12 @@
+[
+  {
+    "id": "welcome-to-pc-upgrade-articles",
+    "title": "Welcome to PC Upgrade Articles",
+    "excerpt": "Learn how to make the most of your PC upgrade journey with our comprehensive guides and expert insights. This article explains how to use our upgrade advisor tool effectively.",
+    "content": "<h2>Getting Started with PC Upgrades</h2><p>Welcome to the PC Upgrade Advisor articles section! Whether you're a seasoned PC enthusiast or just getting started, making informed upgrade decisions can significantly impact your system's performance and your budget.</p><h3>Why Use the PC Upgrade Advisor?</h3><p>Our tool helps you:</p><ul><li>Identify bottlenecks in your current system</li><li>Get personalized upgrade recommendations based on your specific hardware</li><li>Understand which components will give you the best performance improvement</li><li>Make cost-effective upgrade decisions</li></ul><h3>How to Use the Tool</h3><p>Using the PC Upgrade Advisor is simple:</p><ol><li><strong>Select your current components:</strong> Choose your CPU, GPU, and RAM from the dropdown menus</li><li><strong>View your system analysis:</strong> See which component is bottlenecking your performance</li><li><strong>Review upgrade suggestions:</strong> Get personalized recommendations for each component</li><li><strong>Compare and choose:</strong> See performance tiers and prices to make the best decision</li></ol><h3>Understanding Component Tiers</h3><p>Components are organized into performance tiers to help you understand relative performance levels. Higher tiers represent better performance, but that doesn't always mean you need the highest tier - it depends on your specific use case and the balance of your system.</p><h2>Coming Soon</h2><p>Stay tuned for more articles covering:</p><ul><li>CPU upgrade guides for different budgets</li><li>GPU recommendations for gaming, content creation, and productivity</li><li>RAM optimization and upgrade strategies</li><li>Understanding bottlenecks and system balance</li><li>Budget vs. high-end upgrade paths</li></ul><p>Check back regularly for new articles and guides!</p>",
+    "date": "2026-02-12",
+    "author": "PC Upgrade Advisor Team",
+    "readTime": 5,
+    "tags": ["Getting Started", "Guide", "Tutorial"]
+  }
+]

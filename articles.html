@@ -1,0 +1,338 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>PC Upgrade Articles & Guides - PC Upgrade Advisor</title>
+    <meta name="description" content="Expert articles and guides about PC upgrades, hardware comparisons, and performance optimization." />
+    <link rel="stylesheet" href="style.css" />
+    <style>
+        .articles-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .articles-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .articles-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .articles-grid {
+            display: grid;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .article-card {
+            background: var(--card-bg, #fff);
+            border: 1px solid var(--border-color, #e0e0e0);
+            border-radius: 8px;
+            padding: 1.5rem;
+            transition: transform 0.2s, box-shadow 0.2s;
+            cursor: pointer;
+        }
+
+        .article-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .article-meta {
+            display: flex;
+            gap: 1rem;
+            font-size: 0.875rem;
+            color: var(--text-secondary, #666);
+            margin-bottom: 0.75rem;
+        }
+
+        .article-card h2 {
+            font-size: 1.5rem;
+            margin-bottom: 0.75rem;
+            color: var(--primary-color, #2196F3);
+        }
+
+        .article-excerpt {
+            color: var(--text-color, #333);
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .article-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .article-tag {
+            background: var(--tag-bg, #e3f2fd);
+            color: var(--primary-color, #2196F3);
+            padding: 0.25rem 0.75rem;
+            border-radius: 12px;
+            font-size: 0.875rem;
+        }
+
+        .read-more {
+            color: var(--primary-color, #2196F3);
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .read-more:hover {
+            text-decoration: underline;
+        }
+
+        .article-full {
+            background: var(--card-bg, #fff);
+            border: 1px solid var(--border-color, #e0e0e0);
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .article-full h1 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .article-content {
+            line-height: 1.8;
+            color: var(--text-color, #333);
+        }
+
+        .article-content h2 {
+            font-size: 1.5rem;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .article-content h3 {
+            font-size: 1.25rem;
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .article-content p {
+            margin-bottom: 1rem;
+        }
+
+        .article-content ul, .article-content ol {
+            margin-bottom: 1rem;
+            padding-left: 2rem;
+        }
+
+        .article-content li {
+            margin-bottom: 0.5rem;
+        }
+
+        .back-to-articles {
+            display: inline-block;
+            margin-bottom: 2rem;
+            color: var(--primary-color, #2196F3);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .back-to-articles:hover {
+            text-decoration: underline;
+        }
+
+        .no-articles {
+            text-align: center;
+            padding: 3rem;
+            color: var(--text-secondary, #666);
+        }
+
+        .back-home {
+            display: inline-block;
+            margin-top: 2rem;
+            padding: 0.75rem 1.5rem;
+            background: var(--primary-color, #2196F3);
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+
+        .back-home:hover {
+            opacity: 0.9;
+        }
+
+        /* Dark mode support */
+        body.dark-mode {
+            --card-bg: #2d2d2d;
+            --border-color: #444;
+            --text-color: #e0e0e0;
+            --text-secondary: #999;
+            --tag-bg: #1e3a5f;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1>PC Upgrade Articles</h1>
+            <p>Expert guides and insights for optimizing your PC</p>
+        </div>
+        <button id="themeToggle" class="theme-toggle" title="Toggle dark mode">🌙</button>
+    </header>
+
+    <main class="articles-container">
+        <div id="articlesView">
+            <!-- Articles list will be displayed here -->
+            <div class="articles-grid" id="articlesList"></div>
+        </div>
+
+        <div id="articleView" style="display: none;">
+            <!-- Individual article will be displayed here -->
+        </div>
+
+        <a href="index.html" class="back-home">← Back to Upgrade Advisor</a>
+    </main>
+
+    <script>
+        // Theme toggle functionality
+        const themeToggle = document.getElementById('themeToggle');
+        const body = document.body;
+        
+        // Load saved theme
+        if (localStorage.getItem('darkMode') === 'enabled') {
+            body.classList.add('dark-mode');
+            themeToggle.textContent = '☀️';
+        }
+
+        themeToggle.addEventListener('click', () => {
+            body.classList.toggle('dark-mode');
+            if (body.classList.contains('dark-mode')) {
+                localStorage.setItem('darkMode', 'enabled');
+                themeToggle.textContent = '☀️';
+            } else {
+                localStorage.setItem('darkMode', 'disabled');
+                themeToggle.textContent = '🌙';
+            }
+        });
+
+        // Article management
+        let articles = [];
+        const articlesView = document.getElementById('articlesView');
+        const articleView = document.getElementById('articleView');
+        const articlesList = document.getElementById('articlesList');
+
+        // Load articles from JSON
+        async function loadArticles() {
+            try {
+                const response = await fetch('data/articles.json');
+                articles = await response.json();
+                
+                // Sort by date, newest first
+                articles.sort((a, b) => new Date(b.date) - new Date(a.date));
+                
+                displayArticles();
+            } catch (error) {
+                console.error('Error loading articles:', error);
+                articlesList.innerHTML = '<div class="no-articles">No articles available yet. Check back soon!</div>';
+            }
+        }
+
+        // Display articles list
+        function displayArticles() {
+            if (articles.length === 0) {
+                articlesList.innerHTML = '<div class="no-articles">No articles available yet. Check back soon!</div>';
+                return;
+            }
+
+            articlesList.innerHTML = articles.map(article => `
+                <div class="article-card" onclick="showArticle('${article.id}')">
+                    <div class="article-meta">
+                        <span>${formatDate(article.date)}</span>
+                        ${article.author ? `<span>• By ${article.author}</span>` : ''}
+                        ${article.readTime ? `<span>• ${article.readTime} min read</span>` : ''}
+                    </div>
+                    <h2>${article.title}</h2>
+                    <p class="article-excerpt">${article.excerpt}</p>
+                    ${article.tags ? `
+                        <div class="article-tags">
+                            ${article.tags.map(tag => `<span class="article-tag">${tag}</span>`).join('')}
+                        </div>
+                    ` : ''}
+                </div>
+            `).join('');
+        }
+
+        // Show individual article
+        function showArticle(articleId) {
+            const article = articles.find(a => a.id === articleId);
+            if (!article) return;
+
+            // Update URL without reload
+            window.history.pushState({articleId}, '', `?article=${articleId}`);
+
+            articlesView.style.display = 'none';
+            articleView.style.display = 'block';
+            articleView.innerHTML = `
+                <a href="#" class="back-to-articles" onclick="showArticlesList(); return false;">← Back to Articles</a>
+                <article class="article-full">
+                    <div class="article-meta">
+                        <span>${formatDate(article.date)}</span>
+                        ${article.author ? `<span>• By ${article.author}</span>` : ''}
+                        ${article.readTime ? `<span>• ${article.readTime} min read</span>` : ''}
+                    </div>
+                    <h1>${article.title}</h1>
+                    ${article.tags ? `
+                        <div class="article-tags">
+                            ${article.tags.map(tag => `<span class="article-tag">${tag}</span>`).join('')}
+                        </div>
+                    ` : ''}
+                    <div class="article-content">
+                        ${article.content}
+                    </div>
+                </article>
+            `;
+
+            // Scroll to top
+            window.scrollTo(0, 0);
+        }
+
+        // Show articles list
+        function showArticlesList() {
+            window.history.pushState({}, '', 'articles.html');
+            articlesView.style.display = 'block';
+            articleView.style.display = 'none';
+            window.scrollTo(0, 0);
+        }
+
+        // Format date
+        function formatDate(dateString) {
+            const date = new Date(dateString);
+            return date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+        }
+
+        // Handle browser back/forward
+        window.addEventListener('popstate', (event) => {
+            if (event.state && event.state.articleId) {
+                showArticle(event.state.articleId);
+            } else {
+                showArticlesList();
+            }
+        });
+
+        // Check URL on load
+        window.addEventListener('DOMContentLoaded', () => {
+            loadArticles();
+            
+            const urlParams = new URLSearchParams(window.location.search);
+            const articleId = urlParams.get('article');
+            if (articleId) {
+                // Wait for articles to load
+                setTimeout(() => showArticle(articleId), 100);
+            }
+        });
+    </script>
+</body>
+</html>

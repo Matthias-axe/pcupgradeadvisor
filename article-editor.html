@@ -1,0 +1,572 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Article Editor - PC Upgrade Advisor</title>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+        .editor-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .editor-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .editor-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        @media (max-width: 968px) {
+            .editor-layout {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .editor-panel {
+            background: var(--card-bg, #fff);
+            border: 1px solid var(--border-color, #e0e0e0);
+            border-radius: 8px;
+            padding: 1.5rem;
+        }
+
+        .editor-panel h2 {
+            margin-bottom: 1rem;
+            font-size: 1.25rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--text-color, #333);
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid var(--border-color, #ddd);
+            border-radius: 4px;
+            font-family: inherit;
+            font-size: 1rem;
+            background: var(--input-bg, #fff);
+            color: var(--text-color, #333);
+        }
+
+        .form-group textarea {
+            min-height: 200px;
+            font-family: 'Courier New', monospace;
+            resize: vertical;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-color, #2196F3);
+        }
+
+        .form-group small {
+            display: block;
+            margin-top: 0.25rem;
+            color: var(--text-secondary, #666);
+            font-size: 0.875rem;
+        }
+
+        .tag-input-container {
+            display: flex;
+            gap: 0.5rem;
+            margin-top: 0.5rem;
+        }
+
+        .tag-input {
+            flex: 1;
+        }
+
+        .add-tag-btn {
+            padding: 0.75rem 1rem;
+            background: var(--primary-color, #2196F3);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        .add-tag-btn:hover {
+            opacity: 0.9;
+        }
+
+        .tags-display {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 0.5rem;
+        }
+
+        .tag-item {
+            background: var(--tag-bg, #e3f2fd);
+            color: var(--primary-color, #2196F3);
+            padding: 0.25rem 0.75rem;
+            border-radius: 12px;
+            font-size: 0.875rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .tag-remove {
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .preview-content {
+            border: 1px solid var(--border-color, #ddd);
+            border-radius: 4px;
+            padding: 1.5rem;
+            min-height: 400px;
+            background: var(--preview-bg, #fafafa);
+            color: var(--text-color, #333);
+        }
+
+        .preview-content h1 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .preview-content h2 {
+            font-size: 1.5rem;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .preview-content h3 {
+            font-size: 1.25rem;
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .preview-content p {
+            margin-bottom: 1rem;
+            line-height: 1.8;
+        }
+
+        .preview-content ul, .preview-content ol {
+            margin-bottom: 1rem;
+            padding-left: 2rem;
+        }
+
+        .preview-content li {
+            margin-bottom: 0.5rem;
+        }
+
+        .preview-meta {
+            color: var(--text-secondary, #666);
+            font-size: 0.875rem;
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--border-color, #ddd);
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 4px;
+            font-weight: 600;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background: var(--primary-color, #2196F3);
+            color: white;
+        }
+
+        .btn-secondary {
+            background: var(--secondary-color, #4CAF50);
+            color: white;
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--primary-color, #2196F3);
+            color: var(--primary-color, #2196F3);
+        }
+
+        .btn:hover {
+            opacity: 0.9;
+        }
+
+        .instruction-box {
+            background: var(--info-bg, #e3f2fd);
+            border-left: 4px solid var(--primary-color, #2196F3);
+            padding: 1rem;
+            margin-bottom: 2rem;
+            border-radius: 4px;
+        }
+
+        .instruction-box h3 {
+            margin-top: 0;
+            margin-bottom: 0.5rem;
+        }
+
+        .instruction-box ul {
+            margin: 0.5rem 0;
+            padding-left: 1.5rem;
+        }
+
+        .instruction-box li {
+            margin-bottom: 0.25rem;
+        }
+
+        .notification {
+            position: fixed;
+            top: 2rem;
+            right: 2rem;
+            padding: 1rem 1.5rem;
+            background: var(--success-bg, #4CAF50);
+            color: white;
+            border-radius: 4px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            display: none;
+            z-index: 1000;
+        }
+
+        .notification.show {
+            display: block;
+            animation: slideIn 0.3s ease;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        /* Dark mode support */
+        body.dark-mode {
+            --card-bg: #2d2d2d;
+            --border-color: #444;
+            --text-color: #e0e0e0;
+            --text-secondary: #999;
+            --input-bg: #1a1a1a;
+            --preview-bg: #1a1a1a;
+            --tag-bg: #1e3a5f;
+            --info-bg: #1e3a5f;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1>Article Editor</h1>
+            <p>Create and publish articles for your PC Upgrade Advisor site</p>
+        </div>
+        <button id="themeToggle" class="theme-toggle" title="Toggle dark mode">🌙</button>
+    </header>
+
+    <main class="editor-container">
+        <div class="instruction-box">
+            <h3>📝 How to Use This Editor</h3>
+            <ul>
+                <li><strong>Write your article:</strong> Fill in the form fields on the left</li>
+                <li><strong>Use HTML formatting:</strong> The content field supports HTML (use &lt;h2&gt;, &lt;h3&gt;, &lt;p&gt;, &lt;ul&gt;, &lt;ol&gt;, etc.)</li>
+                <li><strong>Preview:</strong> See how your article will look on the right panel</li>
+                <li><strong>Export:</strong> Click "Export Article JSON" to download the article data</li>
+                <li><strong>Add to website:</strong> Manually add the exported JSON to the <code>data/articles.json</code> file</li>
+            </ul>
+        </div>
+
+        <div class="editor-layout">
+            <!-- Editor Panel -->
+            <div class="editor-panel">
+                <h2>Article Details</h2>
+                
+                <div class="form-group">
+                    <label for="articleTitle">Title *</label>
+                    <input type="text" id="articleTitle" placeholder="e.g., Best CPU Upgrades for Gaming in 2026" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="articleExcerpt">Excerpt *</label>
+                    <textarea id="articleExcerpt" rows="3" placeholder="Brief summary of the article (2-3 sentences)" required></textarea>
+                    <small>This appears in the article list</small>
+                </div>
+
+                <div class="form-group">
+                    <label for="articleContent">Content (HTML) *</label>
+                    <textarea id="articleContent" placeholder="<h2>Introduction</h2>
+<p>Your article content here...</p>
+
+<h3>Key Points</h3>
+<ul>
+  <li>Point 1</li>
+  <li>Point 2</li>
+</ul>" required></textarea>
+                    <small>Use HTML tags for formatting</small>
+                </div>
+
+                <div class="form-group">
+                    <label for="articleAuthor">Author</label>
+                    <input type="text" id="articleAuthor" placeholder="Your name (optional)">
+                </div>
+
+                <div class="form-group">
+                    <label for="articleReadTime">Estimated Read Time (minutes)</label>
+                    <input type="number" id="articleReadTime" placeholder="e.g., 5" min="1">
+                </div>
+
+                <div class="form-group">
+                    <label>Tags</label>
+                    <div class="tag-input-container">
+                        <input type="text" id="tagInput" class="tag-input" placeholder="Add a tag (e.g., CPU, Gaming, Budget)">
+                        <button class="add-tag-btn" onclick="addTag()">Add Tag</button>
+                    </div>
+                    <div class="tags-display" id="tagsDisplay"></div>
+                </div>
+
+                <div class="action-buttons">
+                    <button class="btn btn-primary" onclick="updatePreview()">Update Preview</button>
+                    <button class="btn btn-secondary" onclick="exportArticle()">Export Article JSON</button>
+                    <button class="btn btn-outline" onclick="clearForm()">Clear Form</button>
+                </div>
+            </div>
+
+            <!-- Preview Panel -->
+            <div class="editor-panel">
+                <h2>Live Preview</h2>
+                <div class="preview-content" id="previewContent">
+                    <p style="text-align: center; color: #999; padding: 2rem;">
+                        Fill in the article details and click "Update Preview" to see how it will look.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 2rem;">
+            <a href="index.html" class="btn btn-outline">← Back to Main Site</a>
+            <a href="articles.html" class="btn btn-outline" style="margin-left: 1rem;">View Articles Page</a>
+        </div>
+    </main>
+
+    <div class="notification" id="notification"></div>
+
+    <script>
+        // Theme toggle functionality
+        const themeToggle = document.getElementById('themeToggle');
+        const body = document.body;
+        
+        if (localStorage.getItem('darkMode') === 'enabled') {
+            body.classList.add('dark-mode');
+            themeToggle.textContent = '☀️';
+        }
+
+        themeToggle.addEventListener('click', () => {
+            body.classList.toggle('dark-mode');
+            if (body.classList.contains('dark-mode')) {
+                localStorage.setItem('darkMode', 'enabled');
+                themeToggle.textContent = '☀️';
+            } else {
+                localStorage.setItem('darkMode', 'disabled');
+                themeToggle.textContent = '🌙';
+            }
+        });
+
+        // Article editor functionality
+        let tags = [];
+
+        // Add tag
+        function addTag() {
+            const tagInput = document.getElementById('tagInput');
+            const tag = tagInput.value.trim();
+            
+            if (tag && !tags.includes(tag)) {
+                tags.push(tag);
+                updateTagsDisplay();
+                tagInput.value = '';
+            }
+        }
+
+        // Update tags display
+        function updateTagsDisplay() {
+            const tagsDisplay = document.getElementById('tagsDisplay');
+            tagsDisplay.innerHTML = tags.map((tag, index) => `
+                <div class="tag-item">
+                    <span>${tag}</span>
+                    <span class="tag-remove" onclick="removeTag(${index})">×</span>
+                </div>
+            `).join('');
+        }
+
+        // Remove tag
+        function removeTag(index) {
+            tags.splice(index, 1);
+            updateTagsDisplay();
+        }
+
+        // Allow Enter key to add tag
+        document.getElementById('tagInput').addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                addTag();
+            }
+        });
+
+        // Update preview
+        function updatePreview() {
+            const title = document.getElementById('articleTitle').value;
+            const content = document.getElementById('articleContent').value;
+            const author = document.getElementById('articleAuthor').value;
+            const readTime = document.getElementById('articleReadTime').value;
+            const previewContent = document.getElementById('previewContent');
+
+            if (!title && !content) {
+                showNotification('Please fill in at least the title and content', 'error');
+                return;
+            }
+
+            const date = new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+            
+            let metaHtml = `<div class="preview-meta">${date}`;
+            if (author) metaHtml += ` • By ${author}`;
+            if (readTime) metaHtml += ` • ${readTime} min read`;
+            metaHtml += '</div>';
+
+            let tagsHtml = '';
+            if (tags.length > 0) {
+                tagsHtml = '<div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1rem;">';
+                tags.forEach(tag => {
+                    tagsHtml += `<span class="tag-item">${tag}</span>`;
+                });
+                tagsHtml += '</div>';
+            }
+
+            previewContent.innerHTML = `
+                ${metaHtml}
+                <h1>${title || 'Article Title'}</h1>
+                ${tagsHtml}
+                ${content || '<p>Article content will appear here...</p>'}
+            `;
+
+            showNotification('Preview updated!');
+        }
+
+        // Export article as JSON
+        function exportArticle() {
+            const title = document.getElementById('articleTitle').value;
+            const excerpt = document.getElementById('articleExcerpt').value;
+            const content = document.getElementById('articleContent').value;
+            const author = document.getElementById('articleAuthor').value;
+            const readTime = document.getElementById('articleReadTime').value;
+
+            if (!title || !excerpt || !content) {
+                showNotification('Please fill in required fields: Title, Excerpt, and Content', 'error');
+                return;
+            }
+
+            // Generate a URL-safe ID from the title
+            const id = title.toLowerCase()
+                .replace(/[^a-z0-9]+/g, '-')
+                .replace(/^-|-$/g, '')
+                .substring(0, 50);
+
+            const article = {
+                id: id,
+                title: title,
+                excerpt: excerpt,
+                content: content,
+                date: new Date().toISOString().split('T')[0],
+                author: author || undefined,
+                readTime: readTime ? parseInt(readTime) : undefined,
+                tags: tags.length > 0 ? tags : undefined
+            };
+
+            // Remove undefined fields
+            Object.keys(article).forEach(key => 
+                article[key] === undefined && delete article[key]
+            );
+
+            // Create downloadable JSON file
+            const dataStr = JSON.stringify(article, null, 2);
+            const dataBlob = new Blob([dataStr], { type: 'application/json' });
+            const url = URL.createObjectURL(dataBlob);
+            const link = document.createElement('a');
+            link.href = url;
+            link.download = `${id}.json`;
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            URL.revokeObjectURL(url);
+
+            showNotification('Article JSON downloaded! Now add it to data/articles.json');
+            
+            // Show instructions
+            setTimeout(() => {
+                alert(`Article exported successfully!\n\nNext steps:\n1. Open the downloaded JSON file\n2. Copy its contents\n3. Open data/articles.json\n4. Add the article object to the array\n5. Make sure to add a comma between articles\n\nExample:\n[\n  ${dataStr.split('\n').map((line, i) => i === 0 ? line : '  ' + line).join('\n')},\n  ...other articles...\n]`);
+            }, 1000);
+        }
+
+        // Clear form
+        function clearForm() {
+            if (confirm('Are you sure you want to clear the form?')) {
+                document.getElementById('articleTitle').value = '';
+                document.getElementById('articleExcerpt').value = '';
+                document.getElementById('articleContent').value = '';
+                document.getElementById('articleAuthor').value = '';
+                document.getElementById('articleReadTime').value = '';
+                tags = [];
+                updateTagsDisplay();
+                document.getElementById('previewContent').innerHTML = `
+                    <p style="text-align: center; color: #999; padding: 2rem;">
+                        Fill in the article details and click "Update Preview" to see how it will look.
+                    </p>
+                `;
+                showNotification('Form cleared');
+            }
+        }
+
+        // Show notification
+        function showNotification(message, type = 'success') {
+            const notification = document.getElementById('notification');
+            notification.textContent = message;
+            notification.style.background = type === 'error' ? '#f44336' : '#4CAF50';
+            notification.classList.add('show');
+            
+            setTimeout(() => {
+                notification.classList.remove('show');
+            }, 3000);
+        }
+
+        // Auto-update preview on content change
+        let updateTimeout;
+        ['articleTitle', 'articleContent', 'articleAuthor', 'articleReadTime'].forEach(id => {
+            document.getElementById(id).addEventListener('input', () => {
+                clearTimeout(updateTimeout);
+                updateTimeout = setTimeout(updatePreview, 1000);
+            });
+        });
+    </script>
+</body>
+</html>
