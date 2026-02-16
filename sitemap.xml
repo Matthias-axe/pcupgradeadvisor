@@ -16,8 +16,18 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://pcupgradeadvisor.com/articles/should-you-upgrade-your-cpu-in-2026/</loc>
+    <loc>https://pcupgradeadvisor.com/articles/should-you-upgrade-your-cpu/</loc>
     <lastmod>2026-02-12</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://pcupgradeadvisor.com/articles/should-you-upgrade-your-ram/</loc>
+    <lastmod>2026-02-16</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://pcupgradeadvisor.com/articles/should-you-upgrade-your-gpu/</loc>
+    <lastmod>2026-02-16</lastmod>
     <priority>0.8</priority>
   </url>
 </urlset>
