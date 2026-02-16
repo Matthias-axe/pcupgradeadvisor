@@ -56,7 +56,7 @@ header {
 	box-shadow: 0 4px 12px rgba(212, 165, 116, 0.2);
 	position: relative;
 	display: flex;
-	justify-content: space-between;
+	justify-content: center;
 	align-items: center;
 	transition: all 0.3s ease;
 }
@@ -109,6 +109,8 @@ header p {
 	display: flex;
 	align-items: center;
 	gap: 10px;
+	position: absolute;
+	right: 20px;
 }
 
 .header-link-btn {
