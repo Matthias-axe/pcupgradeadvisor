@@ -7,19 +7,33 @@ The articles system allows you to add SEO-friendly blog posts and guides to your
 1. **articles.html** - Public-facing page that displays all articles
 2. **article-editor.html** - Editor interface for creating new articles
 3. **data/articles.json** - JSON file that stores all article data
+4. **articles/** - Generated static pages for each article
+5. **generate-article-pages.ps1** - Script that builds the static article pages
 
 ## How to Add a New Article
+
+## Super Simple Checklist (Start Here)
+
+1. Open `article-editor.html` in your browser.
+2. Fill in the fields and click **Export Article JSON**.
+3. Paste the exported JSON into `data/articles.json` (remember the comma).
+4. Run:
+  - `PowerShell -ExecutionPolicy Bypass -File .\generate-article-pages.ps1`
+  - `PowerShell -ExecutionPolicy Bypass -File .\generate-sitemap.ps1`
+5. Commit and push to `main`.
+6. Wait for GitHub Pages to deploy (Actions tab).
 
 ### Method 1: Using the Article Editor (Recommended)
 
 1. Open `article-editor.html` in your browser
 2. Fill in all the article details:
-   - **Title**: The main heading of your article
-   - **Excerpt**: A brief summary (2-3 sentences) that appears in the article list
-   - **Content**: The full article content using HTML formatting
-   - **Author**: Your name (optional)
-   - **Read Time**: Estimated reading time in minutes
-   - **Tags**: Keywords to categorize your article (e.g., "CPU", "Gaming", "Budget")
+  - **Title**: The main heading of your article
+  - **Excerpt**: A brief summary (2-3 sentences) that appears in the article list
+  - **Content**: The full article content using HTML formatting
+  - **Author**: Your name (optional)
+  - **Read Time**: Estimated reading time in minutes
+  - **Tags**: Keywords to categorize your article (e.g., "CPU", "Gaming", "Budget")
+  - **URL Slug**: Optional SEO-friendly URL segment (leave it stable if the title changes later)
 
 3. Click "Update Preview" to see how your article will look
 
@@ -38,11 +52,13 @@ The articles system allows you to add SEO-friendly blog posts and guides to your
 [
   {
     "id": "first-article",
+    "slug": "first-article",
     "title": "First Article",
     ...
   },  ← COMMA HERE after first article
   {
     "id": "second-article",
+    "slug": "second-article",
     "title": "Second Article",
     ...
   }  ← NO COMMA (it's the last one)
@@ -58,6 +74,7 @@ You can also manually edit `data/articles.json` directly. Each article should ha
 ```json
 {
   "id": "url-friendly-article-id",
+  "slug": "url-friendly-article-id",
   "title": "Article Title",
   "excerpt": "Brief summary of the article",
   "content": "<h2>Section</h2><p>Article content with HTML tags...</p>",
@@ -114,7 +131,15 @@ The articles page is linked:
 - Articles are displayed in reverse chronological order (newest first)
 - Each article shows title, excerpt, metadata, and tags
 - Clicking an article opens it in full view
-- URL includes the article ID for sharing (e.g., `articles.html?article=article-id`)
+- Each article has its own static URL (e.g., `articles/your-article-slug/`)
+
+## Generating Static Article Pages
+
+Run the generator after adding or editing articles:
+
+```powershell
+./generate-article-pages.ps1
+```
 
 ## Tips for Good Articles
 

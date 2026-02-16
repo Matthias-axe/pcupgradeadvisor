@@ -310,6 +310,12 @@
                 </div>
 
                 <div class="form-group">
+                    <label for="articleSlug">URL Slug</label>
+                    <input type="text" id="articleSlug" placeholder="e.g., best-cpu-upgrades-for-gaming-2026">
+                    <small>Leave blank to auto-generate from the title. You can keep this unchanged if the title updates later.</small>
+                </div>
+
+                <div class="form-group">
                     <label for="articleExcerpt">Excerpt *</label>
                     <textarea id="articleExcerpt" rows="3" placeholder="Brief summary of the article (2-3 sentences)" required></textarea>
                     <small>This appears in the article list</small>
@@ -397,6 +403,13 @@
         // Article editor functionality
         let tags = [];
 
+        document.getElementById('articleTitle').addEventListener('input', (e) => {
+            const slugInput = document.getElementById('articleSlug');
+            if (!slugInput.value.trim()) {
+                slugInput.value = createSlug(e.target.value || '');
+            }
+        });
+
         // Add tag
         function addTag() {
             const tagInput = document.getElementById('tagInput');
@@ -473,9 +486,17 @@
             showNotification('Preview updated!');
         }
 
+        function createSlug(value) {
+            return value.toLowerCase()
+                .replace(/[^a-z0-9]+/g, '-')
+                .replace(/^-|-$/g, '')
+                .substring(0, 80);
+        }
+
         // Export article as JSON
         function exportArticle() {
             const title = document.getElementById('articleTitle').value;
+            const slugInput = document.getElementById('articleSlug').value;
             const excerpt = document.getElementById('articleExcerpt').value;
             const content = document.getElementById('articleContent').value;
             const author = document.getElementById('articleAuthor').value;
@@ -486,14 +507,13 @@
                 return;
             }
 
-            // Generate a URL-safe ID from the title
-            const id = title.toLowerCase()
-                .replace(/[^a-z0-9]+/g, '-')
-                .replace(/^-|-$/g, '')
-                .substring(0, 50);
+            const slugSource = slugInput || title;
+            const slug = createSlug(slugSource);
+            const id = slug;
 
             const article = {
                 id: id,
+                slug: slug,
                 title: title,
                 excerpt: excerpt,
                 content: content,
@@ -536,6 +556,7 @@
                 document.getElementById('articleContent').value = '';
                 document.getElementById('articleAuthor').value = '';
                 document.getElementById('articleReadTime').value = '';
+                document.getElementById('articleSlug').value = '';
                 tags = [];
                 updateTagsDisplay();
                 document.getElementById('previewContent').innerHTML = `

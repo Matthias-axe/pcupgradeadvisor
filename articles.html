@@ -36,6 +36,9 @@
             padding: 1.5rem;
             transition: transform 0.2s, box-shadow 0.2s;
             cursor: pointer;
+            display: block;
+            text-decoration: none;
+            color: inherit;
         }
 
         .article-card:hover {
@@ -189,10 +192,6 @@
             <div class="articles-grid" id="articlesList"></div>
         </div>
 
-        <div id="articleView" style="display: none;">
-            <!-- Individual article will be displayed here -->
-        </div>
-
         <a href="index.html" class="back-home">← Get Your Upgrade Recommendation</a>
     </main>
 
@@ -220,8 +219,6 @@
 
         // Article management
         let articles = [];
-        const articlesView = document.getElementById('articlesView');
-        const articleView = document.getElementById('articleView');
         const articlesList = document.getElementById('articlesList');
 
         // Load articles from JSON
@@ -248,7 +245,7 @@
             }
 
             articlesList.innerHTML = articles.map(article => `
-                <div class="article-card" onclick="showArticle('${article.id}')">
+                <a class="article-card" href="${getArticleUrl(article)}">
                     <div class="article-meta">
                         <span>${formatDate(article.date)}</span>
                         ${article.author ? `<span>• By ${article.author}</span>` : ''}
@@ -261,50 +258,26 @@
                             ${article.tags.map(tag => `<span class="article-tag">${tag}</span>`).join('')}
                         </div>
                     ` : ''}
-                </div>
+                </a>
             `).join('');
         }
 
-        // Show individual article
-        function showArticle(articleId) {
-            const article = articles.find(a => a.id === articleId);
-            if (!article) return;
-
-            // Update URL without reload
-            window.history.pushState({articleId}, '', `?article=${articleId}`);
-
-            articlesView.style.display = 'none';
-            articleView.style.display = 'block';
-            articleView.innerHTML = `
-                <a href="#" class="back-to-articles" onclick="showArticlesList(); return false;">← Back to Articles</a>
-                <article class="article-full">
-                    <div class="article-meta">
-                        <span>${formatDate(article.date)}</span>
-                        ${article.author ? `<span>• By ${article.author}</span>` : ''}
-                        ${article.readTime ? `<span>• ${article.readTime} min read</span>` : ''}
-                    </div>
-                    <h1>${article.title}</h1>
-                    ${article.tags ? `
-                        <div class="article-tags">
-                            ${article.tags.map(tag => `<span class="article-tag">${tag}</span>`).join('')}
-                        </div>
-                    ` : ''}
-                    <div class="article-content">
-                        ${article.content}
-                    </div>
-                </article>
-            `;
-
-            // Scroll to top
-            window.scrollTo(0, 0);
+        function createSlug(value) {
+            return value.toLowerCase()
+                .replace(/[^a-z0-9]+/g, '-')
+                .replace(/^-|-$/g, '')
+                .substring(0, 80);
         }
 
-        // Show articles list
-        function showArticlesList() {
-            window.history.pushState({}, '', 'articles.html');
-            articlesView.style.display = 'block';
-            articleView.style.display = 'none';
-            window.scrollTo(0, 0);
+        function getArticleSlug(article) {
+            if (article.slug) return article.slug;
+            if (article.id) return article.id;
+            return createSlug(article.title || 'article');
+        }
+
+        function getArticleUrl(article) {
+            const slug = getArticleSlug(article);
+            return `articles/${encodeURIComponent(slug)}/`;
         }
 
         // Format date
@@ -313,15 +286,6 @@
             return date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
         }
 
-        // Handle browser back/forward
-        window.addEventListener('popstate', (event) => {
-            if (event.state && event.state.articleId) {
-                showArticle(event.state.articleId);
-            } else {
-                showArticlesList();
-            }
-        });
-
         // Check URL on load
         window.addEventListener('DOMContentLoaded', () => {
             loadArticles();
@@ -329,8 +293,13 @@
             const urlParams = new URLSearchParams(window.location.search);
             const articleId = urlParams.get('article');
             if (articleId) {
-                // Wait for articles to load
-                setTimeout(() => showArticle(articleId), 100);
+                // Redirect legacy URLs to the new static route
+                setTimeout(() => {
+                    const article = articles.find(a => a.id === articleId || a.slug === articleId);
+                    if (article) {
+                        window.location.replace(getArticleUrl(article));
+                    }
+                }, 100);
             }
         });
     </script>

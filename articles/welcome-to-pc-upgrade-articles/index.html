@@ -1,0 +1,159 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Welcome to PC Upgrade Articles - PC Upgrade Advisor</title>
+    <meta name="description" content="Learn how to make the most of your PC upgrade journey with our comprehensive guides and expert insights. This article explains how to use our upgrade advisor tool effectively." />
+    <link rel="canonical" href="https://pcupgradeadvisor.com/articles/welcome-to-pc-upgrade-articles/" />
+    <link rel="stylesheet" href="../../style.css" />
+    <style>
+        .article-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .article-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            font-size: 0.875rem;
+            color: var(--text-secondary, #666);
+            margin-bottom: 0.75rem;
+        }
+
+        .article-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .article-tag {
+            background: var(--tag-bg, #e3f2fd);
+            color: var(--primary-color, #2196F3);
+            padding: 0.25rem 0.75rem;
+            border-radius: 12px;
+            font-size: 0.875rem;
+        }
+
+        .article-full {
+            background: var(--card-bg, #fff);
+            border: 1px solid var(--border-color, #e0e0e0);
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .article-full h1 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .article-content {
+            line-height: 1.8;
+            color: var(--text-color, #333);
+        }
+
+        .article-content h2 {
+            font-size: 1.5rem;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .article-content h3 {
+            font-size: 1.25rem;
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .article-content p {
+            margin-bottom: 1rem;
+        }
+
+        .article-content ul, .article-content ol {
+            margin-bottom: 1rem;
+            padding-left: 2rem;
+        }
+
+        .article-content li {
+            margin-bottom: 0.5rem;
+        }
+
+        .nav-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--primary-color, #2196F3);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .nav-links a:hover {
+            text-decoration: underline;
+        }
+
+        body.dark-mode {
+            --card-bg: #2d2d2d;
+            --border-color: #444;
+            --text-color: #e0e0e0;
+            --text-secondary: #999;
+            --tag-bg: #1e3a5f;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1>PC Upgrade Articles</h1>
+            <p>Expert guides and insights for optimizing your PC</p>
+        </div>
+        <button id="themeToggle" class="theme-toggle" title="Toggle dark mode">🌙</button>
+    </header>
+
+    <main class="article-container">
+        <div class="nav-links">
+            <a href="../../articles.html">← Back to Articles</a>
+            <a href="../../index.html">Upgrade Recommendation →</a>
+        </div>
+
+        <article class="article-full">
+            <div class="article-meta">
+                <span>February 12, 2026 • By PC Upgrade Advisor Team • 5 min read</span>
+            </div>
+            <h1>Welcome to PC Upgrade Articles</h1>
+            <div class='article-tags'><span class='article-tag'>Getting Started</span><span class='article-tag'>Guide</span><span class='article-tag'>Tutorial</span></div>
+            <div class="article-content">
+                <h2>Getting Started with PC Upgrades</h2><p>Welcome to the PC Upgrade Advisor articles section! Whether you're a seasoned PC enthusiast or just getting started, making informed upgrade decisions can significantly impact your system's performance and your budget.</p><h3>Why Use the PC Upgrade Advisor?</h3><p>Our tool helps you:</p><ul><li>Identify bottlenecks in your current system</li><li>Get personalized upgrade recommendations based on your specific hardware</li><li>Understand which components will give you the best performance improvement</li><li>Make cost-effective upgrade decisions</li></ul><h3>How to Use the Tool</h3><p>Using the PC Upgrade Advisor is simple:</p><ol><li><strong>Select your current components:</strong> Choose your CPU, GPU, and RAM from the dropdown menus</li><li><strong>View your system analysis:</strong> See which component is bottlenecking your performance</li><li><strong>Review upgrade suggestions:</strong> Get personalized recommendations for each component</li><li><strong>Compare and choose:</strong> See performance tiers and prices to make the best decision</li></ol><h3>Understanding Component Tiers</h3><p>Components are organized into performance tiers to help you understand relative performance levels. Higher tiers represent better performance, but that doesn't always mean you need the highest tier - it depends on your specific use case and the balance of your system.</p><h2>Coming Soon</h2><p>Stay tuned for more articles covering:</p><ul><li>CPU upgrade guides for different budgets</li><li>GPU recommendations for gaming, content creation, and productivity</li><li>RAM optimization and upgrade strategies</li><li>Understanding bottlenecks and system balance</li><li>Budget vs. high-end upgrade paths</li></ul><p>Check back regularly for new articles and guides!</p>
+            </div>
+        </article>
+    </main>
+
+    <script>
+        const themeToggle = document.getElementById('themeToggle');
+        const body = document.body;
+
+        if (localStorage.getItem('darkMode') === 'enabled') {
+            body.classList.add('dark-mode');
+            themeToggle.textContent = '☀️';
+        }
+
+        themeToggle.addEventListener('click', () => {
+            body.classList.toggle('dark-mode');
+            if (body.classList.contains('dark-mode')) {
+                localStorage.setItem('darkMode', 'enabled');
+                themeToggle.textContent = '☀️';
+            } else {
+                localStorage.setItem('darkMode', 'disabled');
+                themeToggle.textContent = '🌙';
+            }
+        });
+    </script>
+</body>
+</html>
