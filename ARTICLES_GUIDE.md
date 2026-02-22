@@ -1,7 +1,7 @@
 # Articles System Guide
 
 ## Overview
-The articles system allows you to add SEO-friendly blog posts and guides to your PC Upgrade Advisor website.
+The articles system allows you to add SEO-friendly blog posts and guides to your PC Upgrade Advisor website. Remeber to update the sitemap after adding new articles use this link: https://search.google.com/u/1/search-console/sitemaps?resource_id=sc-domain%3Apcupgradeadvisor.com and update teh sitemap by pasting this: https://pcupgradeadvisor.com/sitemap.xml into the "Enter sitemap URL" slot.
 
 ## Files Created
 1. **articles.html** - Public-facing page that displays all articles

@@ -2,12 +2,12 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://pcupgradeadvisor.com/</loc>
-    <lastmod>2026-02-16</lastmod>
+    <lastmod>2026-02-22</lastmod>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://pcupgradeadvisor.com/articles.html</loc>
-    <lastmod>2026-02-16</lastmod>
+    <lastmod>2026-02-22</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
@@ -28,6 +28,11 @@
   <url>
     <loc>https://pcupgradeadvisor.com/articles/should-you-upgrade-your-gpu/</loc>
     <lastmod>2026-02-16</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://pcupgradeadvisor.com/articles/is-ryzen-5-3600-still-good-in-2026-should-you-upgrade-on-am4/</loc>
+    <lastmod>2026-02-22</lastmod>
     <priority>0.8</priority>
   </url>
 </urlset>
