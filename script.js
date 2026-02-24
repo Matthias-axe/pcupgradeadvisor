@@ -62,20 +62,50 @@ function calculateGamingModifier(resolution, refreshRate) {
 	// Only meaningful modifiers where performance gaps are real and measurable
 	// Data based on actual gaming benchmarks (Cyberpunk 2077, Star Wars Outlaws, etc.)
 	
-	if (resolution === '1080p') {
-		if (refreshNum >= 144) {
-			return 1; // 1080p @ 144Hz requires ~2.4x performance vs 60Hz
-		}
+	// Normalize resolution to tier groups
+	// Anything below 1080p has no effect, anything above 4K has same effect as 4K
+	let resolutionTier;
+	if (resolution === '768p') {
+		return 0; // Below 1080p = no effect
+	} else if (resolution === '1080p') {
+		resolutionTier = 1080;
 	} else if (resolution === '1440p') {
-		if (refreshNum >= 144) {
-			return 1; // 1440p @ 144Hz needs RTX 4070+ tier (verified benchmark data)
+		resolutionTier = 1440;
+	} else if (resolution === '4k') {
+		resolutionTier = 4000;
+	} else if (resolution === '5k' || resolution === '8k') {
+		resolutionTier = 4000; // Treat 5K/8K same as 4K
+	} else {
+		return 0; // Unknown resolution
+	}
+
+	// Normalize refresh rate to tier groups
+	// Anything below 144Hz has no modifier for 1080p/1440p
+	// 144Hz-180Hz = high refresh tier, 240Hz+ = extreme refresh tier
+	let refreshTier;
+	if (refreshNum < 144) {
+		refreshTier = 60; // Baseline group (60, 75, 100, 120)
+	} else if (refreshNum <= 180) {
+		refreshTier = 144; // High refresh group (144, 165, 180)
+	} else {
+		refreshTier = 240; // Extreme refresh group (240, 360, 500)
+	}
+
+	// Apply modifiers based on combination
+	if (resolutionTier === 1080) {
+		if (refreshTier === 144) {
+			return 1; // 1080p @ 144Hz+ requires ~2.4x performance vs 60Hz
+		}
+	} else if (resolutionTier === 1440) {
+		if (refreshTier === 144) {
+			return 1; // 1440p @ 144Hz+ needs RTX 4070+ tier
 		}
 		// 1440p @ 60Hz = baseline mid-range, no modifier
-	} else if (resolution === '4k') {
-		if (refreshNum >= 144) {
-			return 2; // 4K @ 144Hz requires extreme tier only (RTX 4090)
+	} else if (resolutionTier === 4000) {
+		if (refreshTier === 240) {
+			return 2; // 4K @ 240Hz+ requires extreme tier (RTX 4090)
 		} else {
-			return 1; // 4K @ 60Hz requires ~30% more power than 1440p/60Hz
+			return 1; // 4K at any other refresh requires ~30% more power than 1440p/60Hz
 		}
 	}
 
