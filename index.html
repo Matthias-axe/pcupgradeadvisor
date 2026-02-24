@@ -129,6 +129,39 @@
 				</div>
 			</section>
 
+			<!-- Gaming Targets Selection -->
+			<section id="gamingTargets" class="tier-advancement">
+				<h2>Gaming Targets (Optional)</h2>
+				<p class="section-desc">Set your desired resolution and refresh rate for gaming</p>
+
+				<div class="gaming-targets-grid">
+					<div class="gaming-target-input">
+						<label for="resolutionSelect">Target Resolution</label>
+						<select id="resolutionSelect">
+							<option value="">Default</option>
+							<option value="1080p">1080p</option>
+							<option value="1440p">1440p</option>
+							<option value="4k">4K</option>
+						</select>
+						<p class="input-desc">Choose your gaming resolution</p>
+					</div>
+
+					<div class="gaming-target-input">
+						<label for="refreshRateSelect">Target Refresh Rate</label>
+						<select id="refreshRateSelect">
+							<option value="">Default (60 Hz)</option>
+							<option value="144">144 Hz</option>
+							<option value="240">240 Hz</option>
+						</select>
+						<p class="input-desc">Baseline 60 Hz, gaming 144 Hz, competitive 240+ Hz</p>
+					</div>
+				</div>
+
+				<div id="gamingModifierNote" class="gaming-modifier-note hidden">
+					<p>⚠️ These targets will adjust GPU recommendations for mid-range and higher systems.</p>
+				</div>
+			</section>
+
 			<!-- Upgrade Effort Selection -->
 			<section id="effortSelection" class="tier-advancement">
 				<h2>Upgrade Effort</h2>

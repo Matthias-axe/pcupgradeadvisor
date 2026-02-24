@@ -35,6 +35,82 @@ let selectedRAM = null;
 let lastAnalysisState = null;
 let balancedUpgradeChoice = null;
 
+// Gaming targets for modifier calculation
+let gamingTargets = {
+	resolution: '',
+	refreshRate: ''
+};
+
+// Get selected gaming target values
+function getSelectedResolution() {
+	return document.getElementById('resolutionSelect')?.value || '';
+}
+
+function getSelectedRefreshRate() {
+	return document.getElementById('refreshRateSelect')?.value || '';
+}
+
+// Calculate GPU tier modifier based on gaming targets
+// Based on real-world gaming benchmarks and GPU requirements
+function calculateGamingModifier(resolution, refreshRate) {
+	if (!resolution || !refreshRate) {
+		return 0; // No modifier if targets not set
+	}
+
+	const refreshNum = parseInt(refreshRate);
+	
+	// Only meaningful modifiers where performance gaps are real and measurable
+	// Data based on actual gaming benchmarks (Cyberpunk 2077, Star Wars Outlaws, etc.)
+	
+	if (resolution === '1080p') {
+		if (refreshNum >= 144) {
+			return 1; // 1080p @ 144Hz requires ~2.4x performance vs 60Hz
+		}
+	} else if (resolution === '1440p') {
+		if (refreshNum >= 144) {
+			return 1; // 1440p @ 144Hz needs RTX 4070+ tier (verified benchmark data)
+		}
+		// 1440p @ 60Hz = baseline mid-range, no modifier
+	} else if (resolution === '4k') {
+		if (refreshNum >= 144) {
+			return 2; // 4K @ 144Hz requires extreme tier only (RTX 4090)
+		} else {
+			return 1; // 4K @ 60Hz requires ~30% more power than 1440p/60Hz
+		}
+	}
+
+	return 0;
+}
+
+// Apply gaming modifier to tier (only for mid-range and above, tier >= 4)
+function applyGamingModifier(baseTier, resolution, refreshRate, currentTier) {
+	// Only apply modifier if current tier is 4 or higher (mid-range and above)
+	if (currentTier < 4) {
+		return baseTier;
+	}
+
+	const modifier = calculateGamingModifier(resolution, refreshRate);
+	
+	// Ensure the new tier doesn't go below the base tier
+	return Math.max(baseTier, baseTier + modifier);
+}
+
+// Show/hide gaming modifier note based on GPU tier
+function updateGamingModifierNote(gpuTier) {
+	const note = document.getElementById('gamingModifierNote');
+	if (!note) return;
+
+	const resolution = getSelectedResolution();
+	const refreshRate = getSelectedRefreshRate();
+	
+	// Show note only if targets are set AND GPU is mid-range or higher
+	if ((resolution || refreshRate) && gpuTier >= 4) {
+		note.classList.remove('hidden');
+	} else {
+		note.classList.add('hidden');
+	}
+}
+
 // Tier mapping system to align component tiers for balanced systems
 // Maps original tier (1-7) to display tier (can use fractional values)
 // Based on real-world balanced pairings
@@ -911,6 +987,21 @@ function setupEventListeners() {
 	// Analyze button
 	document.getElementById('analyzeBtn').addEventListener('click', analyzeSystem);
 
+	// Gaming targets listeners
+	document.getElementById('resolutionSelect').addEventListener('change', () => {
+		// Update anything that depends on gaming targets
+		if (lastAnalysisState) {
+			updateGamingModifierNote(lastAnalysisState.gpuTier);
+		}
+	});
+
+	document.getElementById('refreshRateSelect').addEventListener('change', () => {
+		// Update anything that depends on gaming targets
+		if (lastAnalysisState) {
+			updateGamingModifierNote(lastAnalysisState.gpuTier);
+		}
+	});
+
 	// Footer info panel
 	setupFooterPanel();
 }
@@ -1074,6 +1165,10 @@ function analyzeSystem() {
 	const gpuTier = getDisplayTier(selectedGPU, 'gpu');
 	const ramTier = getDisplayTier(selectedRAM, 'ram');
 	const advancement = document.querySelector('input[name="advancement"]:checked').value;
+	
+	// Get gaming targets
+	const resolution = getSelectedResolution();
+	const refreshRate = getSelectedRefreshRate();
 
 	// Detect bottleneck
 	const tiers = { CPU: cpuTier, GPU: gpuTier, RAM: ramTier };
@@ -1085,7 +1180,9 @@ function analyzeSystem() {
 		gpuTier,
 		ramTier,
 		tiers,
-		advancement
+		advancement,
+		resolution,
+		refreshRate
 	};
 
 	// Display bottleneck analysis
@@ -1095,7 +1192,14 @@ function analyzeSystem() {
 	updateSuggestedUpgradeUI(suggestedAdvancement);
 
 	if (bottleneckComponent) {
-		const recommendedTier = getNextAvailableTier(tiers[bottleneckComponent], bottleneckComponent, advancement);
+		let recommendedTier = getNextAvailableTier(tiers[bottleneckComponent], bottleneckComponent, advancement);
+		
+		// Apply gaming modifier for GPU recommendations
+		if (bottleneckComponent === 'GPU') {
+			recommendedTier = applyGamingModifier(recommendedTier, resolution, refreshRate, gpuTier);
+			updateGamingModifierNote(gpuTier);
+		}
+		
 		displayRecommendations(bottleneckComponent, tiers[bottleneckComponent], recommendedTier, cpuTier, advancement);
 	} else {
 		balancedUpgradeChoice = null;
@@ -1114,7 +1218,14 @@ function analyzeSystem() {
 			button.addEventListener('click', () => {
 				const target = button.dataset.upgradeTarget;
 				balancedUpgradeChoice = target;
-				const recommendedTier = getNextAvailableTier(lastAnalysisState.tiers[target], target, lastAnalysisState.advancement);
+				let recommendedTier = getNextAvailableTier(lastAnalysisState.tiers[target], target, lastAnalysisState.advancement);
+				
+				// Apply gaming modifier for GPU recommendations
+				if (target === 'GPU') {
+					recommendedTier = applyGamingModifier(recommendedTier, lastAnalysisState.resolution, lastAnalysisState.refreshRate, lastAnalysisState.gpuTier);
+					updateGamingModifierNote(lastAnalysisState.gpuTier);
+				}
+				
 				displayRecommendations(target, lastAnalysisState.tiers[target], recommendedTier, lastAnalysisState.cpuTier, lastAnalysisState.advancement);
 			});
 		});
@@ -1263,7 +1374,14 @@ function displayBottleneckAnalysis(tiers, bottleneck) {
 			button.addEventListener('click', () => {
 				const target = button.dataset.upgradeTarget;
 				balancedUpgradeChoice = target;
-				const recommendedTier = getNextAvailableTier(lastAnalysisState.tiers[target], target, lastAnalysisState.advancement);
+				let recommendedTier = getNextAvailableTier(lastAnalysisState.tiers[target], target, lastAnalysisState.advancement);
+				
+				// Apply gaming modifier for GPU recommendations
+				if (target === 'GPU') {
+					recommendedTier = applyGamingModifier(recommendedTier, lastAnalysisState.resolution, lastAnalysisState.refreshRate, lastAnalysisState.gpuTier);
+					updateGamingModifierNote(lastAnalysisState.gpuTier);
+				}
+				
 				displayRecommendations(target, lastAnalysisState.tiers[target], recommendedTier, lastAnalysisState.cpuTier, lastAnalysisState.advancement);
 			});
 		});
