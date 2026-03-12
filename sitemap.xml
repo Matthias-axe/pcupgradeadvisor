@@ -2,12 +2,12 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://pcupgradeadvisor.com/</loc>
-    <lastmod>2026-02-25</lastmod>
+    <lastmod>2026-03-12</lastmod>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://pcupgradeadvisor.com/articles.html</loc>
-    <lastmod>2026-02-25</lastmod>
+    <lastmod>2026-03-12</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
@@ -38,6 +38,21 @@
   <url>
     <loc>https://pcupgradeadvisor.com/articles/intel-core-i5-10400-upgrade-guide-2026/</loc>
     <lastmod>2026-02-25</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://pcupgradeadvisor.com/articles/is-the-gtx-1660-super-still-good-should-you-upgrade/</loc>
+    <lastmod>2026-03-12</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://pcupgradeadvisor.com/articles/how-to-tell-if-your-cpu-is-bottlenecking-your-gpu/</loc>
+    <lastmod>2026-03-12</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://pcupgradeadvisor.com/articles/is-16gb-ram-still-enough-for-gaming-in-2026/</loc>
+    <lastmod>2026-03-12</lastmod>
     <priority>0.8</priority>
   </url>
 </urlset>
