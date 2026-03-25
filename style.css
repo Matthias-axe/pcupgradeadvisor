@@ -1384,3 +1384,117 @@ html[data-theme='dark'] .disclaimer-note {
 		grid-template-columns: 1fr;
 	}
 }
+
+/* Mode Toggle Navigation */
+.mode-toggle-nav {
+	background: var(--bg-gradient-2);
+	border-bottom: 2px solid var(--accent-gold);
+	padding: 12px 20px;
+	box-shadow: 0 2px 8px rgba(212, 165, 116, 0.1);
+	position: sticky;
+	top: 0;
+	z-index: 10;
+}
+
+html[data-theme='dark'] .mode-toggle-nav {
+	border-bottom-color: var(--accent-green);
+	box-shadow: 0 2px 8px rgba(109, 184, 118, 0.08);
+}
+
+.mode-toggle-container {
+	max-width: 1200px;
+	margin: 0 auto;
+	display: flex;
+	align-items: center;
+	gap: 16px;
+	justify-content: center;
+}
+
+.mode-toggle-label {
+	font-weight: 600;
+	color: var(--accent-gold);
+	font-size: 0.95em;
+	margin: 0;
+}
+
+html[data-theme='dark'] .mode-toggle-label {
+	color: var(--accent-green);
+}
+
+.mode-toggle-buttons {
+	display: flex;
+	gap: 8px;
+}
+
+.mode-toggle-btn {
+	padding: 6px 14px;
+	border: 2px solid var(--accent-gold);
+	background: transparent;
+	color: var(--accent-cream);
+	border-radius: 3px;
+	font-weight: 500;
+	font-size: 0.9em;
+	cursor: pointer;
+	transition: all 0.3s ease;
+}
+
+html[data-theme='dark'] .mode-toggle-btn {
+	border-color: var(--accent-green);
+}
+
+.mode-toggle-btn:hover {
+	border-color: var(--accent-cream);
+	color: var(--accent-gold);
+}
+
+html[data-theme='dark'] .mode-toggle-btn:hover {
+	color: var(--accent-green);
+}
+
+.mode-toggle-btn.active {
+	background: var(--accent-gold);
+	color: var(--primary-dark);
+	border-color: var(--accent-gold);
+}
+
+html[data-theme='dark'] .mode-toggle-btn.active {
+	background: var(--accent-green);
+	border-color: var(--accent-green);
+}
+
+/* Mode-specific visibility */
+.advanced-only {
+	display: block;
+}
+
+.normal-only {
+	display: none;
+}
+
+[data-mode='normal'] .advanced-only {
+	display: none;
+}
+
+[data-mode='normal'] .normal-only {
+	display: block;
+}
+
+/* GPU and RAM mode wrappers */
+.gpu-mode-wrapper,
+.ram-mode-wrapper {
+	width: 100%;
+}
+
+.gpu-advanced-mode,
+.gpu-normal-mode,
+.ram-advanced-mode,
+.ram-normal-mode {
+	width: 100%;
+}
+
+.gpu-normal-mode.hidden,
+.ram-normal-mode.hidden,
+.gpu-advanced-mode.hidden,
+.ram-advanced-mode.hidden {
+	display: none !important;
+}

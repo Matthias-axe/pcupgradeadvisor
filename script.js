@@ -21,11 +21,69 @@ function toggleTheme() {
 	applyTheme(newTheme);
 }
 
+// Mode Management (Advanced vs Normal)
+let currentMode = 'normal';
+
+function initMode() {
+	const savedMode = localStorage.getItem('mode') || 'normal';
+	setMode(savedMode);
+}
+
+function setMode(mode) {
+	currentMode = mode;
+	document.documentElement.setAttribute('data-mode', mode);
+	localStorage.setItem('mode', mode);
+	
+	// Update button states
+	document.querySelectorAll('.mode-toggle-btn').forEach(btn => {
+		btn.classList.toggle('active', btn.dataset.mode === mode);
+	});
+	
+	// Update GPU UI
+	if (mode === 'normal') {
+		document.querySelector('.gpu-advanced-mode').classList.add('hidden');
+		document.querySelector('.gpu-normal-mode').classList.remove('hidden');
+		populateNormalModeGPUFilter();
+	} else {
+		document.querySelector('.gpu-advanced-mode').classList.remove('hidden');
+		document.querySelector('.gpu-normal-mode').classList.add('hidden');
+	}
+	
+	// Update RAM UI
+	if (mode === 'normal') {
+		document.querySelector('.ram-advanced-mode').classList.add('hidden');
+		document.querySelector('.ram-normal-mode').classList.remove('hidden');
+	} else {
+		document.querySelector('.ram-advanced-mode').classList.remove('hidden');
+		document.querySelector('.ram-normal-mode').classList.add('hidden');
+	}
+	
+	// Reset selections when switching modes
+	selectedGPU = null;
+	selectedRAM = null;
+	document.getElementById('gpuInfo').innerHTML = '';
+	document.getElementById('ramInfo').innerHTML = '';
+	document.getElementById('gpuNormalInfo').innerHTML = '';
+	document.getElementById('ramNormalInfo').innerHTML = '';
+}
+
+function setupModeToggle() {
+	const buttons = document.querySelectorAll('.mode-toggle-btn');
+	buttons.forEach(btn => {
+		btn.addEventListener('click', () => {
+			const mode = btn.dataset.mode;
+			setMode(mode);
+		});
+	});
+}
+
 // Global data storage
 let cpuData = [];
 let gpuData = [];
 let ramData = [];
 let powerProfiles = [];
+let gpuBenchmarks = {};
+let ramBenchmarks = {};
 
 // Selected components
 let selectedCPU = null;
@@ -212,11 +270,13 @@ function getOriginalTier(displayTier, type) {
 // Load all JSON data on page load
 async function loadData() {
 	try {
-		const [cpusRes, gpusRes, ramsRes, powerRes] = await Promise.all([
+		const [cpusRes, gpusRes, ramsRes, powerRes, gpuBenchRes, ramBenchRes] = await Promise.all([
 			fetch('data/cpuSorted.json'),
 			fetch('data/gpuSorted.json'),
 			fetch('data/ramSorted.json'),
-			fetch('data/powerProfiles.json')
+			fetch('data/powerProfiles.json'),
+			fetch('data/gpuBenchmarks.json'),
+			fetch('data/ramBenchmarks.json')
 		]);
 
 		if (!cpusRes.ok || !gpusRes.ok || !ramsRes.ok) {
@@ -227,12 +287,16 @@ async function loadData() {
 		gpuData = await gpusRes.json();
 		ramData = await ramsRes.json();
 		powerProfiles = await powerRes.json();
+		gpuBenchmarks = gpuBenchRes.ok ? await gpuBenchRes.json() : {};
+		ramBenchmarks = ramBenchRes.ok ? await ramBenchRes.json() : {};
 
 		console.log('Data loaded successfully');
 		console.log(`CPUs: ${cpuData.length}, GPUs: ${gpuData.length}, RAM: ${ramData.length}, Power Profiles: ${powerProfiles.length}`);
 
+		initMode();
 		populateDropdowns();
 		populateFilterOptions();
+		setupModeToggle();
 		setupEventListeners();
 	} catch (err) {
 		console.error('Error loading data:', err);
@@ -251,6 +315,289 @@ function populateFilterOptions() {
 	updateRAMDDRFilter();
 	updateRAMSpeedFilter();
 	updateRAMManufacturerFilter();
+}
+
+// NORMAL MODE GPU FUNCTIONS
+function populateNormalModeGPUFilter() {
+	updateNormalModeGPUChipsetFilter();
+}
+
+function updateNormalModeGPUChipsetFilter() {
+	const manufacturerFilter = document.getElementById('gpuNormalManufacturerFilter');
+	const chipsetFilter = document.getElementById('gpuNormalChipsetFilter');
+	
+	if (!chipsetFilter) return;
+	
+	const selectedManufacturer = manufacturerFilter?.value || '';
+	const chipsetsSet = new Set();
+	
+	gpuData.forEach(gpu => {
+		if (!gpu.chipset) return;
+		
+		// Filter by manufacturer if selected
+		if (selectedManufacturer) {
+			if (selectedManufacturer === 'NVIDIA' && !gpu.chipset.includes('GeForce') && !gpu.chipset.includes('RTX') && !gpu.chipset.includes('GTX')) return;
+			if (selectedManufacturer === 'AMD' && !gpu.chipset.includes('Radeon') && !gpu.chipset.includes('RX')) return;
+			if (selectedManufacturer === 'Intel' && !gpu.chipset.includes('Arc')) return;
+		}
+		
+		chipsetsSet.add(gpu.chipset);
+	});
+	
+	const currentValue = chipsetFilter.value;
+	const sortedChipsets = Array.from(chipsetsSet).sort();
+	chipsetFilter.innerHTML = '<option value="">Select Chipset...</option>';
+	
+	sortedChipsets.forEach(chipset => {
+		const option = document.createElement('option');
+		option.value = chipset;
+		option.textContent = chipset;
+		chipsetFilter.appendChild(option);
+	});
+	
+	// Restore previous selection if still valid
+	if (currentValue && sortedChipsets.includes(currentValue)) {
+		chipsetFilter.value = currentValue;
+	} else {
+		chipsetFilter.value = '';
+		selectedGPU = null;
+		document.getElementById('gpuNormalInfo').innerHTML = '';
+	}
+}
+
+function getDefaultVramForChipset(chipset) {
+	// Find all GPUs with this chipset and get unique VRAM sizes
+	const vramSizes = new Set();
+	gpuData.forEach(gpu => {
+		if (gpu.chipset === chipset) {
+			vramSizes.add(gpu.memory);
+		}
+	});
+	
+	if (vramSizes.size === 0) return null;
+	
+	// Return the smallest available VRAM as default
+	const sortedVramSizes = Array.from(vramSizes).sort((a, b) => a - b);
+	return sortedVramSizes[0];
+}
+
+function handleNormalModeGPUChange() {
+	const chipset = document.getElementById('gpuNormalChipsetFilter').value;
+	
+	if (!chipset) {
+		selectedGPU = null;
+		document.getElementById('gpuNormalInfo').innerHTML = '';
+		return;
+	}
+	
+	// Automatically get the default VRAM for this chipset
+	const vram = getDefaultVramForChipset(chipset);
+	
+	if (!vram) {
+		selectedGPU = null;
+		document.getElementById('gpuNormalInfo').innerHTML = '';
+		return;
+	}
+	
+	// Find a GPU with this chipset to extract generation info
+	const refGPU = gpuData.find(gpu => gpu.chipset === chipset);
+	
+	// Create a virtual GPU object for normal mode
+	selectedGPU = {
+		name: `${chipset} (${vram}GB)`,
+		chipset: chipset,
+		memory: vram,
+		boost_clock: refGPU?.boost_clock || 2000, // Use reference GPU's boost clock or default
+		generation: refGPU?.generation || 7,      // Use reference GPU's generation or default
+		tier: calculateGPUTierFromChipsetAndVram(chipset, vram),
+		isNormalModeSelection: true
+	};
+	
+	displayNormalModeComponentInfo('gpu', selectedGPU);
+	updateSuggestedUpgradeFromSelections();
+}
+
+function calculateGPUTierFromChipsetAndVram(chipset, vramGB) {
+	// Find all GPUs with this chipset to determine its performance tier
+	const chipsetsGPUs = gpuData.filter(gpu => gpu.chipset === chipset);
+	if (chipsetsGPUs.length === 0) return 3; // Default to middle tier
+	
+	// Calculate average tier for this chipset
+	const avgChipsetTier = chipsetsGPUs.reduce((sum, gpu) => sum + gpu.tier, 0) / chipsetsGPUs.length;
+	
+	// Adjust tier based on VRAM
+	// Find the average VRAM for thischipset
+	const avgVram = chipsetsGPUs.reduce((sum, gpu) => sum + gpu.memory, 0) / chipsetsGPUs.length;
+	
+	// VRAM modifier: +0.5 tier for every double in VRAM above average
+	let vramModifier = 0;
+	if (vramGB > avgVram) {
+		vramModifier = Math.log2(vramGB / avgVram) * 0.3; // 30% of tier per VRAM doubling
+	}
+	
+	// Calculate final tier and clamp to 1-7
+	let tier = Math.round((avgChipsetTier + vramModifier) * 2) / 2; // Round to nearest 0.5
+	return Math.max(1, Math.min(7, tier));
+}
+
+// NORMAL MODE RAM FUNCTIONS
+function populateNormalModeRAMDropdowns() {
+	const ddrSelect = document.getElementById('ramNormalDDRSelect');
+	const speedSelect = document.getElementById('ramNormalSpeedSelect');
+	const sizeSelect = document.getElementById('ramNormalSizeSelect');
+	
+	// Get unique DDR4 and DDR5 speeds and sizes from ramData
+	const ddr4 = new Map(); // speed -> Set of sizes
+	const ddr5 = new Map(); // speed -> Set of sizes
+	
+	ramData.forEach(ram => {
+		const speedParts = ram.speed.split(',');
+		const speedMHz = parseInt(speedParts[1]);
+		const moduleParts = ram.modules.split(',');
+		const totalSize = parseInt(moduleParts[0]) * parseInt(moduleParts[1]);
+		
+		if (!isNaN(speedMHz) && !isNaN(totalSize)) {
+			if (ram.generation <= 9) { // DDR4
+				if (!ddr4.has(speedMHz)) ddr4.set(speedMHz, new Set());
+				ddr4.get(speedMHz).add(totalSize);
+			} else { // DDR5
+				if (!ddr5.has(speedMHz)) ddr5.set(speedMHz, new Set());
+				ddr5.get(speedMHz).add(totalSize);
+			}
+		}
+	});
+	
+	// Update dropdowns based on DDR selection
+	function updateSpeedAndSizeDropdowns() {
+		const selectedDDR = ddrSelect.value;
+		const speedSelect = document.getElementById('ramNormalSpeedSelect');
+		const sizeSelect = document.getElementById('ramNormalSizeSelect');
+		
+		let speeds = [];
+		let allSizes = new Set();
+		
+		if (selectedDDR === 'DDR4') {
+			speeds = Array.from(ddr4.keys()).sort((a, b) => a - b);
+			ddr4.forEach(sizes => {
+				sizes.forEach(size => allSizes.add(size));
+			});
+		} else if (selectedDDR === 'DDR5') {
+			speeds = Array.from(ddr5.keys()).sort((a, b) => a - b);
+			ddr5.forEach(sizes => {
+				sizes.forEach(size => allSizes.add(size));
+			});
+		}
+		
+		// Populate speed dropdown
+		speedSelect.innerHTML = '<option value="">Select Speed...</option>';
+		speeds.forEach(speed => {
+			const option = document.createElement('option');
+			option.value = speed;
+			option.textContent = `${speed} MHz`;
+			speedSelect.appendChild(option);
+		});
+		
+		// Populate size dropdown
+		sizeSelect.innerHTML = '<option value="">Select Size...</option>';
+		const sortedSizes = Array.from(allSizes).sort((a, b) => a - b);
+		sortedSizes.forEach(size => {
+			const option = document.createElement('option');
+			option.value = size;
+			option.textContent = `${size}GB`;
+			sizeSelect.appendChild(option);
+		});
+	}
+	
+	// Add event listener to DDR select
+	ddrSelect.addEventListener('change', updateSpeedAndSizeDropdowns);
+}
+
+function handleNormalModeRAMChange() {
+	const ddrType = document.getElementById('ramNormalDDRSelect').value;
+	const speed = parseInt(document.getElementById('ramNormalSpeedSelect').value);
+	const size = parseInt(document.getElementById('ramNormalSizeSelect').value);
+	
+	if (!ddrType || isNaN(speed) || isNaN(size)) {
+		selectedRAM = null;
+		document.getElementById('ramNormalInfo').innerHTML = '';
+		return;
+	}
+	
+	// Create a virtual RAM object for normal mode
+	selectedRAM = {
+		name: `${size}GB @ ${speed}MHz ${ddrType}`,
+		speed: `0,${speed}`, // Keep format compatible with existing code (first number is CAS latency we don't track)
+		modules: `1,${size}`, // Treat as single module for simplicity
+		generation: ddrType === 'DDR5' ? 10 : 9, // DDR5 is generation 10+, DDR4 is generation <= 9
+		tier: calculateRAMTierFromSpeedAndSize(speed, size),
+		isNormalModeSelection: true
+	};
+	
+	displayNormalModeComponentInfo('ram', selectedRAM);
+	updateSuggestedUpgradeFromSelections();
+}
+
+function calculateRAMTierFromSpeedAndSize(speedMHz, sizeGB) {
+	// Find all RAM with similar speed to establish expected tier for that speed
+	const allSpeeds = ramData.map(r => {
+		const speedParts = r.speed.split(',');
+		return parseInt(speedParts[1]);
+	}).filter(s => !isNaN(s));
+	
+	if (allSpeeds.length === 0) return 3;
+	
+	// Find closest matching speed tier
+	let closestSpeed = allSpeeds[0];
+	let minDiff = Math.abs(speedMHz - closestSpeed);
+	
+	allSpeeds.forEach(s => {
+		const diff = Math.abs(speedMHz - s);
+		if (diff < minDiff) {
+			minDiff = diff;
+			closestSpeed = s;
+		}
+	});
+	
+	// Get average tier for RAM close to this speed
+	const speedTolerance = 100; // MHz
+	const ramsAtSpeed = ramData.filter(r => {
+		const speedParts = r.speed.split(',');
+		const s = parseInt(speedParts[1]);
+		return !isNaN(s) && Math.abs(s - closestSpeed) <= speedTolerance;
+	});
+	
+	let baseTier = 3;
+	if (ramsAtSpeed.length > 0) {
+		baseTier = ramsAtSpeed.reduce((sum, r) => sum + r.tier, 0) / ramsAtSpeed.length;
+	}
+	
+	// Adjust tier based on capacity
+	// High-end RAM typically has 32GB or more, mid-range is 16GB, budget is 8GB
+	let capacityModifier = 0;
+	if (sizeGB >= 64) capacityModifier = 1;
+	else if (sizeGB >= 32) capacityModifier = 0.5;
+	else if (sizeGB >= 16) capacityModifier = 0;
+	else if (sizeGB >= 8) capacityModifier = -0.5;
+	else capacityModifier = -1;
+	
+	let tier = baseTier + capacityModifier;
+	return Math.max(1, Math.min(7, Math.round(tier * 2) / 2));
+}
+
+function displayNormalModeComponentInfo(type, component) {
+	let html = '';
+	let targetDiv;
+	
+	if (type === 'gpu') {
+		targetDiv = document.getElementById('gpuNormalInfo');
+		html = `Tier ${component.tier} | ${component.memory}GB VRAM | ${component.chipset}`;
+	} else if (type === 'ram') {
+		targetDiv = document.getElementById('ramNormalInfo');
+		const speedMHz = component.speed.split(',')[1];
+		html = `Tier ${component.tier} | ${component.modules.split(',')[1]}GB`;
+	}
+	
+	if (targetDiv) targetDiv.innerHTML = html;
 }
 
 // Update CPU series filter based on brand selection
@@ -1031,6 +1378,34 @@ function setupEventListeners() {
 			updateGamingModifierNote(lastAnalysisState.gpuTier);
 		}
 	});
+
+	// Normal mode GPU listeners
+	const gpuNormalManufacturerFilter = document.getElementById('gpuNormalManufacturerFilter');
+	const gpuNormalChipsetFilter = document.getElementById('gpuNormalChipsetFilter');
+	
+	if (gpuNormalManufacturerFilter) {
+		gpuNormalManufacturerFilter.addEventListener('change', updateNormalModeGPUChipsetFilter);
+	}
+	if (gpuNormalChipsetFilter) {
+		gpuNormalChipsetFilter.addEventListener('change', handleNormalModeGPUChange);
+	}
+
+	// Normal mode RAM listeners
+	const ramNormalDDRSelect = document.getElementById('ramNormalDDRSelect');
+	const ramNormalSpeedSelect = document.getElementById('ramNormalSpeedSelect');
+	const ramNormalSizeSelect = document.getElementById('ramNormalSizeSelect');
+	
+	// Initialize RAM dropdowns
+	if (ramNormalDDRSelect) {
+		populateNormalModeRAMDropdowns();
+		ramNormalDDRSelect.addEventListener('change', handleNormalModeRAMChange);
+	}
+	if (ramNormalSpeedSelect) {
+		ramNormalSpeedSelect.addEventListener('change', handleNormalModeRAMChange);
+	}
+	if (ramNormalSizeSelect) {
+		ramNormalSizeSelect.addEventListener('change', handleNormalModeRAMChange);
+	}
 
 	// Footer info panel
 	setupFooterPanel();
